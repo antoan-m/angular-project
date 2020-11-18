@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Game Shop</title>
+    <link rel="shortcut icon" type="image/x-icon" href="./static/images/icon/favicon.png">
+    <link rel="stylesheet" href="./node_modules/purecss/build/base-min.css">
+    <link rel="stylesheet" href="./node_modules/purecss/build/pure-min.css">
+    <link rel="stylesheet" href="./node_modules/purecss/build/grids-responsive-min.css">
+    <link rel="stylesheet" href="./static/css/style.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Karla">
+
+    <script type='text/javascript' src='./static/js/scripts.js'></script>
+
+</head>
+
+<body>
+    <!-- header -->
+    <header id="header-main">
+        <div id="header" class="pure-u-1 pure-u-md-5-5 pure-u-lg-12-12">
+            <!-- logo -->
+            <logo id="logo" class="pure-u-1 pure-u-md-2-5 pure-u-lg-1-12">
+                <div class="logo">
+                    <a href="/"><img src="./static/images/logo.png" alt=""></a>
+                </div>
+            </logo>
+            <!-- navbar -->
+            <nav id="navbar" class="pure-u-1 pure-u-md-2-5 pure-u-lg-3-12">
+                <a href="/">Home</a>
+                <a href="/games.html">Games</a>
+                <a href="#about">About</a>
+            </nav>
+            <!-- usermenu -->
+            <usermenu id="usermenu" class="pure-u-1 pure-u-md-1-5 pure-u-lg-3-12">
+                <a href="#register">Register</a>
+                <a href="#login">Login</a>
+                <!-- <a href="#profile">Profile</a>
+                <a href="#logout">Logout</a> -->
+            </usermenu>
+        </div>
+
+        <!-- header - sticky -->
+        <div id="header-sticky">
+            <!-- logo -->
+            <div class="logo" class="pure-u-1 pure-u-md-2-5 pure-u-lg-1-4">
+                <a href="/"><img src="./static/images/logo.png" alt=""></a>
+            </div>
+            <!-- navbar -->
+            <nav id="navbar" class="pure-u-1 pure-u-md-2-5 pure-u-lg-1-4">
+                <a href="/">Home</a>
+                <a href="/games.html">Games</a>
+                <a href="#about">About</a>
+            </nav>
+            <!-- usermenu -->
+            <usermenu id="usermenu" class="pure-u-1 pure-u-md-1-5 pure-u-lg-1-4">
+                <a href="#register">Register</a>
+                <a href="#login">Login</a>
+                <!-- <a href="#profile">Profile</a>
+                <a href="#logout">Logout</a> -->
+            </usermenu>
+        </div>
+    </header>
+
+    <!-- main body -->
+    <main>
+        <div class="pure-g">
+
+            <!-- showcase -->
+            <showcase id="showcase-games" class="pure-u-1 pure-u-md-4-4 pure-u-lg-4-4">
+                <img src="./images-games/games-img.jpg" alt="New Games">
+            </showcase>
+
+            <!-- sort, filters, search -->
+            <pagetools id="pagetools" class="pure-u-1 pure-u-md-4-4 pure-u-lg-4-4">
+
+                <filters id="filters" class="pure-u-1 pure-u-md-2-4 pure-u-lg-2-4">
+                    <span><a href="#">Sort by A-Z</a> | <a href="#">Sort by Z-A</a> | <a href="#">Sort by Price [Asc]</a> | <a href="#">Sort by Price [Desc]</a></span>
+                </filters>
+                <search id="search" class="pure-u-1 pure-u-md-1-4 pure-u-lg-1-4">
+                    <form class="pure-form">
+                        <input type="text" class="pure-input" />
+                        <button class="pure-button" id="search-button">Search</button>
+                    </form>
+                </search>
+
+            </pagetools>
+
+            <games id="game-details" class="pure-u-1 pure-u-md-4-4 pure-u-lg-4-4" style="background-color: #333;text-align: center;">
+                <div id="game-details-inner" class="pure-u-1 pure-u-md-4-4 pure-u-lg-4-4" style="position: relative; background-color: #fff; width: 80%;">
+                    <div class="pure-u-1 pure-u-md-4-4 pure-u-lg-4-4">
+                        <div class="game-title">
+                            <h3 style="display: block; text-align: right; padding: 0 3%; font-size: 40px; background-color: rgb(255, 183, 183)">Assasin's Creed Valhalla</h3>
+                        </div>
+                        <div class="game-block" class="pure-u-1 pure-u-md-4-4 pure-u-lg-4-4">
+                            <div class="game-cover" class="pure-u-1 pure-u-md-1-4 pure-u-lg-1-4" style="text-align: left; float: left; padding: 0 5% 5% 5%;">
+                                <img src="./images-games/assasins-creed-valhala-cover.jpg" alt="Assasin's Creed Valhalla">
+                            </div>
+                            <div class="game-buttons-price" class="pure-u-1 pure-u-md-3-4 pure-u-lg-3-4" style="text-align: left; padding: 0 0 0 5%;">
+                                <div class="game-price">
+                                    € 59.99
+                                </div>
+                                <div class="game-buttons">
+                                    <button id="game-buy-btn">Buy Now</button>
+                                    <button id="game-wishlist-btn">Add To Wishlist</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- <div clsss="game-description">
+                            Become Eivor, a legendary Viking raider on a quest for glory. Explore England's Dark Ages as you raid your enemies, grow your settlement, and build your political power.
+                            <ul>
+                                <li>Lead epic Viking raids against Saxon fortresses throughout England.</li>
+                                <li>Dual-wield powerful weapons and relive the visceral fighting style of the Vikings.</li>
+                                <li>Challenge yourself with the most varied collection of enemies ever found in Assassin's Creed.</li>
+                                <li>Shape the growth of your character with every choice you make and carve your path to glory.</li>
+                                <li>Explore a Dark Age open world, from the harsh shores of Norway to the beautiful kingdoms of England.</li>
+                                <li>Personalize your experience by growing your clan's settlement.</li>
+                            </ul>
+                        </div>
+                        <div class="game-requirements">
+                            <span>PC Requirements:</span>
+                            <ul>
+                                <li>AMD Ryzen 7 3700X / Intel i7 9700K</li>
+                                <li>AMD Radeon RX 5700X 8GB / NVIDIA GeForce RTX 2800 8GB</li>
+                                <li>16GB RAM</li>
+                                <li>SSD 50GB</li>
+                                <li>Windows 10 64bit</li>
+                            </ul>
+                        </div> -->
+                    </div>
+                </div>
+        </div>
+        </div>
+
+
+        </games>
+
+
+        </div>
+    </main>
+
+
+    <footer id="footer">
+        <div>
+            Game Shop / Angular Project for SoftUni 2020
+        </div>
+
+    </footer>
+
+</body>
+
+</html>

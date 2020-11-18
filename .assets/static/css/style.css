@@ -1,0 +1,241 @@
+    html * {
+        -webkit-font-smoothing: antialiased;
+        -moz-osx-font-smoothing: grayscale;
+    }
+    
+    body {
+        font-family: "Karla", serif;
+        font-size: 18px;
+        margin-top: 100px;
+    }
+    
+    #header-main {
+        background-image: url("../images/backgrounds/back-dotts-header.png");
+        background-position: center;
+        /* Center the image */
+        background-repeat: no-repeat;
+        /* Do not repeat the image */
+        background-size: cover;
+        /* Resize the background image to cover the entire container */
+        background-attachment: fixed;
+        z-index: 9999999999;
+        position: relative;
+    }
+    
+    #header {
+        background: #f2e1d9;
+        position: fixed;
+        top: 0;
+        width: 100%;
+        display: block;
+        transition: top 0.7s;
+        height: 100px;
+    }
+    
+    #header #navbar {
+        padding-left: 50px;
+    }
+    
+    #header #navbar a {
+        float: left;
+        display: block;
+        color: #000000;
+        text-align: center;
+        padding: 15px;
+        text-decoration: none;
+        font-size: 25px;
+        line-height: 70px;
+    }
+    
+    #header #navbar a:hover {
+        background-color: #dadada;
+        color: #fd8f5f;
+    }
+    
+    #header .logo img {
+        height: 158px;
+        width: 158px;
+        padding-right: 50px;
+    }
+    
+    #header #usermenu {
+        float: right;
+        padding-right: 50px;
+    }
+    
+    #header #usermenu a {
+        float: right;
+        display: block;
+        color: #000000;
+        text-align: center;
+        padding: 15px;
+        text-decoration: none;
+        font-size: 25px;
+        line-height: 70px;
+    }
+    
+    #header #usermenu a:hover {
+        background-color: #dadada;
+        color: #fd8f5f;
+    }
+    /* header-sticky */
+    
+    #header-sticky {
+        background: #f2e1d9;
+        position: fixed;
+        top: -50px;
+        width: 100%;
+        display: block;
+        transition: top 0.7s;
+        height: 50px;
+    }
+    
+    #header-sticky>div>a>img {
+        height: 50px;
+    }
+    
+    #header-sticky #navbar a {
+        float: left;
+        display: block;
+        color: #000000;
+        text-align: center;
+        padding: 15px;
+        text-decoration: none;
+        font-size: 20px;
+        line-height: 20px;
+    }
+    
+    #header-sticky #navbar a:hover {
+        background-color: #dadada;
+        color: #fd8f5f;
+    }
+    
+    #header-sticky .logo {
+        float: left;
+        padding-right: 100px;
+        height: 50px;
+        width: 50px;
+    }
+    
+    #header-sticky #usermenu {
+        float: right;
+        padding-right: 50px;
+    }
+    
+    #header-sticky #usermenu a {
+        float: right;
+        display: block;
+        color: #000000;
+        text-align: center;
+        padding: 15px;
+        text-decoration: none;
+        font-size: 20px;
+        line-height: 20px;
+    }
+    
+    #header-sticky #usermenu a:hover {
+        background-color: #dadada;
+        color: #fd8f5f;
+    }
+    /* footer */
+    
+    #footer {
+        background: #f2e1d9;
+        clear: both;
+        position: relative;
+        height: 50px;
+        /* margin-top: -50px; */
+        text-align: center;
+        line-height: 50px;
+        font-size: 16px;
+    }
+    /* .pure-g {
+        padding: 0 0 0 80px;
+    } */
+    
+    .product-card {
+        position: relative;
+        top: 0;
+        transition: top ease 0.5s;
+        border: 1px solid rgba(51, 51, 51, 0.2);
+        border-radius: 3px;
+        float: left;
+        margin-bottom: 20px;
+        z-index: 1;
+    }
+    
+    .product-card:hover {
+        top: -10px;
+        /* transition: box-shadow 0.5s ease-in-out; */
+        box-shadow: 5px 10px 18px rgba(133, 133, 133, 0.7);
+    }
+    
+    .card-img img {
+        width: 90%;
+        max-width: 341px;
+    }
+    
+    @media screen and (min-width: 48em) {
+        .card-title h3 {
+            font-size: 18px;
+        }
+    }
+    
+    @media screen and (max-width: 48em) {
+        .card-title h3 {
+            font-size: 12px;
+        }
+    }
+    
+    #showcase img {
+        width: 100%;
+        height: auto;
+        /* display: block; */
+        margin: 0 0 40px 0;
+        background-image: url("../images-games/football-manager-2021-img.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        z-index: 99;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    #showcase-games img {
+        width: 100%;
+        /* display: block; */
+        margin: 0 0 40px 0;
+        background-image: url("../images-games/football-manager-2021-img.jpg");
+        background-position: center;
+        background-repeat: no-repeat;
+        background-size: cover;
+        background-attachment: fixed;
+        z-index: 99;
+        position: relative;
+        overflow: hidden;
+    }
+    
+    #pagetools {
+        margin-top: -44px;
+        width: 100%;
+        height: 80px;
+        line-height: 80px;
+        margin-bottom: 30px;
+        background-color: #f2e1d9;
+    }
+    
+    #pagetools #filters {
+        height: 80px;
+        float: left;
+        display: block;
+        padding: 0 0 0 20px;
+    }
+    
+    #pagetools #search {
+        height: 80px;
+        float: right;
+        display: block;
+        margin-top: -80px;
+        padding: 0;
+    }
