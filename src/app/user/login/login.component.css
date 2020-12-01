@@ -35,3 +35,11 @@
 #login-right img {
     width: 80%;
 }
+
+.page-title {
+    display: block;
+    font-size: 32px;
+    text-align: center;
+    padding-bottom: 20px;
+    margin-top: -50px;
+}

@@ -11,7 +11,9 @@ import { MyGamesComponent } from './my-games/my-games.component';
 @NgModule({
   declarations: [
     GamesComponent, 
-    DetailComponent, AddComponent, MyGamesComponent, OrdersComponent, MyOrdersComponent
+    DetailComponent, 
+    AddComponent, 
+    MyGamesComponent
   ],
   imports: [
     CommonModule,
