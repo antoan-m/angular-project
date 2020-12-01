@@ -5,8 +5,6 @@ import { GamesComponent } from './games/games.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { AddComponent } from './add/add.component';
 import { MyGamesComponent } from './my-games/my-games.component';
-import { OrdersComponent } from './orders/orders.component';
-import { MyOrdersComponent } from './my-orders/my-orders.component';
 
 
 
