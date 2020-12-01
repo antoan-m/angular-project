@@ -1,0 +1,167 @@
+#header-main {
+    background-image: url("../../../assets/images/backgrounds/back-dotts-header.png");
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    background-attachment: fixed;
+    z-index: 9999999999;
+    position: relative;
+}
+
+nav {
+    color: #000000;
+    background-color: transparent !important;
+    float: left;
+    display: block;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 25px;
+    line-height: 70px;
+    box-shadow: none;
+}
+
+#header {
+    background: #f2e1d9;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    display: block;
+    transition: top 0.7s;
+    height: 100px;
+}
+
+
+/* #header #navbar {
+     padding-left: 50px;
+} */
+
+#header #navbar a {
+    float: left;
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 25px;
+    line-height: 70px;
+}
+
+#header #navbar a:hover {
+    background-color: #dadada;
+    color: #fd8f5f;
+}
+
+#header .logo img {
+    height: 158px;
+    width: 158px;
+}
+
+#header #usermenu {
+    float: right;
+    padding-right: 50px;
+}
+
+#header #usermenu a {
+    float: right;
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 25px;
+    line-height: 70px;
+}
+
+#header #usermenu a:hover {
+    background-color: #dadada;
+    color: #fd8f5f;
+}
+
+
+/* header-sticky */
+
+#header-sticky {
+    background: #f2e1d9;
+    position: fixed;
+    top: -50px;
+    width: 100%;
+    display: block;
+    transition: top 0.7s;
+    height: 50px;
+}
+
+#header-sticky>div>a>img {
+    height: 50px;
+}
+
+#header-sticky #navbar a {
+    float: left;
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+#header-sticky #navbar a:hover {
+    background-color: #dadada;
+    color: #fd8f5f;
+}
+
+#header-sticky .logo {
+    float: left;
+    padding-right: 100px;
+    height: 50px;
+    width: 50px;
+}
+
+#header-sticky #usermenu {
+    float: right;
+    padding-right: 50px;
+}
+
+#header-sticky #usermenu a {
+    float: right;
+    display: block;
+    color: #000000;
+    text-align: center;
+    padding: 15px;
+    text-decoration: none;
+    font-size: 20px;
+    line-height: 20px;
+}
+
+#header-sticky #usermenu a:hover {
+    background-color: #dadada;
+    color: #fd8f5f;
+}
+
+#pagetools {
+    margin-top: -44px;
+    width: 100%;
+    height: 80px;
+    line-height: 80px;
+    margin-bottom: 30px;
+    background-color: #f2e1d9;
+}
+
+#pagetools #filters {
+    height: 80px;
+    float: left;
+    display: block;
+    padding: 0 0 0 20px;
+}
+
+#pagetools #search {
+    height: 80px;
+    float: right;
+    display: block;
+    margin-top: -80px;
+    padding: 0;
+}

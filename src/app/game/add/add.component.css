@@ -1,0 +1,50 @@
+#add-game {
+    margin-top: 200px;
+}
+
+@media only screen and (min-width: 1200) html {
+    #add-game {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 992px) html {
+    #add-game {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 600) html {
+    #add-game {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 600) html {
+    #add-game {
+        width: 50%;
+    }
+}
+
+#add-game-left,
+#add-game-right {
+    text-align: center;
+}
+
+#add-game-left img,
+#add-game-right img {
+    width: 80%;
+}
+
+#add-game-buttons {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.add-game-btn {
+    margin: 0 10px;
+}
+
+.register-switch {
+    margin: 30px 0;
+}

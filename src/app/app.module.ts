@@ -1,38 +1,37 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-
 import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HeaderComponent } from './header/header.component';
-import { FooterComponent } from './footer/footer.component';
-import { LoginComponent } from './login/login.component';
-import { RegisterComponent } from './register/register.component';
-import { GameComponent } from './game/game.component';
-import { GamesListComponent } from './games-list/games-list.component';
-import { ProfileComponent } from './profile/profile.component';
-import { WishlistComponent } from './wishlist/wishlist.component';
-import { GameAddComponent } from './game-add/game-add.component';
-import { UserOrdersComponent } from './user-orders/user-orders.component';
+import { AppRoutingModule } from './app-routing.module';
+import { CoreModule } from './core/core.module';
+import { HomeModule } from './home/home.module';
+import { HeaderComponent } from './core/header/header.component';
+import { FooterComponent } from './core/footer/footer.component';
+import { AboutModule } from './about/about.module';
+import { GameModule } from './game/game.module';
+import { ShowcaseModule } from './showcase/showcase.module';
+import { UserModule } from './user/user.module';
 
 @NgModule({
   declarations: [
-    AppComponent,
-    HeaderComponent,
-    FooterComponent,
-    LoginComponent,
-    RegisterComponent,
-    GameComponent,
-    GamesListComponent,
-    ProfileComponent,
-    WishlistComponent,
-    GameAddComponent,
-    UserOrdersComponent
+    AppComponent
   ],
   imports: [
+    CoreModule,
+    HomeModule,
+    AboutModule,
+    GameModule,
+    UserModule,
+    ShowcaseModule,
     BrowserModule,
-    BrowserAnimationsModule
+    AppRoutingModule
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [
+
+  ],
+  bootstrap: [
+    AppComponent,
+    HeaderComponent,
+    FooterComponent
+  ]
 })
 export class AppModule { }
