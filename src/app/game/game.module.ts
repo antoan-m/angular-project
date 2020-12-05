@@ -5,6 +5,9 @@ import { GamesComponent } from './games/games.component';
 import { AppRoutingModule } from '../app-routing.module';
 import { AddComponent } from './add/add.component';
 import { MyGamesComponent } from './my-games/my-games.component';
+import { FormsModule } from '@angular/forms';
+import { GameService } from './game.service';
+import { EditGameComponent } from './edit-game/edit-game.component';
 
 
 
@@ -13,11 +16,16 @@ import { MyGamesComponent } from './my-games/my-games.component';
     GamesComponent, 
     DetailComponent, 
     AddComponent, 
-    MyGamesComponent
+    MyGamesComponent, 
+    EditGameComponent
   ],
   imports: [
     CommonModule,
+    FormsModule,
     AppRoutingModule
-  ]
+  ],
+  providers: [
+    GameService
+    ]
 })
 export class GameModule { }

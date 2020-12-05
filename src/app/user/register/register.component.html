@@ -1,38 +1,38 @@
-<div id="user-login" class="container">
+<div id="user-register" class="container">
     <div class="page-title">Create Account</div>
     <div class="row">
-        <div id="login-left" class="col s12 m12 l3 xl3">
+        <div id="register-left" class="col s12 m12 l3 xl3">
             <img src="../../assets/images-games/assasins-creed-valhalla-img.png" alt="">
         </div>
         <div class="col s12 m12 l6 xl6">
-            <form>
+            <form #f="ngForm" (ngSubmit)="registerHandler()">
                 <div class="row">
                     <div>
-                        <input id="name" type="text">
+                        <input id="name" type="text" class="validate" name="name" ngModel>
                         <label for="name">Name</label>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <input id="email" type="email" class="validate">
+                        <input id="email" type="email" class="validate" name="email" ngModel>
                         <label for="email">Email</label>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <input id="password" type="password" class="validate">
+                        <input id="password" type="password" class="validate" name="password" ngModel>
                         <label for="password">Password</label>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <input id="re-password" type="password" class="validate">
-                        <label for="re-password">Repeat Password</label>
+                        <input id="rePassword" type="password" class="validate" name="rePassword" ngModel>
+                        <label for="rePassword">Repeat Password</label>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <input id="address" type="text" class="validate">
+                        <input id="address" type="text" class="validate" name="address" ngModel>
                         <label for="address">Address</label>
                     </div>
                 </div>
@@ -40,18 +40,20 @@
                 <div class="switch register-switch">
                     <label>
                     User
-                    <input type="checkbox">
+                    <input type="checkbox" name="publisher" ngModel>
                     <span class="lever"></span>
                     Publisher
                     </label>
                 </div>
                 <div id="register-buttons">
-                    <button class="btn waves-effect waves-light register-btn" name="action"><i class="material-icons left">input</i>Register</button>
+                    Info: {{ f.value | json }}
+                    <button class="btn waves-effect waves-light register-btn" name="action" [disabled]="f.invalid"><i class="material-icons left">input</i>Register</button>
                     <button class="btn waves-effect waves-light register-btn" name="action" type="reset"><i class="material-icons left">input</i>Reset</button>
                 </div>
             </form>
+            <div id="already-registered">Already have an account? <a [routerLink]="['../login']">Login</a></div>
         </div>
-        <div id="login-right" class="col s12 m12 l3 xl3">
+        <div id="register-right" class="col s12 m12 l3 xl3">
             <img src="../../assets/images-games/bugsnax-img.png" alt="">
         </div>
     </div>

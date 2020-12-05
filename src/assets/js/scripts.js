@@ -3,12 +3,12 @@ window.onscroll = function() {
         document.getElementById("header").style.top = "-158px";
         document.getElementById("header-sticky").style.display = "block";
         document.getElementById("header-sticky").style.top = "0px";
-        document.getElementById("body").style.margin = "0";
+        // document.getElementById("body").style.margin = "0";
     } else {
         document.getElementById("header").style.top = "0px";
         //document.getElementById("header-sticky").style.display = "none";
         document.getElementById("header-sticky").style.top = "-50px";
-        document.getElementById("body").style.margin = "158px 0 0 0";
+        // document.getElementById("body").style.margin = "158px 0 0 0";
     }
 }
 

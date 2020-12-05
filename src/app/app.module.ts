@@ -10,6 +10,8 @@ import { AboutModule } from './about/about.module';
 import { GameModule } from './game/game.module';
 import { ShowcaseModule } from './showcase/showcase.module';
 import { UserModule } from './user/user.module';
+import { FormsModule } from '@angular/forms';
+import Backendless from 'backendless';
 
 @NgModule({
   declarations: [
@@ -23,7 +25,8 @@ import { UserModule } from './user/user.module';
     UserModule,
     ShowcaseModule,
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    FormsModule
   ],
   providers: [
 

@@ -1,4 +1,14 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+import Backendless from 'backendless';
+import { UserService } from '../user.service';
+
+
+const APP_ID = 'E6A1D0AD-587C-48AC-FF2E-1B06CF656400';
+const API_KEY = '2021AF52-B726-491E-A32B-D1E474D20AEF';
+
+Backendless.initApp(APP_ID, API_KEY);
 
 @Component({
   selector: 'app-login',
@@ -7,9 +17,26 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LoginComponent implements OnInit {
 
-  constructor() { }
+  @ViewChild('f', { static: false }) form: NgForm;
 
-  ngOnInit(): void {
+  constructor(private router: Router, private userService: UserService) {}
+
+  ngOnInit() {
   }
+
+loginHandlerCall(): void {
+  console.log(this.form.value.email);
+  console.log(this.form.value.password);
+  this.userService.loginHandler(this.form.value.email, this.form.value.password)
+
+  Backendless.UserService.getCurrentUser()
+ .then(function(currentUser) {
+  console.log(currentUser)
+  })
+ .catch(function (error) {
+  console.log(error.message);
+  });
+}
+
 
 }

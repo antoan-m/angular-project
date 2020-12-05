@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { Router } from '@angular/router';
+import Backendless from 'backendless';
+import { UserService } from '../../user/user.service';
 
 @Component({
   selector: 'app-header',
@@ -7,7 +10,23 @@ import { Component } from '@angular/core';
 })
 export class HeaderComponent {
 
-  constructor() { }
+  get isLogged(): boolean {
+    return localStorage.isLogged;
+  }
+
+  get userName(): void {
+    return localStorage.name;
+  }
+
+  publisherMenu(): boolean {
+    return this.userService.publisherMenu;
+  }
+
+  logoutUser(): void {
+    this.userService.logoutUser();
+  }
+
+  constructor(private router: Router, private userService: UserService) { }
 
   ngOnInit(): void {
   }

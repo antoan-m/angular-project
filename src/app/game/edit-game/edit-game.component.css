@@ -1,47 +1,47 @@
-#user-register {
+#add-game {
     margin-top: 200px;
 }
 
 @media only screen and (min-width: 1200) html {
-    #user-register {
+    #add-game {
         width: 50%;
     }
 }
 
 @media only screen and (min-width: 992px) html {
-    #user-register {
+    #add-game {
         width: 50%;
     }
 }
 
 @media only screen and (min-width: 600) html {
-    #user-register {
+    #add-game {
         width: 50%;
     }
 }
 
 @media only screen and (max-width: 600) html {
-    #user-register {
+    #add-game {
         width: 50%;
     }
 }
 
-#register-left,
-#register-right {
+#add-game-left,
+#add-game-right {
     text-align: center;
 }
 
-#register-left img,
-#register-right img {
+#add-game-left img,
+#add-game-right img {
     width: 80%;
 }
 
-#register-buttons {
+#add-game-buttons {
     margin: 30px 0;
     text-align: center;
 }
 
-.register-btn {
+.add-game-btn {
     margin: 0 10px;
 }
 
@@ -55,9 +55,4 @@
     text-align: center;
     padding-bottom: 20px;
     margin-top: -50px;
-}
-
-#already-registered {
-    text-align: center;
-    margin: 10px 0;
 }

@@ -14,17 +14,19 @@
             <a routerLink="/">Home</a>
             <a routerLink="/games">Games</a>
             <a routerLink="/about">About</a>
+            <span *ngIf="isLogged">Hello, {{userName}}</span>
         </nav>
 
 
         <!-- usermenu -->
         <div id="usermenu" class="col s6 m6 l6 xl6">
-            <a routerLink="/user/register">Register</a>
-            <a routerLink="/user/login">Login</a>
-            <a routerLink="/user/logout">Logout</a>
-            <a routerLink="/user/profile">Profile</a>
-            <a routerLink="/user/orders">My Orders</a>
-            <a routerLink="/user/wishlist">Wishlist</a>
+            <a *ngIf="!isLogged" routerLink="/user/register">Register</a>
+            <a *ngIf="!isLogged" routerLink="/user/login">Login</a>
+            <a *ngIf="isLogged" routerLink="/" (click)="logoutUser()">Logout</a>
+            <a *ngIf="isLogged" routerLink="/user/profile">Profile</a>
+            <a *ngIf="isLogged && !publisherMenu" routerLink="/user/my-orders">My Orders</a>
+            <a *ngIf="isLogged && publisherMenu" routerLink="/user/orders">Orders</a>
+            <a *ngIf="isLogged && !publisherMenu" routerLink="/user/wishlist">Wishlist</a>
         </div>
     </div>
 
@@ -40,15 +42,17 @@
             <a routerLink="/">Home</a>
             <a routerLink="/games">Games</a>
             <a routerLink="/about">About</a>
+            <span *ngIf="isLogged">Hello, {{userName}}</span>
         </nav>
         <!-- usermenu -->
         <div id="usermenu" class="col s7 m7 l7 xl7">
-            <a routerLink="/user/register">Register</a>
-            <a routerLink="/user/login">Login</a>
-            <a routerLink="/user/logout">Logout</a>
-            <a routerLink="/user/profile">Profile</a>
-            <a routerLink="/user/orders">My Orders</a>
-            <a routerLink="/user/wishlist">Wishlist</a>
+            <a *ngIf="!isLogged" routerLink="/user/register">Register</a>
+            <a *ngIf="!isLogged" routerLink="/user/login">Login</a>
+            <a *ngIf="isLogged" routerLink="/" (click)="logoutUser()">Logout</a>
+            <a *ngIf="isLogged" routerLink="/user/profile">Profile</a>
+            <a *ngIf="isLogged && !publisherMenu" routerLink="/user/my-orders">My Orders</a>
+            <a *ngIf="isLogged && publisherMenu" routerLink="/user/orders">Orders</a>
+            <a *ngIf="isLogged && !publisherMenu" routerLink="/user/wishlist">Wishlist</a>
         </div>
     </div>
 

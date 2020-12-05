@@ -5,21 +5,23 @@
             <img src="../../assets/images-games/assasins-creed-valhalla-img.png" alt="">
         </div>
         <div class="col s12 m12 l6 xl6">
-            <form>
+            <form #f="ngForm" (ngSubmit)="loginHandlerCall()">
                 <div class="row">
                     <div>
-                        <input id="email" type="email" class="validate">
+                        <input id="email" type="email" class="validate" name="email" ngModel>
                         <label for="email">Email</label>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <input id="password" type="password" class="validate">
+                        <input id="password" type="password" class="validate" name="password" ngModel>
                         <label for="password">Password</label>
                     </div>
                 </div>
-                <button class="btn waves-effect waves-light" name="action"><i class="material-icons left">input</i>Login</button>
+                Info: {{ f.value | json }}
+                <button class="btn waves-effect waves-light" name="action" [disabled]="f.invalid"><i class="material-icons left">input</i>Login</button>
             </form>
+            <div id="not-registered">Don't have an account? <a [routerLink]="['../register']">Register</a></div>
         </div>
         <div id="login-right" class="col s12 m12 l3 xl3">
             <img src="../../assets/images-games/bugsnax-img.png" alt="">

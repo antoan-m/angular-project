@@ -7,7 +7,7 @@
     background-size: cover;
     /* Resize the background image to cover the entire container */
     background-attachment: fixed;
-    z-index: 9999999999;
+    z-index: 9999;
     position: relative;
 }
 
