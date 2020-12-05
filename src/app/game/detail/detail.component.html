@@ -2,44 +2,53 @@
 
     <div class="col s12 m6 l6 xl6">
         <div class="game-title">
-            <h3>Assasin's Creed Valhalla</h3>
+            <h3>{{currentGameData.title}}</h3>
         </div>
     </div>
 
     <div class="game-cover col s12 m12 l4 xl4">
-        <img src="../../../assets/images-games/assasins-creed-valhala-cover.jpg" alt="Assasin's Creed Valhalla">
+        <img src="{{currentGameData.image}}" alt="{{currentGameData.title}}">
     </div>
 
     <div class="game-buttons-price col s12 m12 l4 xl4">
         <div class="game-price">
-            €59.99
+            €{{currentGameData.price}}
         </div>
-        <div class="game-buttons">
-            <a class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons right">cloud_download</i>Buy Now</a><br><br>
+        <div *ngIf="!publisherMenu" class="game-buttons">
+            <a *ngIf="!gameBought" (click)="buyGame(currentGameData.objectId)" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons right">cloud_download</i>Buy Now</a>
+            <a *ngIf="gameBought" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons right">tag_faces</i>You own it</a>
+            <br><br>
             <a class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons right">favorite</i>Add To Wishlist</a>
+        </div>
+        <div *ngIf="publisherMenu" class="game-buttons">
+            <a [routerLink]="['../../add']" class="waves-effect waves-light btn-large"><i class="material-icons left">videogame_asset</i>Add Game</a><br><br>
+            <a [routerLink]="['../../my-games']" class="waves-effect waves-light btn-large mygames-btn"><i class="material-icons left">games</i>My Games</a>
         </div>
     </div>
 
-    <div class="game-requirements col s12 m12 l4 xl4">
-        <span><b>PC Requirements:</b></span>
+    <div class="game-bullets col s12 m12 l4 xl4">
+        <span><b>Features</b></span>
         <ul>
-            <li>AMD Ryzen 7 3700X / Intel i7 9700K</li>
-            <li>AMD Radeon RX 5700X 8GB / NVIDIA GeForce RTX 2800 8GB</li>
-            <li>16GB RAM</li>
-            <li>SSD 50GB</li>
-            <li>Windows 10 64bit</li>
+            {{currentGameData.bullets}}
+        </ul>
+    </div>
+
+    <div class="game-requirements col s12 m12 l4 xl4">
+        <span><b>PC Requirements</b></span>
+        <ul>
+            {{currentGameData.requirements}}
         </ul>
     </div>
 </div>
 
 <div clsss="game-description col s12 m12 l12 xl12">
-    <span><b>Summary</b></span>
-    <ul>
-        <li>Lead epic Viking raids against Saxon fortresses throughout England.</li>
-        <li>Dual-wield powerful weapons and relive the visceral fighting style of the Vikings.</li>
-        <li>Challenge yourself with the most varied collection of enemies ever found in Assassin's Creed.</li>
-        <li>Shape the growth of your character with every choice you make and carve your path to glory.</li>
-        <li>Explore a Dark Age open world, from the harsh shores of Norway to the beautiful kingdoms of England.</li>
-        <li>Personalize your experience by growing your clan's settlement.</li>
-    </ul>
+    <span><b>Summary</b></span> {{currentGameData.description}}
+</div>
+
+<div clsss="game-youtube col s12 m12 l12 xl12">
+    <span><b>Trailer</b></span>
+    <div class="video-container">
+        <div width="853" height="480" src="{{currentGameData.youtube_url}}" frameborder="0" allowfullscreen></div>
+    </div>
+
 </div>

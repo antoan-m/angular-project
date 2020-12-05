@@ -9,6 +9,7 @@ import { EditComponent } from './edit/edit.component';
 import { ProfileComponent } from './profile/profile.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { MyOrdersComponent } from './my-orders/my-orders.component';
+import { OrdersComponent } from './orders/orders.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,9 @@ import { MyOrdersComponent } from './my-orders/my-orders.component';
     ProfileComponent, 
     WishlistComponent, 
     MyOrdersComponent, 
-    MyOrdersComponent],
+    MyOrdersComponent,
+    OrdersComponent
+  ],
   imports: [
     CommonModule,
     FormsModule,

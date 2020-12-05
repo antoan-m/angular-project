@@ -1,9 +1,9 @@
 <div class="row">
 
     <!-- showcase -->
-    <div id="showcase" class="col s12 m12 l12 xl12">
+    <!-- <div id="showcase" class="col s12 m12 l12 xl12">
         <img src="../../assets/images-games/football-manager-2021-img-low.jpg" alt="Football Manager 2021">
-    </div>
+    </div> -->
 
     <div id="games">
 
@@ -11,7 +11,7 @@
             <div class="product-card" style="padding:10px; text-align: center;">
                 <div class="card">
                     <div class="card-img">
-                        <a routerLink="details/{{game.objectId}}"><img src="{{game.image}}" alt="{{game.title}}"></a>
+                        <a (click)="getGameId(game.objectId)" routerLink="details/{{game.objectId}}"><img src="{{game.image}}" alt="{{game.title}}"></a>
                     </div>
                     <div class="card-title">
                         <h3>{{game.title}}</h3>

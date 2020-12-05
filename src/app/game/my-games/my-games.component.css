@@ -96,7 +96,17 @@
     cursor: pointer;
 }
 
+#my-games-buttons {
+    margin: 20px 0;
+    text-align: center;
+}
+
 #add-button {
-    margin: 20px 0 0 0;
+    margin: 0 10px 0 0;
+    text-align: center;
+}
+
+#back-button {
+    margin: 0 0 0 10px;
     text-align: center;
 }

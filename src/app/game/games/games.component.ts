@@ -32,6 +32,15 @@ export class GamesComponent implements OnInit {
 
   }
 
+  getGameId(id) {
+    if(!id) {
+      id = localStorage.getItem('currentGameId');
+    }
+    console.log(id);
+    localStorage.setItem('currentGameId', id);
+    return id;
+  }
+
 
   getAllGames() {
 
