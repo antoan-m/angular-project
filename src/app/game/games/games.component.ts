@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Backendless from 'backendless';
+
 
 @Component({
   selector: 'app-games',
@@ -7,9 +10,41 @@ import { Component, OnInit } from '@angular/core';
 })
 export class GamesComponent implements OnInit {
 
-  constructor() { }
+  constructor(private router: Router) {}
+
+  games;
+
 
   ngOnInit(): void {
+
+    let getGamesData = Backendless.Data.of('games').find()
+    .then(function(currentGames) {
+      return currentGames;
+     })
+    .catch(function (error) {
+      console.error(error)
+     })
+   
+     getGamesData.then(result => {
+       console.log(result);
+       this.games = result;    
+     })
+
   }
+
+
+  getAllGames() {
+
+    // Backendless.Data.of('games').find()
+    //  .then(game => {
+    //    console.log(game);
+    //   })
+    //  .catch(error => {
+    //   console.log(error);
+    //   });
+
+  }
+
+
 
 }

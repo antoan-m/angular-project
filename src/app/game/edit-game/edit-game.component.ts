@@ -3,6 +3,7 @@ import { Router } from '@angular/router';
 import { FormBuilder, FormGroup, NgForm, Validators } from '@angular/forms';
 import Backendless from 'backendless';
 
+
 @Component({
   selector: 'app-edit-game',
   templateUrl: './edit-game.component.html',
@@ -12,23 +13,30 @@ export class EditGameComponent implements OnInit {
 
   @ViewChild('e', { static: false }) form: NgForm;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) { }
 
   currentGameData;
-  game;
+  game: Object;
 
   ngOnInit(): void {
-  let currentGameId = getGameId();
-   console.log(currentGameId);
+    //get current game data from server
 
+  let objectId = localStorage.getItem('currentGameId');
+   console.log('ID: ' + objectId);
 
-  this.currentGameData = Backendless.Data.of('games').findById(currentGameId)
- .then(result => {
-   console.log('Current Data: ' + result);
+  let getGameData = Backendless.Data.of('games').findById({objectId})
+ .then(currentGame => {
+   console.log('Current Data: ' + JSON.stringify(currentGame));
+   return currentGame;
   })
  .catch(error => {
   console.log(error);
   });
+
+  getGameData.then(result => {
+    console.log(JSON.stringify(result));
+    this.currentGameData = result;    
+  })
 
   }
 
@@ -37,9 +45,10 @@ export class EditGameComponent implements OnInit {
   }
 
 
-
-  editGame(currentGameId) {
-  this.currentGameData = Backendless.Data.of('games').findById(currentGameId)
+// update game info
+editGame(currentGameId) {
+  let objectId = localStorage.getItem('currentGameId');
+  this.currentGameData = Backendless.Data.of('games').findById({objectId})
  .then(result => {
    console.log(result);
   })
@@ -47,34 +56,26 @@ export class EditGameComponent implements OnInit {
   console.log(error);
   });
 
-  // this.game = {
-  //   title: this.currentGameData.title,
-  //   image: this.currentGameData.image,
-  //   description: this.currentGameData.description,
-  //   bullets: this.currentGameData.bullets,
-  //   requirements: this.currentGameData.requirements,
-  //   price: this.currentGameData.price,
-  //   youtube_url: this.currentGameData.youtube_url
-  //   };
-
- 
-  this.game.title = this.form.value.title,
-  this.game.image = this.form.value.image,
-  this.game.description = this.form.value.description,
-  this.game.bullets = this.form.value.bullets,
-  this.game.requirements = this.form.value.requirements,
-  this.game.price = this.form.value.price,
-  this.game.youtube_url = this.form.value.youtube_url
-
+  this.game = {
+  objectId: objectId,
+  title: this.form.value.title,
+  image: this.form.value.image,
+  description: this.form.value.description,
+  bullets: this.form.value.bullets,
+  requirements: this.form.value.requirements,
+  price: this.form.value.price,
+  youtube_url: this.form.value.youtube_url
+  }
 
 Backendless.Data.of('games').save(this.game)
-  .then(function(savedGame) {
+  .then(savedGame => {
       console.log(savedGame);
+      localStorage.removeItem('currentGameId');
+      this.router.navigate(['games/my-games']);
     })
-  .catch( function( error ) {
+  .catch(error => {
       console.error(error.message);
     });
-
   }
 
   cancelGameEdit() {

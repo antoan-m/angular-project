@@ -21,11 +21,12 @@
                             <td>
                                 <a routerLink="../details/{{game.objectId}}"><i class="material-icons small game-view">visibility</i></a>
                                 <a (click)="getGameId(game.objectId)" routerLink="../details/edit/{{game.objectId}}"><i class="material-icons small game-edit">edit</i></a>
-                                <a routerLink="" (click)="deleteGame()"><i class="material-icons small game-delete">delete</i></a>
+                                <span (click)="deleteGame(game.objectId)" (click)="removeRow($event)"><i class="material-icons small game-delete">delete</i></span>
                             </td>
                         </tr>
                     </tbody>
                 </table>
+                <div id="add-button"><a [routerLink]="['../../games/add']" class="waves-effect waves-light btn"><i class="material-icons left">videogame_asset</i>Add Game</a></div>
             </div>
 
         </div>

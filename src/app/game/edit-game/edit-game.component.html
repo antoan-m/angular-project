@@ -8,13 +8,13 @@
             <form #e="ngForm" (ngSubmit)="editGame()">
                 <div class="row">
                     <div>
-                        <input id="name" type="text" name="name" [(ngModel)]="game.title">
-                        <label for="name">Name</label>
+                        <input id="title" type="text" name="title" [(ngModel)]="currentGameData.title">
+                        <label for="title">Title</label>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <input id="image" type="text" class="validate" name="imageUrl" [(ngModel)]="currentGameData.image_url">
+                        <input id="image" type="text" class="validate" name="image" [(ngModel)]="currentGameData.image">
                         <label for="image">Image URL</label>
                     </div>
                 </div>
@@ -44,8 +44,8 @@
                 </div>
                 <div class="row">
                     <div>
-                        <input id="trailer" type="text" class="validate" name="youtubeTrailerUrl" [(ngModel)]="currentGameData.youtube_url">
-                        <label for="trailer">Youtube Trailer URL</label>
+                        <input id="youtube_url" type="text" class="validate" name="youtube_url" [(ngModel)]="currentGameData.youtube_url">
+                        <label for="youtube_url">Youtube Trailer URL</label>
                     </div>
                 </div>
                 Info: {{ e.value | json }}

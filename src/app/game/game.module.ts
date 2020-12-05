@@ -10,7 +10,6 @@ import { GameService } from './game.service';
 import { EditGameComponent } from './edit-game/edit-game.component';
 
 
-
 @NgModule({
   declarations: [
     GamesComponent, 

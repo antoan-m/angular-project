@@ -93,4 +93,10 @@
 
 .game-delete {
     color: rgb(184, 0, 0);
+    cursor: pointer;
+}
+
+#add-button {
+    margin: 20px 0 0 0;
+    text-align: center;
 }

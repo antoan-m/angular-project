@@ -7,16 +7,16 @@ export class GameService {
 
   constructor() { }
 
-  // currentGameId;
+  currentGameId;
 
-  // getGameId(id) {
-  //   if(!id) {
-  //     id = localStorage.getItem('currentGameId');
-  //   }
-  //   console.log(id);
-  //   localStorage.setItem('currentGameId', id);
-  //   return this.currentGameId
-  // }
+  getGameId(id) {
+    if(!id) {
+      id = localStorage.getItem('currentGameId');
+    }
+    console.log(id);
+    localStorage.setItem('currentGameId', id);
+    return this.currentGameId
+  }
 
 
 }
