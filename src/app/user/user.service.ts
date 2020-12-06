@@ -29,10 +29,12 @@ loginHandler(email, password) {
     console.log(loggedInUser['user-token']);
     localStorage.setItem('isLogged', 'true');
     localStorage.userToken = loggedInUser['user-token'];
-    localStorage.name = loggedInUser["name"];
+    localStorage.name = loggedInUser['name'];
+    localStorage.publisherMenu = loggedInUser['publisher'];
     localStorage.email = email;
     this.userName = localStorage.name;
     this.isLogged = localStorage.isLogged;
+    this.publisherMenu = localStorage.publisherMenu;
 
    this.router.navigate(['/']);
    })
@@ -50,6 +52,9 @@ loginHandler(email, password) {
       localStorage.removeItem('userToken');
       localStorage.removeItem('email');
       localStorage.removeItem('name');
+      localStorage.removeItem('publisherMenu');
+      localStorage.removeItem('currentGameId');
+      localStorage.removeItem('wishlist');
       this.isLogged = false;
       })
      .catch(err => console.log(err.message));
@@ -58,7 +63,7 @@ loginHandler(email, password) {
   }
 
   currentUserData;
-  publisherMenu = false;
+  publisherMenu;
 
 userDataObject = () => {
 

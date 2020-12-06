@@ -11,6 +11,19 @@
     position: relative;
 }
 
+a#user-greeting,
+a#user-greeting-sticky {
+    color: #fd8f5f !important;
+}
+
+a#user-greeting:hover {
+    background-color: #f2e1d9 !important;
+}
+
+a#user-greeting-sticky:hover {
+    background-color: #f2e1d9 !important;
+}
+
 nav {
     color: #000000;
     background-color: transparent !important;

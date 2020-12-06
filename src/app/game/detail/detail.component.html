@@ -15,11 +15,11 @@
             €{{currentGameData.price}}
         </div>
         <div *ngIf="!publisherMenu" class="game-buttons">
-            <a *ngIf="!gameBought" (click)="buyGame(currentGameData.objectId)" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons right">cloud_download</i>Buy Now</a>
-            <a *ngIf="gameBought" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons right">tag_faces</i>You own it</a>
+            <a *ngIf="!gameBought" (click)="buyGame(currentGameData.objectId)" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons left">cloud_download</i>Buy Now</a>
+            <a *ngIf="gameBought" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons left">tag_faces</i>You own it</a>
             <br><br>
-            <a *ngIf="!inWishlist" (click)="addGameToWishlist(currentGameData.objectId)" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons right">favorite</i>Add To Wishlist</a>
-            <a *ngIf="inWishlist" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons right">favorite</i>In your Wishlist</a>
+            <a *ngIf="!inWishlist" (click)="addGameToWishlist(currentGameData.objectId)" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons left">favorite</i>Add To Wishlist</a>
+            <a *ngIf="inWishlist" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons left">check_box</i>In your Wishlist</a>
         </div>
         <div *ngIf="publisherMenu" class="game-buttons">
             <a [routerLink]="['../../add']" class="waves-effect waves-light btn-large"><i class="material-icons left">videogame_asset</i>Add Game</a><br><br>

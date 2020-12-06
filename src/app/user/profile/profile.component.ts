@@ -22,7 +22,7 @@ export class ProfileComponent implements OnInit {
   constructor(private router: Router, private userService: UserService) {}
 
   currentUserData;
-  publisherMenu = false;
+  publisherMenu: boolean;
 
 ngOnInit() {
 

@@ -14,7 +14,7 @@
             <a routerLink="/">Home</a>
             <a routerLink="/games">Games</a>
             <a routerLink="/about">About</a>
-            <span *ngIf="isLogged">Hello, {{userName}}</span>
+
         </nav>
 
 
@@ -27,6 +27,7 @@
             <a *ngIf="isLogged && !publisherMenu" routerLink="/user/my-orders">My Orders</a>
             <a *ngIf="isLogged && publisherMenu" routerLink="/user/orders">Orders</a>
             <a *ngIf="isLogged && !publisherMenu" routerLink="/user/wishlist">Wishlist</a>
+            <a id="user-greeting">Hello, {{userName}}</a>
         </div>
     </div>
 
@@ -42,7 +43,6 @@
             <a routerLink="/">Home</a>
             <a routerLink="/games">Games</a>
             <a routerLink="/about">About</a>
-            <span *ngIf="isLogged">Hello, {{userName}}</span>
         </nav>
         <!-- usermenu -->
         <div id="usermenu" class="col s7 m7 l7 xl7">
@@ -53,6 +53,7 @@
             <a *ngIf="isLogged && !publisherMenu" routerLink="/user/my-orders">My Orders</a>
             <a *ngIf="isLogged && publisherMenu" routerLink="/user/orders">Orders</a>
             <a *ngIf="isLogged && !publisherMenu" routerLink="/user/wishlist">Wishlist</a>
+            <a id="user-greeting-sticky">Hello, {{userName}}</a>
         </div>
     </div>
 

@@ -10,6 +10,8 @@ import { UserService } from '../../user/user.service';
 })
 export class HeaderComponent {
 
+  constructor(private router: Router, private userService: UserService) {}
+
   get isLogged(): boolean {
     return localStorage.isLogged;
   }
@@ -18,17 +20,14 @@ export class HeaderComponent {
     return localStorage.name;
   }
 
-  publisherMenu(): boolean {
-    return this.userService.publisherMenu;
-  }
+  publisherMenu = this.userService.publisherMenu;
 
   logoutUser(): void {
     this.userService.logoutUser();
   }
 
-  constructor(private router: Router, private userService: UserService) { }
-
   ngOnInit(): void {
+    
   }
 
 }

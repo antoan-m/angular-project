@@ -150,7 +150,7 @@ if(this.currentUserData.objectId === this.currentGameData.ownerId) {
   }
 
   //add game to wihslist
-  addGameToWishlist(gameId) {
+  addGameToWishlist(gameId: string) {
 
   let getUserData = Backendless.UserService.getCurrentUser()
  .then(function(currentUser) {
@@ -205,9 +205,43 @@ if(!this.currentUserData.wishlist) {
       this.inWishlist = true;
       console.log('Already in your wishlist!');
     }
+
+
+  let getGameData = Backendless.Data.of('games').findById(gameId)
+ .then(currentGame => { return currentGame; })
+ .catch(error => { console.log(error); });
+
+  getGameData.then(result => {
+    //console.log(JSON.stringify(result));
+    this.currentGameData = result;    
+  })
    
+      let newGameWishlist: any;
 
-
+      if(!this.currentGameData.wishlist) {
+        newGameWishlist = this.currentUserData.objectId;
+        this.inWishlist = true;
+        Backendless.Data.of('games').save({objectId: gameId, wishlist: newGameWishlist })
+        .then(savedGame => { console.log('FINAL 1: ' + savedGame); })
+        .catch(error => { console.error(error.message); });
+        } else if(this.currentGameData.wishlist.indexOf(this.currentUserData.objectId) === -1) {
+          this.inWishlist = true;
+          let currentGameWishlist = this.currentGameData.wishlist;
+          newGameWishlist = currentGameWishlist.split(',');
+          newGameWishlist.push(gameId);
+  
+          let updateWishlist = newGameWishlist.toString();
+          console.log(gameId + '||||' + updateWishlist);
+          
+          Backendless.Data.of('games').save({objectId: gameId, wishlist: updateWishlist })
+            .then(savedGame => { console.log('FINAL2: ' + savedGame); })
+            .catch(error => { console.error(error.message); });
+        } else {  
+        this.inWishlist = true;
+        console.log('Already in your Wishlist!');
+      } 
+        
+  
   }
 
 
