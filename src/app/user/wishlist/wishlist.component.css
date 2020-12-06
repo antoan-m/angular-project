@@ -1,0 +1,112 @@
+#wishlist {
+    margin-top: 200px;
+}
+
+@media only screen and (min-width: 1200) html {
+    #wishlist {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 992px) html {
+    #wishlist {
+        width: 50%;
+    }
+}
+
+@media only screen and (min-width: 600) html {
+    #wishlist {
+        width: 50%;
+    }
+}
+
+@media only screen and (max-width: 600) html {
+    #wishlist {
+        width: 50%;
+    }
+}
+
+#profile-left,
+#profile-right {
+    text-align: center;
+}
+
+#profile-left img,
+#profile-right img {
+    width: 80%;
+}
+
+#profile-buttons {
+    margin: 30px 0;
+    text-align: center;
+}
+
+.profile-btn {
+    margin: 0 10px;
+}
+
+.profile-switch {
+    margin: 30px 0;
+}
+
+.page-title {
+    display: block;
+    font-size: 32px;
+    text-align: center;
+    padding-bottom: 20px;
+    margin-top: -80px;
+}
+
+#wishlist-details {
+    margin: 20px 0 0 20px;
+}
+
+#wishlist-details-button {
+    text-align: center;
+    margin: 40px 0 0 20px;
+}
+
+.wishlist-details-head {
+    font-size: 18px;
+}
+
+.wishlist-details-bullet-header {
+    font-weight: 800;
+}
+
+.wishlist-image {
+    width: 100px;
+    height: auto;
+}
+
+.mygames-btn {
+    margin-left: 20px;
+}
+
+.game-view {
+    color: rgb(0, 173, 52);
+}
+
+.game-edit {
+    color: rgb(0, 149, 207);
+}
+
+.game-delete {
+    color: rgb(184, 0, 0);
+    cursor: pointer;
+}
+
+#wishlist-buttons {
+    margin: 20px 0;
+    text-align: center;
+}
+
+#add-button {
+    margin: 0 10px 0 0;
+    text-align: center;
+}
+
+#back-button {
+    margin: 0 0 0 10px;
+    text-align: center;
+}

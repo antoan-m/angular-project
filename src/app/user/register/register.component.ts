@@ -31,6 +31,8 @@ export class RegisterComponent implements OnInit {
     name: string;
     address: string;
     publisher: boolean;
+    orders: string;
+    wishlist: string;
    }
     
  const user: AppUser = new AppUser();
@@ -39,7 +41,7 @@ export class RegisterComponent implements OnInit {
  user.email = this.form.value.email;
  user.password = this.form.value.password;
  user.address = this.form.value.address;
- user.publisher = this.form.value.publisher
+ user.publisher = this.form.value.publisher;
  
  if (!this.form.value.publisher) {
   user.publisher = false;

@@ -52,6 +52,7 @@
                 <div id="add-game-buttons">
                     <button class="btn waves-effect waves-light add-game-btn" name="action" [disabled]="g.invalid"><i class="material-icons left">input</i>Add</button>
                     <button class="btn waves-effect waves-light add-game-btn" name="action" type="reset"><i class="material-icons left">input</i>Reset</button>
+                    <button [routerLink]="['../../user/profile']" class="btn waves-effect waves-light add-game-btn" name="action"><i class="material-icons left">backspace</i>Back</button>
                 </div>
             </form>
         </div>

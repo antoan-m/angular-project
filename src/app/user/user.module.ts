@@ -19,7 +19,6 @@ import { OrdersComponent } from './orders/orders.component';
     ProfileComponent, 
     WishlistComponent, 
     MyOrdersComponent, 
-    MyOrdersComponent,
     OrdersComponent
   ],
   imports: [

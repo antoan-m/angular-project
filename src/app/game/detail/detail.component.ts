@@ -16,6 +16,9 @@ export class DetailComponent implements OnInit {
   currentUserData;
   publisherMenu: Boolean = false;
   gameBought: Boolean = false;
+  owner: Boolean;
+  gameOrders;
+  inWishlist;
 
   ngOnInit(): void {
     //get current game data from server
@@ -46,25 +49,37 @@ export class DetailComponent implements OnInit {
    console.error(error)
   })
 
-  //check if user is publisher
+  //check if user is publisher and Game in Wishlist
   getUserData.then(result => {
     console.log('User: '+ JSON.stringify(result));
     this.currentUserData = result;  
     if (this.currentUserData.publisher) {
       this.publisherMenu = true;
-    }  
+    }
+    if(this.currentUserData.wishlist.indexOf(this.currentGameData.objectId) !== -1) {
+      this.inWishlist = true;
+    }
   })
 
   //check if game is already bought
-  if(!this.currentUserData.orders.find(this.currentGameData.objectId)) {
+  if(this.currentUserData.orders.find(this.currentGameData.objectId)) {
     this.gameBought = true;
     console.log(this.gameBought);
     console.log(this.currentUserData.orders)
-    return;
 }
 
+//check if user is publisher of the game
+if(this.currentUserData.objectId === this.currentGameData.ownerId) {
+  this.owner = true;
+  console.log('OWNER: ' + this.owner);
+} else {
+  this.owner = false;
+  console.log(this.owner)
+}
+  
   }
 
+//buy game
   ordersArray;
 
   buyGame(gameId) {
@@ -81,7 +96,7 @@ export class DetailComponent implements OnInit {
     user.objectId = this.currentUserData.objectId;
     console.log('USER ID: ' + user.objectId);
     console.log('ORDERS: ' + this.currentUserData.orders);
-    console.log('CHECK ORDERS FOR ID: ' + this.currentUserData.orders.indexOf(gameId))
+    console.log('CHECK ORDERS FOR ID: ' + this.currentUserData.orders.indexOf(gameId));
 
       if (!this.currentUserData.orders) {
         this.currentUserData.orders = gameId;
@@ -117,17 +132,84 @@ export class DetailComponent implements OnInit {
       console.error('error code: ', error.code)
       console.error('http status: ', error.status)
       })
+
+      this.gameOrders = Array.from([this.currentGameData.orders]);
+      this.gameOrders.push(this.currentUserData.objectId);
+      console.log('GAME ORDERS: ' + this.gameOrders);
+      
     
+      Backendless.Data.of('games').save({ objectId: gameId, orders: this.currentUserData.objectId })
+        .then(savedOrder => {
+        console.log(savedOrder);
+        })
+        .catch(error => {
+        console.error(error);
+        });
     
+
+  }
+
+  //add game to wihslist
+  addGameToWishlist(gameId) {
+
+  let getUserData = Backendless.UserService.getCurrentUser()
+ .then(function(currentUser) {
+   return currentUser;
+  })
+ .catch(function (error) {
+   console.error(error)
+  })
+
+  getUserData.then(result => {
+    console.log('User: '+ JSON.stringify(result));
+    this.currentUserData = result;
+  })
+
+  let wishlist = this.currentUserData.wishlist;
+
+console.log('WISHLIST1: ' + wishlist);
+console.log('IDD' + gameId);
+
+if(!this.currentUserData.wishlist) {
+  Backendless.UserService.update({objectId: this.currentUserData.objectId, wishlist: gameId})
+      .then(success => {
+      console.log(JSON.stringify(success) + 'Added to your wishlist!');
+      this.inWishlist = true;
+      localStorage.setItem('wishlist', gameId);
+      })
+      .catch(error => {
+      console.error('Server reported an error: ', error.message)
+      console.error('error code: ', error.code)
+      console.error('http status: ', error.status)
+      })
+    } else if (this.currentUserData.wishlist.indexOf(gameId) === -1) {
+    let currentWishlist = this.currentUserData.wishlist;
+        console.log('WISHLIST2: ' + currentWishlist.split(','));
+    let newWishlist = currentWishlist.split(',');
+    newWishlist.push(gameId);
+
+    let updateWishlist = newWishlist.toString();
+
+    Backendless.UserService.update({objectId: this.currentUserData.objectId, wishlist: updateWishlist})
+      .then(success => {
+      console.log(JSON.stringify(success) + 'Added to your wishlist!');
+      this.inWishlist = true;
+      localStorage.setItem('wishlist', updateWishlist);
+      })
+      .catch(error => {
+      console.error('Server reported an error: ', error.message)
+      console.error('error code: ', error.code)
+      console.error('http status: ', error.status)
+      })
+    } else {
+      this.inWishlist = true;
+      console.log('Already in your wishlist!');
+    }
+   
 
 
   }
 
-  addGameToWhishlist() {
-
-  }
-
-  
 
   ngOnDestroy(): void {
     // localStorage.removeItem('currentGameId');

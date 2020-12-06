@@ -1,3 +1,4 @@
+//stick header
 window.onscroll = function() {
     if (document.body.scrollTop > 158 || document.documentElement.scrollTop > 158) {
         document.getElementById("header").style.top = "-158px";
@@ -11,6 +12,7 @@ window.onscroll = function() {
         // document.getElementById("body").style.margin = "158px 0 0 0";
     }
 }
+
 
 
 // var prevScrollpos = window.pageYOffset;

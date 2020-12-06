@@ -8,6 +8,8 @@ import Backendless from 'backendless';
   templateUrl: './games.component.html',
   styleUrls: ['./games.component.css']
 })
+
+
 export class GamesComponent implements OnInit {
 
   constructor(private router: Router) {}
