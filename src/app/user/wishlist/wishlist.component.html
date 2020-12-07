@@ -14,9 +14,9 @@
                             <th class="wishlist-details-head" style="width: 15%; text-align: center;">Actions</th>
                         </thead>
                         <tr *ngFor="let game of games">
-                            <td style="width: 65%;"><a routerLink="../../games/details/{{game.objectId}}">{{game.title}}</a></td>
+                            <td style="width: 65%;"><a (click)="getGameId(game.objectId)" routerLink="../../games/details/{{game.objectId}}">{{game.title}}</a></td>
                             <td style="width: 10%; text-align: center;">{{game.price}}</td>
-                            <td style="width: 15%; text-align: center;"><a routerLink="../../games/details/{{game.objectId}}"><i class="material-icons small game-view">visibility</i></a><span (click)="removeFromWishlist(game.objectId)" (click)="removeRow($event)"><i class="material-icons small game-delete">delete</i></span></td>
+                            <td style="width: 15%; text-align: center;"><a (click)="getGameId(game.objectId)" routerLink="../../games/details/{{game.objectId}}"><i class="material-icons small game-view">visibility</i></a><span (click)="removeFromWishlist(game.objectId)" (click)="removeRow($event)"><i class="material-icons small game-delete">delete</i></span></td>
                         </tr>
                     </tbody>
                 </table>

@@ -67,6 +67,15 @@ export class WishlistComponent implements OnInit {
   
   }
 
+  getGameId(id) {
+    if(!id) {
+      id = localStorage.getItem('currentGameId');
+    }
+    console.log(id);
+    localStorage.setItem('currentGameId', id);
+    return id;
+  }
+
 
   removeRow(event) {
     const td = event.target.parentNode; 

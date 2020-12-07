@@ -8,18 +8,21 @@
             <form #f="ngForm" (ngSubmit)="loginHandlerCall()">
                 <div class="row">
                     <div>
-                        <input id="email" type="email" class="validate" name="email" ngModel>
-                        <label for="email">Email</label>
+                        <input #emailInput="ngModel" id="email" type="email" class="validate form-control" name="email" ngModel required email>
+                        <label for="email">Email</label><span *ngIf="emailInput.touched && emailInput.errors?.required" class="vaidation-error error-text-red">Email is required!</span>
+                        <span *ngIf="emailInput.touched && emailInput.errors?.email" class="vaidation-error error-text-red">Email is invalid!</span>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <input id="password" type="password" class="validate" name="password" ngModel>
-                        <label for="password">Password</label>
-                    </div>
+                        <input #passwordInput="ngModel" id="password" type="password" class="validate form-control" name="password" ngModel required password minlength="6">
+                        <label for="email">Password</label><span *ngIf="passwordInput.touched && passwordInput.errors?.required" class="vaidation-error error-text-red">Password is required!</span>
+                        <span *ngIf="passwordInput.touched && passwordInput.errors?.minlength" class="vaidation-error error-text-red">Password must be at least 6 characters!</span>
+                    </div> <span class="vaidation-error error-text-red">{{this.userService.serverError}}</span>
                 </div>
-                Info: {{ f.value | json }}
-                <button class="btn waves-effect waves-light" name="action" [disabled]="f.invalid"><i class="material-icons left">input</i>Login</button>
+                <div id="login-button">
+                    <button class="btn waves-effect waves-light" name="action" [disabled]="f.invalid"><i class="material-icons left">input</i>Login</button>
+                </div>
             </form>
             <div id="not-registered">Don't have an account? <a [routerLink]="['../register']">Register</a></div>
         </div>

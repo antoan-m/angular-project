@@ -12,6 +12,7 @@ Backendless.initApp(APP_ID, API_KEY);
   providedIn: 'root'
 })
 
+@Injectable()
 export class UserService {
 
   isLogged = false;
@@ -21,10 +22,49 @@ export class UserService {
 
 constructor(private router: Router) {}
 
+currentUserData;
+publisherMenu;
+serverError: any;
+
+registerHandler(name: string, email: string, password: string, address: string, publisher: boolean) {
+
+  class AppUser extends Backendless.User {
+    name: string;
+    address: string;
+    publisher: boolean;
+    orders: string;
+    wishlist: string;
+   }
+    
+  const user: AppUser = new AppUser();
+  
+  user.name = name;
+  user.email = email;
+  user.password = password;
+  user.address = address;
+  user.publisher = publisher;
+  
+  if (!publisher) {
+  user.publisher = false;
+  }
+  
+  Backendless.UserService.register<AppUser>(user)
+  .then((result: AppUser) => {
+  M.toast({html: 'Registration successful!'});
+  this.router.navigate(['user/login']);
+  })
+  .catch(error => 
+    console.error('Can not Register User:', error.message,
+    M.toast({html: error.message}),
+    this.serverError = error
+    ));
+  }
+
 loginHandler(email, password) {
 
  Backendless.UserService.login(email, password, true)
   .then(loggedInUser => {
+    M.toast({html: 'Hello, ' + loggedInUser.name + '!'})
     console.log(loggedInUser);
     console.log(loggedInUser['user-token']);
     localStorage.setItem('isLogged', 'true');
@@ -40,7 +80,10 @@ loginHandler(email, password) {
    })
  .catch(error => {
    console.log(error);
-  //  M.toast({html: error})
+   if(error.code === '3003')
+   error.message = 'Invalid login or password';
+    M.toast({html: error.message})
+    this.serverError = error;
   })
   }
 
@@ -48,6 +91,7 @@ loginHandler(email, password) {
   logoutUser() {
     Backendless.UserService.logout()
      .then(() => {
+      M.toast({html: 'Successfully logged out!'})
       localStorage.removeItem('isLogged');
       localStorage.removeItem('userToken');
       localStorage.removeItem('email');
@@ -56,14 +100,16 @@ loginHandler(email, password) {
       localStorage.removeItem('currentGameId');
       localStorage.removeItem('wishlist');
       this.isLogged = false;
+      this.publisherMenu = false;
       })
-     .catch(err => console.log(err.message));
+     .catch(err => console.log(err.message, 
+      M.toast({html: err.message})
+      ));
 
   // this.router.navigate(['/'])
   }
 
-  currentUserData;
-  publisherMenu;
+
 
 userDataObject = () => {
 

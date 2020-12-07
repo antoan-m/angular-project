@@ -13,7 +13,8 @@ Backendless.initApp(APP_ID, API_KEY);
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
-  styleUrls: ['./login.component.css']
+  styleUrls: ['./login.component.css'],
+  providers: [ UserService ]
 })
 export class LoginComponent implements OnInit {
 
@@ -24,17 +25,17 @@ export class LoginComponent implements OnInit {
   ngOnInit() {
   }
 
+
 loginHandlerCall(): void {
-  console.log(this.form.value.email);
-  console.log(this.form.value.password);
+  
   this.userService.loginHandler(this.form.value.email, this.form.value.password)
 
   Backendless.UserService.getCurrentUser()
  .then(function(currentUser) {
-  console.log(currentUser)
+  //console.log('USER: ' + currentUser)
   })
- .catch(function (error) {
-  console.log(error.message);
+ .catch(error => {
+  console.log('ERROR: ' + error);
   });
 }
 

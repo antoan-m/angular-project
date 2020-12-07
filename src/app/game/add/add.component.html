@@ -5,50 +5,77 @@
             <img src="../../assets/images-games/assasins-creed-valhalla-img.png" alt="">
         </div>
         <div class="col s12 m12 l6 xl6">
-            <form #g="ngForm" (ngSubmit)="addGame()">
+            <form #g="ngForm" (ngSubmit)="addGameCall()">
                 <div class="row">
                     <div>
-                        <input id="name" type="text" name="name" ngModel>
+                        <input #nameInput="ngModel" id="name" type="text" name="name" ngModel required minlength="3">
                         <label for="name">Name</label>
+                        <span *ngIf="nameInput.touched && nameInput.errors?.required" class="vaidation-error error-text-red">Name is required!</span>
+                        <span *ngIf="nameInput.touched && nameInput.errors?.minlength" class="vaidation-error error-text-red">Name must be at least 3 characters!</span>
                     </div>
                 </div>
-                <div class="row">
+                <!-- <div class="row">
                     <div>
-                        <input id="image" type="text" class="validate" name="imageUrl" ngModel>
+                        <input #imageInput="ngModel" id="image" type="text" class="validate" name="imageUrl" ngModel required url>
                         <label for="image">Image URL</label>
+                        <span *ngIf="imageInput.touched && imageInput.errors?.required" class="vaidation-error error-text-red">Image is required!</span>
+                        <span *ngIf="imageInput.touched && imageInput.errors?.url" class="vaidation-error error-text-red">URL is invalid!</span>
+                    </div>
+                </div> -->
+                <div class="row">
+                    <div class="file-field input-field">
+                        <div class="btn">
+                            <span>File</span>
+                            <input #imagefileInput="ngModel" enctype="multipart/form-data" type="file" class="validate" name="imageUrl" ngModel required>
+                        </div>
+                        <div class="file-path-wrapper">
+                            <input class="file-path validate" type="text">
+                            <label for="image">Image File</label>
+                            <span *ngIf="imagefileInput.touched && imagefileInput.errors?.required" class="vaidation-error error-text-red">Image is required!</span>
+                        </div>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <textarea id="description" type="text" class="materialize-textarea" name="description" ngModel></textarea>
+                        <textarea #descriptionInput="ngModel" id="description" type="text" class="materialize-textarea" name="description" ngModel required minlength="10"></textarea>
                         <label for="description">Description</label>
+                        <span *ngIf="descriptionInput.touched && descriptionInput.errors?.required" class="vaidation-error error-text-red">Description is required!</span>
+                        <span *ngIf="descriptionInput.touched && descriptionInput.errors?.minlength" class="vaidation-error error-text-red">Description must be at least 10 characters!</span>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <textarea id="bullets" class="materialize-textarea" name="bullets" ngModel></textarea>
+                        <textarea #bulletsInput="ngModel" id="bullets" class="materialize-textarea" name="bullets" ngModel required minlength="3"></textarea>
                         <label for="bullets">Bullets</label>
+                        <span *ngIf="bulletsInput.touched && bulletsInput.errors?.required" class="vaidation-error error-text-red">Bullets is required!</span>
+                        <span *ngIf="bulletsInput.touched && bulletsInput.errors?.minlength" class="vaidation-error error-text-red">Bullets must be at least 3 characters!</span>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <textarea id="requirements" class="materialize-textarea" name="requirements" ngModel></textarea>
+                        <textarea #requirementsInput="ngModel" id="requirements" class="materialize-textarea" name="requirements" ngModel required minlength="3"></textarea>
                         <label for="requirements">Requirements</label>
+                        <span *ngIf="requirementsInput.touched && requirementsInput.errors?.required" class="vaidation-error error-text-red">Description is required!</span>
+                        <span *ngIf="requirementsInput.touched && requirementsInput.errors?.minlength" class="vaidation-error error-text-red">Description must be at least 10 characters!</span>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <input id="price" type="text" class="validate" name="price" ngModel>
+                        <input #priceInput="ngModel" id="price" type="text" class="validate" name="price" ngModel required pattern="[0-9]+.?[0-9]+">
                         <label for="price">Price</label>
+                        <span *ngIf="priceInput.touched && priceInput.errors?.required" class="vaidation-error error-text-red">Price is required!</span>
+                        <span *ngIf="priceInput.touched && priceInput.errors?.pattern" class="vaidation-error error-text-red">Price must be a number!</span>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <input id="trailer" type="text" class="validate" name="youtubeTrailerUrl" ngModel>
-                        <label for="trailer">Youtube Trailer URL</label>
+                        <input #youtubeInput="ngModel" id="trailer" type="text" class="validate" name="youtubeTrailerUrl" ngModel required>
+                        <label for="trailer">Youtube Trailer ID</label>
+                        <span *ngIf="youtubeInput.touched && youtubeInput.errors?.required" class="vaidation-error error-text-red">Youtube video ID is required!</span>
+                        <!-- <span *ngIf="youtubeInput.touched && youtubeInput.errors?.pattern" class="vaidation-error error-text-red">Fill in only the Youtube video ID!</span> -->
                     </div>
                 </div>
-                Info: {{ g.value | json }}
+                <span class="vaidation-error error-text-red">{{this.gameService.serverError}}</span> Info: {{ g.value | json }}
                 <div id="add-game-buttons">
                     <button class="btn waves-effect waves-light add-game-btn" name="action" [disabled]="g.invalid"><i class="material-icons left">input</i>Add</button>
                     <button class="btn waves-effect waves-light add-game-btn" name="action" type="reset"><i class="material-icons left">input</i>Reset</button>
