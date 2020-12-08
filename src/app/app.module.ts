@@ -12,6 +12,7 @@ import { ShowcaseModule } from './showcase/showcase.module';
 import { UserModule } from './user/user.module';
 import { FormsModule } from '@angular/forms';
 import Backendless from 'backendless';
+import { AuthGuardService } from './guards/auth-guard.service';
 
 @NgModule({
   declarations: [
@@ -29,8 +30,8 @@ import Backendless from 'backendless';
     FormsModule
   ],
   providers: [
-
-  ],
+    AuthGuardService
+    ],
   bootstrap: [
     AppComponent,
     HeaderComponent,

@@ -1,7 +1,9 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Backendless from 'backendless';
-import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
+import { GameService } from '../game.service';
+import { UserService } from 'src/app/user/user.service';
 
 
 @Component({
@@ -9,24 +11,9 @@ import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browse
   templateUrl: './detail.component.html',
   styleUrls: ['./detail.component.css']
 })
+
 export class DetailComponent implements OnInit {
-
-  dangerousUrl: string;
-  trustedUrl: SafeUrl;
-  dangerousVideoUrl: string;
-  videoUrl: SafeResourceUrl;
-
-  constructor(private router: Router, private sanitizer: DomSanitizer) { 
-    // this.dangerousUrl = 'javascript:alert("Hi there")';
-    // this.trustedUrl = sanitizer.bypassSecurityTrustUrl(this.dangerousUrl);
-    // this.updateVideoUrl(this.currentUserData.youtube_id);
-  }
-
-  // updateVideoUrl(id: string) {
-  //   this.dangerousVideoUrl = 'https://www.youtube.com/embed/' + id;
-  //   this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);
-  // }
-
+  
   currentGameData;
   game: Object;
   currentUserData;
@@ -35,29 +22,33 @@ export class DetailComponent implements OnInit {
   owner: Boolean;
   gameOrders;
   inWishlist;
+  safeSource: SafeResourceUrl;
 
-  ngOnInit(): void {
-    //get current game data from server 
+  constructor(private router: Router, private sanitizer: DomSanitizer, private gameService: GameService, private userService: UserService) {
+
+  //get current game data from server 
 
   let objectId = localStorage.getItem('currentGameId');
-   console.log('ID: ' + objectId);
+  console.log('ID: ' + objectId);
 
-  let getGameData = Backendless.Data.of('games').findById({objectId})
- .then(currentGame => {
-   console.log('Current Data: ' + JSON.stringify(currentGame));
-   return currentGame;
-  })
- .catch(error => {
-  console.log(error);
-  });
+ let getGameData = Backendless.Data.of('games').findById({objectId})
+.then(currentGame => {
+  console.log('Current Data: ' + JSON.stringify(currentGame));
+  return currentGame;
+ })
+.catch(error => {
+ console.log(error);
+ });
 
-  getGameData.then(result => {
-    console.log(JSON.stringify(result));
-    this.currentGameData = result;    
-  })
+ getGameData.then(result => {
+   console.log(JSON.stringify(result));
+   this.currentGameData = result;  
+   this.safeSource =  this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.currentGameData.youtube_id}`);  
+ })
+ 
 
-  //get user data
-  let getUserData = Backendless.UserService.getCurrentUser()
+//  get user data
+ let getUserData = Backendless.UserService.getCurrentUser()
  .then(function(currentUser) {
    return currentUser;
   })
@@ -65,8 +56,8 @@ export class DetailComponent implements OnInit {
    console.error(error)
   })
 
-  //check if user is publisher and Game in Wishlist
-  getUserData.then(result => {
+   //check if user is publisher and Game in Wishlist
+   getUserData.then(result => {
     console.log('User: '+ JSON.stringify(result));
     this.currentUserData = result;  
     if (this.currentUserData.publisher) {
@@ -76,6 +67,14 @@ export class DetailComponent implements OnInit {
       this.inWishlist = true;
     }
   })
+
+
+  
+}
+
+  
+
+  ngOnInit(): void {
 
   //check if game is already bought
   if(this.currentUserData.orders.find(this.currentGameData.objectId)) {

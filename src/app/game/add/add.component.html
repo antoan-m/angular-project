@@ -8,10 +8,10 @@
             <form #g="ngForm" (ngSubmit)="addGameCall()">
                 <div class="row">
                     <div>
-                        <input #nameInput="ngModel" id="name" type="text" name="name" ngModel required minlength="3">
-                        <label for="name">Name</label>
-                        <span *ngIf="nameInput.touched && nameInput.errors?.required" class="vaidation-error error-text-red">Name is required!</span>
-                        <span *ngIf="nameInput.touched && nameInput.errors?.minlength" class="vaidation-error error-text-red">Name must be at least 3 characters!</span>
+                        <input #titleInput="ngModel" id="name" type="text" name="title" ngModel required minlength="3">
+                        <label for="name">Title</label>
+                        <span *ngIf="titleInput.touched && titleInput.errors?.required" class="vaidation-error error-text-red">Title is required!</span>
+                        <span *ngIf="titleInput.touched && titleInput.errors?.minlength" class="vaidation-error error-text-red">Title must be at least 3 characters!</span>
                     </div>
                 </div>
                 <div class="row">

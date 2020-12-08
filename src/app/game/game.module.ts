@@ -9,7 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { GameService } from './game.service';
 import { EditGameComponent } from './edit-game/edit-game.component';
 
-
 @NgModule({
   declarations: [
     GamesComponent, 
@@ -22,7 +21,7 @@ import { EditGameComponent } from './edit-game/edit-game.component';
     CommonModule,
     FormsModule,
     AppRoutingModule
-  ],
+    ],
   providers: [
     GameService
     ]

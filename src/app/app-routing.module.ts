@@ -13,7 +13,7 @@ import { OrdersComponent } from './user/orders/orders.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { RegisterComponent } from './user/register/register.component';
 import { WishlistComponent } from './user/wishlist/wishlist.component';
-
+import { AuthGuardService } from './guards/auth-guard.service';
 
 const routes: Routes = [
   {
@@ -39,15 +39,18 @@ const routes: Routes = [
   },
   {
     path: 'games/details/edit/:id',
-    component: EditGameComponent
+    component: EditGameComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'games/add',
-    component: AddComponent
+    component: AddComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'games/my-games',
-    component: MyGamesComponent
+    component: MyGamesComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'user/login',
@@ -59,23 +62,28 @@ const routes: Routes = [
   },
   {
     path: 'user/profile',
+    canActivate: [AuthGuardService],
     component: ProfileComponent
   },
   {
     path: 'user/edit',
-    component: EditComponent
+    component: EditComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'user/wishlist',
-    component: WishlistComponent
+    component: WishlistComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'user/orders',
-    component: OrdersComponent
+    component: OrdersComponent,
+    canActivate: [AuthGuardService]
   },
   {
     path: 'user/my-orders',
-    component: MyOrdersComponent
+    component: MyOrdersComponent,
+    canActivate: [AuthGuardService]
   },
   {
   path: '**', 

@@ -26,14 +26,32 @@
                 </div>
                 <div class="row">
                     <div>
-                        <textarea id="bullets" class="materialize-textarea" name="bullets" [(ngModel)]="currentGameData.bullets"></textarea>
-                        <label for="bullets">Bullets</label>
+                        <textarea id="bullet1" class="materialize-textarea" name="bullet1" [(ngModel)]="currentGameData.bullet1"></textarea>
+                        <label for="bullet1">Requirements CPU</label>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <textarea id="requirements" class="materialize-textarea" name="requirements" [(ngModel)]="currentGameData.requirements"></textarea>
-                        <label for="requirements">Requirements</label>
+                        <textarea id="bullet2" class="materialize-textarea" name="bullet2" [(ngModel)]="currentGameData.bullet2"></textarea>
+                        <label for="bullet2">Requirements GPU</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <textarea id="bullet3" class="materialize-textarea" name="bullet3" [(ngModel)]="currentGameData.bullet3"></textarea>
+                        <label for="bullet3">Requirements RAM</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <textarea id="bullet4" class="materialize-textarea" name="bullet4" [(ngModel)]="currentGameData.bullet4"></textarea>
+                        <label for="bullet4">Requirements HDD</label>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <textarea id="bullet5" class="materialize-textarea" name="bullet5" [(ngModel)]="currentGameData.bullet5"></textarea>
+                        <label for="bullet5">Requirements OS</label>
                     </div>
                 </div>
                 <div class="row">
@@ -44,11 +62,11 @@
                 </div>
                 <div class="row">
                     <div>
-                        <input id="youtube_url" type="text" class="validate" name="youtube_url" [(ngModel)]="currentGameData.youtube_url">
-                        <label for="youtube_url">Youtube Trailer URL</label>
+                        <input id="trailer" type="text" class="validate" name="youtubeId" [(ngModel)]="currentGameData.youtube_id">
+                        <label for="trailer">Youtube Trailer URL</label>
                     </div>
                 </div>
-                Info: {{ e.value | json }}
+                <span class="vaidation-error error-text-red">{{this.gameService.serverError}}</span>
                 <div id="add-game-buttons">
                     <button class="btn waves-effect waves-light add-game-btn" name="action" [disabled]="e.invalid"><i class="material-icons left">input</i>Edit</button>
                     <button class="btn waves-effect waves-light add-game-btn" name="action" (click)="cancelGameEdit()"><i class="material-icons left">input</i>Cancel</button>

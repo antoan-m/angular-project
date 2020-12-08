@@ -61,10 +61,13 @@ editGame(currentGameId) {
   title: this.form.value.title,
   image: this.form.value.image,
   description: this.form.value.description,
-  bullets: this.form.value.bullets,
-  requirements: this.form.value.requirements,
+  bullet1: this.form.value.requirements1,
+  bullet2: this.form.value.requirements2,
+  bullet3: this.form.value.requirements3,
+  bullet4: this.form.value.requirements4,
+  bullet5: this.form.value.requirements5,
   price: this.form.value.price,
-  youtube_url: this.form.value.youtube_url
+  youtube_id: this.form.value.youtubeId
   }
 
 Backendless.Data.of('games').save(this.game)

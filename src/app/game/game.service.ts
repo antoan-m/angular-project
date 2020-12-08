@@ -69,7 +69,7 @@ export class GameService {
 
 
     var game = {
-    title: userRegForm.name,
+    title: userRegForm.title,
     // imagefile: this.newFileNameLink,
     image: userRegForm.imageUrl,
     description: userRegForm.description,
