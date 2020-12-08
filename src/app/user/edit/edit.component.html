@@ -26,7 +26,6 @@
                 </div>
 
                 <div id="register-buttons">
-                    Info: {{ f.value | json }}
                     <button class="btn waves-effect waves-light register-btn" name="action" [disabled]="f.invalid"><i class="material-icons left">save</i>Save</button>
                     <button class="btn waves-effect waves-light register-btn" name="action" (click)="cancelUserProfileEdit()"><i class="material-icons left">cancel</i>Cancel</button>
                 </div>

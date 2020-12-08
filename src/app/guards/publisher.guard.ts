@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { CanActivate, Router, ActivatedRouteSnapshot, RouterStateSnapshot } from '@angular/router';
 import { AuthService } from './auth.service';
+import { Observable } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthGuardService implements CanActivate {
+export class PublisherGuard implements CanActivate {
 
   constructor(private authService: AuthService, private router: Router) {}
 
@@ -16,8 +17,18 @@ export class AuthGuardService implements CanActivate {
         this.router.navigate(['user/login']);
         return resolve(false);
       } else {
+            Backendless.UserService.getCurrentUser()
+            .then(user => {
+                if (!user.publisher) {
+                  this.router.navigate(['/']);
+                  //return resolve(false);
+                }
+             })
+            .catch(error => {
+             });
         return resolve(true);
       }
     }));
 }
+  
 }

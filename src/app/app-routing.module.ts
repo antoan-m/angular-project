@@ -13,7 +13,9 @@ import { OrdersComponent } from './user/orders/orders.component';
 import { ProfileComponent } from './user/profile/profile.component';
 import { RegisterComponent } from './user/register/register.component';
 import { WishlistComponent } from './user/wishlist/wishlist.component';
-import { AuthGuardService } from './guards/auth-guard.service';
+import { AuthGuard } from './guards/auth.guard';
+import { UserGuard } from './guards/user.guard';
+import { PublisherGuard } from './guards/publisher.guard';
 
 const routes: Routes = [
   {
@@ -40,17 +42,17 @@ const routes: Routes = [
   {
     path: 'games/details/edit/:id',
     component: EditGameComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuard, PublisherGuard]
   },
   {
     path: 'games/add',
     component: AddComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuard]
   },
   {
     path: 'games/my-games',
     component: MyGamesComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuard, PublisherGuard]
   },
   {
     path: 'user/login',
@@ -62,28 +64,28 @@ const routes: Routes = [
   },
   {
     path: 'user/profile',
-    canActivate: [AuthGuardService],
-    component: ProfileComponent
+    component: ProfileComponent,
+    canActivate: [AuthGuard]
   },
   {
     path: 'user/edit',
     component: EditComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuard]
   },
   {
     path: 'user/wishlist',
     component: WishlistComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuard, UserGuard]
   },
   {
     path: 'user/orders',
     component: OrdersComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuard, PublisherGuard]
   },
   {
     path: 'user/my-orders',
     component: MyOrdersComponent,
-    canActivate: [AuthGuardService]
+    canActivate: [AuthGuard, UserGuard]
   },
   {
   path: '**', 
