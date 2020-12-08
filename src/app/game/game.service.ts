@@ -45,39 +45,41 @@ export class GameService {
 
   //   console.log(`Data before sending: ${JSON.stringify(this.form.value)}`);
 
-  this.imageFileName = userRegForm.imageUrl;
-  this.newImageFileName = this.imageFileName.replace('/[^/\]+$/')
-  let filename = this.newImageFileName.replace('/\.jpeg$|\.jpg$|\.png$')
-  console.log("FILE: " + filename);
   
+  
+//   let filename = userRegForm.imageUrl;
+//   console.log("filename: " + filename);
 
-  var file = new File([filename], this.newImageFileName, {
-    type: "multipart/form-data",
-  });
 
-  //upload game image
-Backendless.Files.upload(file, 'games', true)
-.then(result => {
-   console.log("File uploaded. URL: " + JSON.stringify(result));
-   M.toast({html: 'UPLOADED FILE: ' + JSON.stringify(result)});
-   this.newFileNameLink = result;
- })
-.catch(error => {
-   console.log( "error - " + error.message );
-   M.toast({html: error})
- });
+//   var file = new File([filename], this.newImageFileName, {
+//     type: "multipart/form-data",
+//   });
+
+//   //upload game image
+// Backendless.Files.upload(file, 'games', true)
+// .then(result => {
+//    console.log("File uploaded. URL: " + JSON.stringify(result));
+//    M.toast({html: 'UPLOADED FILE: ' + JSON.stringify(result)});
+//    this.newFileNameLink = result;
+//  })
+// .catch(error => {
+//    console.log( "error - " + error.message );
+//    M.toast({html: error})
+//  });
 
 
     var game = {
     title: userRegForm.name,
-    imagefile: this.newFileNameLink,
-    // image: userRegForm.imageUrl,
-    image: "https://demo.jpg",
+    // imagefile: this.newFileNameLink,
+    image: userRegForm.imageUrl,
     description: userRegForm.description,
-    bullets: userRegForm.bullets,
-    requirements: userRegForm.requirements,
+    bullet1: userRegForm.requirements1,
+    bullet2: userRegForm.requirements2,
+    bullet3: userRegForm.requirements3,
+    bullet4: userRegForm.requirements4,
+    bullet5: userRegForm.requirements5,
     price: userRegForm.price,
-    youtube_url: userRegForm.youtubeTrailerUrl
+    youtube_id: userRegForm.youtubeId
   }
 
   console.log('GAME: ' + JSON.stringify(game));
@@ -91,15 +93,12 @@ Backendless.Data.of('games').save(game)
   M.toast({html: 'Game added successfully!'}),
   this.router.navigate(['games/my-games'])
   })
-.catch(function(error) {
-    console.log('Error: ' + error.message);
-  });
-
+  .catch(error => 
+    console.error('Can not Register User:', error.message,
+    M.toast({html: error.message}),
+    this.serverError = error
+    ));
   }
-
-
-  
-
 
 
 }

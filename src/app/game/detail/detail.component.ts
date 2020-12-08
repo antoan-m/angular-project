@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Backendless from 'backendless';
+import { DomSanitizer, SafeResourceUrl, SafeUrl } from '@angular/platform-browser';
+
 
 @Component({
   selector: 'app-detail',
@@ -9,7 +11,21 @@ import Backendless from 'backendless';
 })
 export class DetailComponent implements OnInit {
 
-  constructor(private router: Router) { }
+  dangerousUrl: string;
+  trustedUrl: SafeUrl;
+  dangerousVideoUrl: string;
+  videoUrl: SafeResourceUrl;
+
+  constructor(private router: Router, private sanitizer: DomSanitizer) { 
+    // this.dangerousUrl = 'javascript:alert("Hi there")';
+    // this.trustedUrl = sanitizer.bypassSecurityTrustUrl(this.dangerousUrl);
+    // this.updateVideoUrl(this.currentUserData.youtube_id);
+  }
+
+  // updateVideoUrl(id: string) {
+  //   this.dangerousVideoUrl = 'https://www.youtube.com/embed/' + id;
+  //   this.videoUrl = this.sanitizer.bypassSecurityTrustResourceUrl(this.dangerousVideoUrl);
+  // }
 
   currentGameData;
   game: Object;
@@ -21,7 +37,7 @@ export class DetailComponent implements OnInit {
   inWishlist;
 
   ngOnInit(): void {
-    //get current game data from server
+    //get current game data from server 
 
   let objectId = localStorage.getItem('currentGameId');
    console.log('ID: ' + objectId);

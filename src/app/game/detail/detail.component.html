@@ -1,56 +1,61 @@
-<div id="game-details" class="col s12 m12 l12 xl12">
+<div class="row" id="details">
 
-    <div class="col s12 m6 l6 xl6">
-        <div class="game-title">
+    <div class="row">
+        <div class="game-title col s12 m6 l6 xl6">
             <h3>{{currentGameData.title}}</h3>
         </div>
     </div>
 
-    <div class="game-cover col s12 m12 l4 xl4">
-        <img src="{{currentGameData.image}}" alt="{{currentGameData.title}}">
-    </div>
-
-    <div class="game-buttons-price col s12 m12 l4 xl4">
-        <div class="game-price">
-            €{{currentGameData.price}}
+    <div class="row">
+        <div class="game-cover col s12 m12 l3 xl3">
+            <img src="{{currentGameData.image}}" alt="{{currentGameData.title}}">
         </div>
-        <div *ngIf="!publisherMenu" class="game-buttons">
-            <a *ngIf="!gameBought" (click)="buyGame(currentGameData.objectId)" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons left">cloud_download</i>Buy Now</a>
-            <a *ngIf="gameBought" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons left">tag_faces</i>You own it</a>
-            <br><br>
-            <a *ngIf="!inWishlist" (click)="addGameToWishlist(currentGameData.objectId)" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons left">favorite</i>Add To Wishlist</a>
-            <a *ngIf="inWishlist" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons left">check_box</i>In your Wishlist</a>
+
+        <div class="game-youtube col s12 m12 l4 xl4">
+            <span class="details-block-header"><b>Trailer</b></span>
+            <div class="game-tube">
+                <div class="video-container">
+                    <iframe width="560" height="315" src="https://www.youtube.com/embed/{{currentGameData.youtube_id}}" frameborder="0" allowfullscreen></iframe>
+                </div>
+            </div>
+
         </div>
-        <div *ngIf="publisherMenu" class="game-buttons">
-            <a [routerLink]="['../../add']" class="waves-effect waves-light btn-large"><i class="material-icons left">videogame_asset</i>Add Game</a><br><br>
-            <a [routerLink]="['../../my-games']" class="waves-effect waves-light btn-large mygames-btn"><i class="material-icons left">games</i>My Games</a>
-            <div *ngIf="owner">You are publisher of this game</div>
+
+        <div class="game-bullets col s12 m12 l4 xl4">
+            <div class="game-price valign-wrapper" style="height:100px; width: 200px; float: left;">
+                €{{currentGameData.price}}
+            </div>
+            <div *ngIf="!publisherMenu" class="game-buttons">
+                <a *ngIf="!gameBought" (click)="buyGame(currentGameData.objectId)" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons left">cloud_download</i>Buy Now</a>
+                <a *ngIf="gameBought" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons left">tag_faces</i>You own it</a>
+                <br><br>
+                <a *ngIf="!inWishlist" (click)="addGameToWishlist(currentGameData.objectId)" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons left">favorite</i>Add To Wishlist</a>
+                <a *ngIf="inWishlist" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons left">check_box</i>In your Wishlist</a>
+            </div>
+
+            <div *ngIf="publisherMenu" class="game-buttons">
+                <a [routerLink]="['../../add']" class="waves-effect waves-light btn-large"><i class="material-icons left">videogame_asset</i>Add Game</a><br><br>
+                <a [routerLink]="['../../my-games']" class="waves-effect waves-light btn-large mygames-btn"><i class="material-icons left">games</i>My Games</a>
+                <div *ngIf="owner">You are publisher of this game</div>
+            </div>
+            <div class="game-requirements">
+                <span class="details-block-header"><b>PC Requirements</b></span>
+                <ul>
+                    <li *ngIf="currentGameData.bullet1"><b>CPU:</b> {{currentGameData.bullet1}}</li>
+                    <li *ngIf="currentGameData.bullet2"><b>GPU:</b> {{currentGameData.bullet2}}</li>
+                    <li *ngIf="currentGameData.bullet3"><b>RAM:</b> {{currentGameData.bullet3}}</li>
+                    <li *ngIf="currentGameData.bullet4"><b>HDD:</b> {{currentGameData.bullet4}}</li>
+                    <li *ngIf="currentGameData.bullet5"><b>OS:</b> {{currentGameData.bullet5}}</li>
+                </ul>
+            </div>
         </div>
-    </div>
 
-    <div class="game-bullets col s12 m12 l4 xl4">
-        <span><b>Features</b></span>
-        <ul>
-            {{currentGameData.bullets}}
-        </ul>
-    </div>
-
-    <div class="game-requirements col s12 m12 l4 xl4">
-        <span><b>PC Requirements</b></span>
-        <ul>
-            {{currentGameData.requirements}}
-        </ul>
-    </div>
-</div>
-
-<div clsss="game-description col s12 m12 l12 xl12">
-    <span><b>Summary</b></span> {{currentGameData.description}}
-</div>
-
-<div clsss="game-youtube col s12 m12 l12 xl12">
-    <span><b>Trailer</b></span>
-    <div class="video-container">
-        <div width="853" height="480" src="{{currentGameData.youtube_url}}" frameborder="0" allowfullscreen></div>
+        <div class="row" style="clear: both;">
+            <span class="details-block-header"><b>Description</b></span>
+            <div class="game-description col s12 m12 l12 xl12">
+                {{currentGameData.description}}
+            </div>
+        </div>
     </div>
 
 </div>

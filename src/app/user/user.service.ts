@@ -26,6 +26,7 @@ currentUserData;
 publisherMenu;
 serverError: any;
 
+//register user
 registerHandler(name: string, email: string, password: string, address: string, publisher: boolean) {
 
   class AppUser extends Backendless.User {

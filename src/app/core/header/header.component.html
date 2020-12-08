@@ -24,9 +24,9 @@
             <a *ngIf="!isLogged" routerLink="/user/login">Login</a>
             <a *ngIf="isLogged" routerLink="/" (click)="logoutUser()">Logout</a>
             <a *ngIf="isLogged" routerLink="/user/profile">Profile</a>
-            <a *ngIf="isLogged && !publisherMenu" routerLink="/user/my-orders">My Orders</a>
+            <!-- <a *ngIf="isLogged && !publisherMenu" routerLink="/user/my-orders">My Orders</a>
             <a *ngIf="isLogged && publisherMenu" routerLink="/user/orders">Orders</a>
-            <a *ngIf="isLogged && !publisherMenu" routerLink="/user/wishlist">Wishlist</a>
+            <a *ngIf="isLogged && !publisherMenu" routerLink="/user/wishlist">Wishlist</a> -->
             <a *ngIf="isLogged" id="user-greeting">Hello, {{userName}}</a>
         </div>
     </div>
@@ -50,9 +50,9 @@
             <a *ngIf="!isLogged" routerLink="/user/login">Login</a>
             <a *ngIf="isLogged" routerLink="/" (click)="logoutUser()">Logout</a>
             <a *ngIf="isLogged" routerLink="/user/profile">Profile</a>
-            <a *ngIf="isLogged && !publisherMenu" routerLink="/user/my-orders">My Orders</a>
+            <!-- <a *ngIf="isLogged && !publisherMenu" routerLink="/user/my-orders">My Orders</a>
             <a *ngIf="isLogged && publisherMenu" routerLink="/user/orders">Orders</a>
-            <a *ngIf="isLogged && !publisherMenu" routerLink="/user/wishlist">Wishlist</a>
+            <a *ngIf="isLogged && !publisherMenu" routerLink="/user/wishlist">Wishlist</a> -->
             <a *ngIf="isLogged" id="user-greeting-sticky">Hello, {{userName}}</a>
         </div>
     </div>

@@ -14,15 +14,15 @@
                         <span *ngIf="nameInput.touched && nameInput.errors?.minlength" class="vaidation-error error-text-red">Name must be at least 3 characters!</span>
                     </div>
                 </div>
-                <!-- <div class="row">
+                <div class="row">
                     <div>
-                        <input #imageInput="ngModel" id="image" type="text" class="validate" name="imageUrl" ngModel required url>
+                        <input #imageInput="ngModel" id="image" type="text" class="validate" name="imageUrl" ngModel required pattern="(https?://.*)(.jpg|.jpeg|.png)">
                         <label for="image">Image URL</label>
                         <span *ngIf="imageInput.touched && imageInput.errors?.required" class="vaidation-error error-text-red">Image is required!</span>
-                        <span *ngIf="imageInput.touched && imageInput.errors?.url" class="vaidation-error error-text-red">URL is invalid!</span>
+                        <span *ngIf="imageInput.touched && imageInput.errors?.pattern" class="vaidation-error error-text-red">URL is invalid!</span>
                     </div>
-                </div> -->
-                <div class="row">
+                </div>
+                <!-- <div class="row">
                     <div class="file-field input-field">
                         <div class="btn">
                             <span>File</span>
@@ -34,7 +34,7 @@
                             <span *ngIf="imagefileInput.touched && imagefileInput.errors?.required" class="vaidation-error error-text-red">Image is required!</span>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div class="row">
                     <div>
                         <textarea #descriptionInput="ngModel" id="description" type="text" class="materialize-textarea" name="description" ngModel required minlength="10"></textarea>
@@ -45,37 +45,56 @@
                 </div>
                 <div class="row">
                     <div>
-                        <textarea #bulletsInput="ngModel" id="bullets" class="materialize-textarea" name="bullets" ngModel required minlength="3"></textarea>
-                        <label for="bullets">Bullets</label>
-                        <span *ngIf="bulletsInput.touched && bulletsInput.errors?.required" class="vaidation-error error-text-red">Bullets is required!</span>
-                        <span *ngIf="bulletsInput.touched && bulletsInput.errors?.minlength" class="vaidation-error error-text-red">Bullets must be at least 3 characters!</span>
+                        <textarea #requirementsInput1="ngModel" id="requirements" class="materialize-textarea" name="requirements1" ngModel required></textarea>
+                        <label for="requirements1">Requirements CPU</label>
+                        <span *ngIf="requirementsInput1.touched && requirementsInput1.errors?.required" class="vaidation-error error-text-red">Bullet is required!</span>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <textarea #requirementsInput="ngModel" id="requirements" class="materialize-textarea" name="requirements" ngModel required minlength="3"></textarea>
-                        <label for="requirements">Requirements</label>
-                        <span *ngIf="requirementsInput.touched && requirementsInput.errors?.required" class="vaidation-error error-text-red">Description is required!</span>
-                        <span *ngIf="requirementsInput.touched && requirementsInput.errors?.minlength" class="vaidation-error error-text-red">Description must be at least 10 characters!</span>
+                        <textarea #requirementsInput2="ngModel" id="requirements" class="materialize-textarea" name="requirements2" ngModel required></textarea>
+                        <label for="requirements2">Requirements GPU</label>
+                        <span *ngIf="requirementsInput2.touched && requirementsInput2.errors?.required" class="vaidation-error error-text-red">Bullet is required!</span>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <input #priceInput="ngModel" id="price" type="text" class="validate" name="price" ngModel required pattern="[0-9]+.?[0-9]+">
+                        <textarea #requirementsInput3="ngModel" id="requirements" class="materialize-textarea" name="requirements3" ngModel required></textarea>
+                        <label for="requirements3">Requirements RAM</label>
+                        <span *ngIf="requirementsInput3.touched && requirementsInput3.errors?.required" class="vaidation-error error-text-red">Bullet is required!</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <textarea #requirementsInput4="ngModel" id="requirements" class="materialize-textarea" name="requirements4" ngModel required></textarea>
+                        <label for="requirements4">Requirements HDD</label>
+                        <span *ngIf="requirementsInput4.touched && requirementsInput4.errors?.required" class="vaidation-error error-text-red">Bullet is required!</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <textarea #requirementsInput5="ngModel" id="requirements" class="materialize-textarea" name="requirements5" ngModel required minlength="3"></textarea>
+                        <label for="requirements5">Requirements OS</label>
+                        <span *ngIf="requirementsInput5.touched && requirementsInput5.errors?.required" class="vaidation-error error-text-red">Bullet is required!</span>
+                    </div>
+                </div>
+                <div class="row">
+                    <div>
+                        <input #priceInput="ngModel" id="price" type="text" class="validate" name="price" ngModel required pattern="^\d+(.\d{1,2})?$">
                         <label for="price">Price</label>
                         <span *ngIf="priceInput.touched && priceInput.errors?.required" class="vaidation-error error-text-red">Price is required!</span>
-                        <span *ngIf="priceInput.touched && priceInput.errors?.pattern" class="vaidation-error error-text-red">Price must be a number!</span>
+                        <span *ngIf="priceInput.touched && priceInput.errors?.pattern" class="vaidation-error error-text-red">Price must be a number in format xx or xx.xx!</span>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <input #youtubeInput="ngModel" id="trailer" type="text" class="validate" name="youtubeTrailerUrl" ngModel required>
-                        <label for="trailer">Youtube Trailer ID</label>
+                        <input #youtubeInput="ngModel" id="trailer" type="text" class="validate" name="youtubeId" ngModel required>
+                        <label for="trailer">Youtube Video ID</label>
                         <span *ngIf="youtubeInput.touched && youtubeInput.errors?.required" class="vaidation-error error-text-red">Youtube video ID is required!</span>
                         <!-- <span *ngIf="youtubeInput.touched && youtubeInput.errors?.pattern" class="vaidation-error error-text-red">Fill in only the Youtube video ID!</span> -->
                     </div>
                 </div>
-                <span class="vaidation-error error-text-red">{{this.gameService.serverError}}</span> Info: {{ g.value | json }}
+                <span class="vaidation-error error-text-red">{{this.gameService.serverError}}</span>
                 <div id="add-game-buttons">
                     <button class="btn waves-effect waves-light add-game-btn" name="action" [disabled]="g.invalid"><i class="material-icons left">input</i>Add</button>
                     <button class="btn waves-effect waves-light add-game-btn" name="action" type="reset"><i class="material-icons left">input</i>Reset</button>
