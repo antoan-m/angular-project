@@ -11,7 +11,7 @@ export class AuthGuard implements CanActivate {
   constructor(private authService: AuthService, private router: Router) {}
 
   canActivate(next: ActivatedRouteSnapshot, state: RouterStateSnapshot) {
-    return new Promise((resolve, reject) =>  this.authService.checkLogged.then((user) => {
+    return new Promise((resolve, reject) => this.authService.checkLogged.then((user) => {
       if (!user) {
         M.toast({html: 'You are not logged in!'});
         this.router.navigate(['user/login']);

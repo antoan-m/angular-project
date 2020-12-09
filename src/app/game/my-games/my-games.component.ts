@@ -34,7 +34,7 @@ getUserData.then(result => {
    console.log('Userid: ' + this.userId);
 
    const whereClause = "ownerId='" + this.userId + "'";
-   const queryBuilder = Backendless.DataQueryBuilder.create().setWhereClause(whereClause);
+   const queryBuilder = Backendless.DataQueryBuilder.create().setWhereClause(whereClause).setSortBy(['title']);;
    let getGamesData = Backendless.Data.of('games').find(queryBuilder)
    .then(function(currentGames) {
      return currentGames;

@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Backendless from 'backendless';
-
+import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
   selector: 'app-games',
@@ -12,12 +12,32 @@ import Backendless from 'backendless';
 
 export class GamesComponent implements OnInit {
 
-  constructor(private router: Router) {}
+  constructor(private router: Router, private orderPipe: OrderPipe) {
+
+    this.sortedCollection = orderPipe.transform(this.games, this.order);
+
+  }
+
+  
+
+  order: string = 'created';
+  sortedCollection: any[];
+  reverse: boolean = true;
+  sortDirection: string = 'DESC';
+
+  setOrder(value: string) {
+    if (this.order === value) {
+      this.reverse = !this.reverse;
+    }
+    this.order = value;
+  }
 
   games;
 
-
   ngOnInit(): void {
+
+    // const whereClause = "";
+    // const queryBuilder = Backendless.DataQueryBuilder.create().setWhereClause(whereClause).setSortBy(['created DESC']);
 
     let getGamesData = Backendless.Data.of('games').find()
     .then(function(currentGames) {
@@ -29,7 +49,7 @@ export class GamesComponent implements OnInit {
    
      getGamesData.then(result => {
        console.log(result);
-       this.games = result;    
+       this.games = result;
      })
 
   }
@@ -55,7 +75,6 @@ export class GamesComponent implements OnInit {
     //   });
 
   }
-
 
 
 }

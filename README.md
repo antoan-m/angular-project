@@ -1,27 +1,40 @@
-# AngularProject
+# Angular Project
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 11.0.2.
+# GAME SPACE - Online shop for video games
 
-## Development server
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The app will automatically reload if you change any of the source files.
+# USERS
+The site supports two roles for users - users and publishers.
 
-## Code scaffolding
+Users can edit their profiles, buy games, add them to wishlists.
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+Publishers can edit their profiles, add new games (sale), check their orders. But they can't buy and add to wishlist. 
 
-## Build
+Users with one role has no access to specific pages, available only for the users with the other role.
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory. Use the `--prod` flag for a production build.
+#PUBLIC/PRIVATE PAGES
+There is a public and a private part in the site.
 
-## Running unit tests
+The public part - users can browse the games visit generic pages like About. To buy a game they should regiter/login.
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+The private part - the user has access to specific pages depending on his role like profile, orders, withlist...
 
-## Running end-to-end tests
+#FUNCTIONALITIES
+- register
+- login
+- edit profile
+- add game
+- edit game
+- delete game
+- buy game
+- view orders
+- add to wishlist
+- search games
+- sort games 
 
-Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protractortest.org/).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+# USED FRAMEWORKS & FUNCTIONALITIES
+- Angular 11
+- Materialize
+- Ng2SearchPipeModule
+- ngx-order-pipe
+- ngx-loaders-css

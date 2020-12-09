@@ -8,6 +8,7 @@ import { MyGamesComponent } from './my-games/my-games.component';
 import { FormsModule } from '@angular/forms';
 import { GameService } from './game.service';
 import { EditGameComponent } from './edit-game/edit-game.component';
+import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
@@ -20,7 +21,7 @@ import { EditGameComponent } from './edit-game/edit-game.component';
   imports: [
     CommonModule,
     FormsModule,
-    AppRoutingModule
+    AppRoutingModule,OrderModule
     ],
   providers: [
     GameService

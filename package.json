@@ -20,7 +20,11 @@
     "@angular/platform-browser-dynamic": "~11.0.1",
     "@angular/router": "~11.0.1",
     "backendless": "^6.1.5",
+    "loaders.css": "^0.1.2",
     "materialize-css": "^1.0.0-rc.2",
+    "ng2-search-filter": "^0.5.1",
+    "ngx-loaders-css": "^2.0.0",
+    "ngx-order-pipe": "^2.1.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"

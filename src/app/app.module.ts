@@ -15,6 +15,8 @@ import Backendless from 'backendless';
 import { AuthGuard } from './guards/auth.guard';
 import { UserGuard } from './guards/user.guard';
 import { PublisherGuard } from './guards/publisher.guard';
+import { Ng2SearchPipeModule } from 'ng2-search-filter';
+import { OrderModule } from 'ngx-order-pipe';
 
 @NgModule({
   declarations: [
@@ -29,7 +31,9 @@ import { PublisherGuard } from './guards/publisher.guard';
     ShowcaseModule,
     BrowserModule,
     AppRoutingModule,
-    FormsModule
+    FormsModule,
+    Ng2SearchPipeModule,
+    OrderModule
   ],
   providers: [
     AuthGuard,

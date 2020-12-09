@@ -5,9 +5,41 @@
         <img src="../../assets/images-games/football-manager-2021-img-low.jpg" alt="Football Manager 2021">
     </div> -->
 
-    <div id="games">
+    <div id='sorting'>
 
-        <div *ngFor="let game of games" class="col s12 m6 l4 xl3">
+        <div class="sort-button last-button" id='sort-by-date-desc'>
+            <button (click)="setOrder('created')" class="btn waves-effect waves-light" type="submit" name="action">date
+            <i class="material-icons right">arrow_downward</i>
+          </button></div>
+
+        <div class="sort-button" id='sort-by-date-asc'>
+            <button (click)="setOrder('created')" class="btn waves-effect waves-light" type="submit" name="action">date
+            <i class="material-icons right">arrow_upward</i>
+          </button></div>
+
+        <div class="sort-button last-button" id='sort-by-price-desc'>
+            <button (click)="setOrder('price')" class="btn waves-effect waves-light" type="submit" name="action">price
+            <i class="material-icons right">arrow_downward</i>
+          </button></div>
+
+        <div class="sort-button" id='sort-by-price-asc'>
+            <button (click)="setOrder('price')" class="btn waves-effect waves-light" type="submit" name="action">price
+            <i class="material-icons right">arrow_upward</i>
+          </button></div>
+
+        <div class="sort-button" id='sort-by-name-desc'>
+            <button (click)="setOrder('title')" class="btn waves-effect waves-light" type="submit" name="action">title
+            <i class="material-icons right">arrow_downward</i>
+          </button></div>
+
+        <div class="sort-button" id='sort-by-name-asc'>
+            <button (click)="setOrder('title')" class="btn waves-effect waves-light" type="submit" name="action">title
+            <i class="material-icons right">arrow_upward</i>
+          </button></div>
+    </div>
+
+    <div id="games">
+        <div *ngFor="let game of games | orderBy: order:reverse:'case-insensitive'" class="col s12 m6 l4 xl3">
             <div class="product-card" style="padding:10px; text-align: center;">
                 <div class="card">
                     <div class="card-img">
@@ -17,7 +49,7 @@
                         <h3>{{game.title}}</h3>
                     </div>
                     <div class="card-price">
-                        €{{game.price}}
+                        € {{game.price}}
                     </div>
                 </div>
             </div>

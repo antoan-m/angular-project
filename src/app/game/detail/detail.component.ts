@@ -96,6 +96,7 @@ if(this.currentUserData.objectId === this.currentGameData.ownerId) {
 
 //buy game
   ordersArray;
+  sales;
 
   buyGame(gameId) {
     console.log('USER DATA: ' + JSON.stringify(this.currentUserData));
@@ -150,10 +151,11 @@ if(this.currentUserData.objectId === this.currentGameData.ownerId) {
 
       this.gameOrders = Array.from([this.currentGameData.orders]);
       this.gameOrders.push(this.currentUserData.objectId);
+      this.sales = this.currentGameData.sales + 1;
       console.log('GAME ORDERS: ' + this.gameOrders);
-      
+      console.log('GAME SALES: ' + this.sales);
     
-      Backendless.Data.of('games').save({ objectId: gameId, orders: this.currentUserData.objectId })
+      Backendless.Data.of('games').save({ objectId: gameId, orders: this.currentUserData.objectId, sales: this.sales })
         .then(savedOrder => {
         console.log(savedOrder);
         })
@@ -261,7 +263,7 @@ if(!this.currentUserData.wishlist) {
 
 
   ngOnDestroy(): void {
-    // localStorage.removeItem('currentGameId');
+    //localStorage.removeItem('currentGameId');
   }
 
 }

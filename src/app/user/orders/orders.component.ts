@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Backendless from 'backendless';
+import { of } from 'rxjs';
 
 @Component({
   selector: 'app-orders',
@@ -28,16 +29,17 @@ let getUserData = Backendless.UserService.getCurrentUser()
  })
 
 getUserData.then(result => {
+  //get current user games data
    console.log('USER: ' + JSON.stringify(result));
    this.currentUserData = result; 
    this.userId = this.currentUserData.objectId;
 
    console.log('Userid: ' + this.userId);
 
-   //get game data
    const whereClause = "ownerId='" + this.userId + "'";
-   const queryBuilder = Backendless.DataQueryBuilder.create().setWhereClause(whereClause).setSortBy(['orders DESC']);
- 
+   const queryBuilder = Backendless.DataQueryBuilder.create().setWhereClause(whereClause).setSortBy(['sales DESC']);
+   //const queryBuilder = Backendless.DataQueryBuilder.create().setWhereClause(whereClause);
+
    let getGamesData = Backendless.Data.of('games').find(queryBuilder)
    .then(function(currentGames) {
      return currentGames;
@@ -49,14 +51,12 @@ getUserData.then(result => {
     getGamesData.then(result => {
       console.log('GAMES: ' + JSON.stringify(result));
       this.games = result; 
-      console.log(this.games.orders);   
+      console.log(this.games.orders);  
+      return this.games
     })
    })
 
-}
 
-gameSales(value) {
-  return Array.from(value.split(',')).length;
 }
 
 
