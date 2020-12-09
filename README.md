@@ -35,6 +35,8 @@ The private part - the user has access to specific pages depending on his role l
 - search games
 - sort games 
 
+------------------------------------------------------------------------------------
+
 # USED FRAMEWORKS & FUNCTIONALITIES
 - Angular 11
 - Materialize
