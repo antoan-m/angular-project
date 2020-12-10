@@ -13,6 +13,10 @@
     /* float: left; */
 }
 
+#game-details-image {
+    max-width: 335px;
+}
+
 .game-youtube {
     text-align: center;
     padding: 30px 30px;

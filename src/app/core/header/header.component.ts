@@ -25,7 +25,7 @@ games: any;
 
     let getGamesData = Backendless.Data.of('games').find()
     .then(function(currentGames) {
-      console.log('Search: ' + currentGames)
+      //console.log('Search: ' + currentGames)
       return currentGames;
      })
     .catch(function (error) {
@@ -33,7 +33,7 @@ games: any;
      })
    
      getGamesData.then(result => {
-       console.log(JSON.stringify(result));
+       //console.log(JSON.stringify(result));
        this.games = result;
        return this.games;
      })

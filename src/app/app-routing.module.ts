@@ -16,6 +16,7 @@ import { WishlistComponent } from './user/wishlist/wishlist.component';
 import { AuthGuard } from './guards/auth.guard';
 import { UserGuard } from './guards/user.guard';
 import { PublisherGuard } from './guards/publisher.guard';
+import { LoaderComponent } from './shared/loader/loader.component';
 
 const routes: Routes = [
   {
@@ -23,6 +24,10 @@ const routes: Routes = [
     pathMatch: 'full',
     component: HomeComponent
     },
+    {
+      path: 'loader',
+      component: LoaderComponent
+      },
   {
     path: 'home',
     redirectTo: '/'

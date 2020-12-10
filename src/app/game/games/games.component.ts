@@ -15,11 +15,9 @@ export class GamesComponent implements OnInit {
   constructor(private router: Router, private orderPipe: OrderPipe) {
 
     this.sortedCollection = orderPipe.transform(this.games, this.order);
-
+    
   }
-
-  
-
+  //order games 
   order: string = 'created';
   sortedCollection: any[];
   reverse: boolean = true;
@@ -39,6 +37,7 @@ export class GamesComponent implements OnInit {
     // const whereClause = "";
     // const queryBuilder = Backendless.DataQueryBuilder.create().setWhereClause(whereClause).setSortBy(['created DESC']);
 
+
     let getGamesData = Backendless.Data.of('games').find()
     .then(function(currentGames) {
       return currentGames;
@@ -46,9 +45,9 @@ export class GamesComponent implements OnInit {
     .catch(function (error) {
       console.error(error)
      })
-   
+
      getGamesData.then(result => {
-       console.log(result);
+      // console.log(result);
        this.games = result;
      })
 
@@ -65,7 +64,6 @@ export class GamesComponent implements OnInit {
 
 
   getAllGames() {
-
     // Backendless.Data.of('games').find()
     //  .then(game => {
     //    console.log(game);
@@ -73,8 +71,9 @@ export class GamesComponent implements OnInit {
     //  .catch(error => {
     //   console.log(error);
     //   });
-
   }
+
+
 
 
 }

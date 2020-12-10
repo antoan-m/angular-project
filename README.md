@@ -18,7 +18,7 @@ There is a public and a private part in the site.
 
 The public part - users can browse the games visit generic pages like About. To buy a game they should regiter/login.
 
-The private part - the user has access to specific pages depending on his role like profile, orders, withlist...
+The private part - the user has access to specific pages depending on his role like profile, orders, wishlist...
 
 ------------------------------------------------------------------------------------
 

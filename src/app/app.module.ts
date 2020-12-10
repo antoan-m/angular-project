@@ -17,6 +17,7 @@ import { UserGuard } from './guards/user.guard';
 import { PublisherGuard } from './guards/publisher.guard';
 import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { OrderModule } from 'ngx-order-pipe';
+import { NgxLoadersCssModule } from 'ngx-loaders-css';
 
 @NgModule({
   declarations: [
@@ -33,7 +34,8 @@ import { OrderModule } from 'ngx-order-pipe';
     AppRoutingModule,
     FormsModule,
     Ng2SearchPipeModule,
-    OrderModule
+    OrderModule,
+    NgxLoadersCssModule
   ],
   providers: [
     AuthGuard,

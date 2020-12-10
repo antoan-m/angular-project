@@ -1,15 +1,23 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { AuthComponent } from './auth/auth.component';
-
+import { LoaderComponent } from './loader/loader.component';
+import { NgxLoadersCssModule } from 'ngx-loaders-css';
 
 @NgModule({
-  declarations: [AuthComponent],
+  declarations: [
+    LoaderComponent,
+    NgxLoadersCssModule
+  ],
   imports: [
-    CommonModule
+    CommonModule,
+    NgxLoadersCssModule
   ],
   providers: [
 
+  ],
+  exports: [
+    LoaderComponent,
+    NgxLoadersCssModule
   ]
 })
 export class SharedModule { }
