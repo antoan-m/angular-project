@@ -44,6 +44,7 @@ export class EditGameComponent implements OnInit {
     localStorage.removeItem('currentGameId');
   }
 
+serverError: any;
 
 // update game info
 editGame(currentGameId) {
@@ -78,6 +79,8 @@ Backendless.Data.of('games').save(this.game)
     })
   .catch(error => {
       console.error(error.message);
+      M.toast({html: error.message}),
+      this.serverError = error
     });
   }
 

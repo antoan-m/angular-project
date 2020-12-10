@@ -37,6 +37,9 @@ export class GamesComponent implements OnInit {
     // const whereClause = "";
     // const queryBuilder = Backendless.DataQueryBuilder.create().setWhereClause(whereClause).setSortBy(['created DESC']);
 
+    // var queryBuilder = Backendless.DataQueryBuilder.create();
+    // queryBuilder.setPageSize(4).setOffset(8);
+    // queryBuilder.prepareNextPage();
 
     let getGamesData = Backendless.Data.of('games').find()
     .then(function(currentGames) {

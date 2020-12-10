@@ -13,6 +13,7 @@
     margin: 0 auto 20px;
     padding: 10px;
     text-align: center;
+    height: 450px;
 }
 
 .product-card:hover {
@@ -21,9 +22,20 @@
     box-shadow: 5px 10px 18px rgba(133, 133, 133, 0.7);
 }
 
+.card-price {
+    font-size: 21px;
+    padding-bottom: 10px;
+}
+
+.card-title h3 {
+    font-size: 21px;
+    margin: 0;
+}
+
 .card-img img {
     width: 90%;
     max-width: 341px;
+    height: 344px;
 }
 
 @media screen and (min-width: 48em) {
@@ -66,4 +78,20 @@
     z-index: 99;
     position: relative;
     overflow: hidden;
+}
+
+.panel-devider {
+    height: 10px;
+    background-color: #333;
+}
+
+.games-panel-title {
+    background-color: #333;
+    height: 40px;
+    font-size: 20px;
+    color: #fff;
+    padding: 5px 20px;
+    margin-bottom: 20px;
+    clear: both;
+    width: 20%;
 }

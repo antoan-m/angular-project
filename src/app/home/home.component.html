@@ -7,9 +7,9 @@
 
     <!-- games -->
 
-    <div id="games">
-
-        <div *ngFor="let game of games" class="col s12 m6 l2 xl2">
+    <div id="games nr">
+        <div class="games-panel-title nr">NEWEST RELEASES</div>
+        <div *ngFor="let game of games | orderBy: 'created':reverse:'case-insensitive'" class="col s12 m6 l2 xl2">
             <div class="product-card" style="padding:10px; text-align: center;">
                 <div class="card">
                     <div class="card-img">
@@ -24,7 +24,44 @@
                 </div>
             </div>
         </div>
-
+    </div>
+    <div class="col s12 m12 l12 xl12 games panel-devider"></div>
+    <div id="games ts">
+        <div class="games-panel-title ts">TOP SELLERS</div>
+        <div *ngFor="let game of games | orderBy: 'sales':reverse:'case-insensitive'" class="col s12 m6 l2 xl2">
+            <div class="product-card" style="padding:10px; text-align: center;">
+                <div class="card">
+                    <div class="card-img">
+                        <a (click)="getGameId(game.objectId)" routerLink="games/details/{{game.objectId}}"><img src="{{game.image}}" alt="{{game.title}}"></a>
+                    </div>
+                    <div class="card-title">
+                        <h3>{{game.title}}</h3>
+                    </div>
+                    <div class="card-price">
+                        €{{game.price}}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col s12 m12 l12 xl12 games panel-devider"></div>
+    <div id="games mw">
+        <div class="games-panel-title mw">MOST WANTED</div>
+        <div *ngFor="let game of games | orderBy: 'wishlist':reverse:'case-insensitive'" class="col s12 m6 l2 xl2">
+            <div class="product-card" style="padding:10px; text-align: center;">
+                <div class="card">
+                    <div class="card-img">
+                        <a (click)="getGameId(game.objectId)" routerLink="games/details/{{game.objectId}}"><img src="{{game.image}}" alt="{{game.title}}"></a>
+                    </div>
+                    <div class="card-title">
+                        <h3>{{game.title}}</h3>
+                    </div>
+                    <div class="card-price">
+                        €{{game.price}}
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
 
 </div>
