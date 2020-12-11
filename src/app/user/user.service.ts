@@ -61,13 +61,45 @@ registerHandler(name: string, email: string, password: string, address: string, 
     ));
   }
 
+  //edit user profile
+  editUserHandler(objectId: string, name: string, address: string) {
+
+    class AppUser extends Backendless.User {
+      name: string;
+      address: string;
+      publisher: boolean;
+     }
+  
+  const user: AppUser = new AppUser();
+  
+  user.objectId = objectId;
+  user.address = address;
+  user.name = name;
+  
+  Backendless.UserService.update(user)
+    .then(success => {
+    console.log('User has been updated');
+    M.toast({html: 'User has been updated!'});
+    localStorage.setItem('name', user.name);
+    this.router.navigate(['user/profile']);
+    })
+    .catch(error => {
+    M.toast({html: error.message});
+    this.serverError = error;
+    console.error('Server reported an error: ', error.message)
+    console.error('error code: ', error.code)
+    console.error('http status: ', error.status)
+    })
+  }
+
+//login user
 loginHandler(email, password) {
 
  Backendless.UserService.login(email, password, true)
   .then(loggedInUser => {
     M.toast({html: 'Hello, ' + loggedInUser.name + '!'})
-    console.log(loggedInUser);
-    console.log(loggedInUser['user-token']);
+    //console.log(loggedInUser);
+    //console.log(loggedInUser['user-token']);
     localStorage.setItem('isLogged', 'true');
     localStorage.userToken = loggedInUser['user-token'];
     localStorage.name = loggedInUser['name'];
@@ -88,7 +120,7 @@ loginHandler(email, password) {
   })
   }
 
-  
+  //logout user
   logoutUser() {
     Backendless.UserService.logout()
      .then(() => {
@@ -112,9 +144,29 @@ loginHandler(email, password) {
 
 
 
-userDataObject = () => {
+// userDataObject = () => {
 
-let getUserData = Backendless.UserService.getCurrentUser()
+// let getUserData = Backendless.UserService.getCurrentUser()
+//  .then(function(currentUser) {
+//    return currentUser;
+//   })
+//  .catch(function (error) {
+//    console.error(error)
+//   })
+
+// getUserData.then(result => {
+//     console.log(JSON.stringify(result));
+//     this.currentUserData = result;  
+//     if (this.currentUserData.publisher) {
+//       this.publisherMenu = true;
+//     }  
+//   })
+// }
+
+
+getUserInfo(): void {
+  this.currentUserData;
+  let getUserData = Backendless.UserService.getCurrentUser()
  .then(function(currentUser) {
    return currentUser;
   })
@@ -125,10 +177,12 @@ let getUserData = Backendless.UserService.getCurrentUser()
 getUserData.then(result => {
     console.log(JSON.stringify(result));
     this.currentUserData = result;  
+    return result;
     if (this.currentUserData.publisher) {
       this.publisherMenu = true;
     }  
   })
+
 }
 
 

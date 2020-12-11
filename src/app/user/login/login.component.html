@@ -1,34 +1,35 @@
-<div id="user-login" class="container">
-    <div class="page-title">Log in you account</div>
-    <div class="row">
-        <div id="login-left" class="col s12 m12 l3 xl3">
-            <img src="../../assets/images-games/assasins-creed-valhalla-img.png" alt="">
-        </div>
-        <div class="col s12 m12 l6 xl6">
-            <form #f="ngForm" (ngSubmit)="loginHandlerCall()">
-                <div class="row">
-                    <div>
-                        <input #emailInput="ngModel" id="email" type="email" class="validate form-control" name="email" ngModel required email>
-                        <label for="email">Email</label><span *ngIf="emailInput.touched && emailInput.errors?.required" class="vaidation-error error-text-red">Email is required!</span>
-                        <span *ngIf="emailInput.touched && emailInput.errors?.email" class="vaidation-error error-text-red">Email is invalid!</span>
+<div class="row" id="user-login-main">
+    <div id="user-login" class="container">
+        <div class="page-title">Log in</div>
+        <div class="row">
+            <div id="login-left" class="col s12 m12 l3 xl3">
+                <img src="../../assets/images-games/assasins-creed-valhalla-img.png" alt="">
+            </div>
+            <div class="col s12 m12 l6 xl6">
+                <form #f="ngForm" (ngSubmit)="loginHandlerCall()">
+                    <div class="row">
+                        <div>
+                            <input #emailInput="ngModel" id="email" type="email" class="validate form-control" name="email" ngModel required email>
+                            <label for="email">Email</label><span *ngIf="emailInput.touched && emailInput.errors?.required" class="vaidation-error error-text-red">Email is required!</span>
+                            <span *ngIf="emailInput.touched && emailInput.errors?.email" class="vaidation-error error-text-red">Email is invalid!</span>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div>
-                        <input #passwordInput="ngModel" id="password" type="password" class="validate form-control" name="password" ngModel required password minlength="6">
-                        <label for="email">Password</label><span *ngIf="passwordInput.touched && passwordInput.errors?.required" class="vaidation-error error-text-red">Password is required!</span>
-                        <span *ngIf="passwordInput.touched && passwordInput.errors?.minlength" class="vaidation-error error-text-red">Password must be at least 6 characters!</span>
-                    </div> <span class="vaidation-error error-text-red">{{this.userService.serverError}}</span>
-                </div>
-                <div id="login-button">
-                    <button class="btn waves-effect waves-light" name="action" [disabled]="f.invalid"><i class="material-icons left">input</i>Login</button>
-                </div>
-            </form>
-            <div id="not-registered">Don't have an account? <a [routerLink]="['../register']">Register</a></div>
-        </div>
-        <div id="login-right" class="col s12 m12 l3 xl3">
-            <img src="../../assets/images-games/bugsnax-img.png" alt="">
+                    <div class="row">
+                        <div>
+                            <input #passwordInput="ngModel" id="password" type="password" class="validate form-control" name="password" ngModel required password minlength="6">
+                            <label for="email">Password</label><span *ngIf="passwordInput.touched && passwordInput.errors?.required" class="vaidation-error error-text-red">Password is required!</span>
+                            <span *ngIf="passwordInput.touched && passwordInput.errors?.minlength" class="vaidation-error error-text-red">Password must be at least 6 characters!</span>
+                        </div> <span class="vaidation-error error-text-red">{{this.userService.serverError}}</span>
+                    </div>
+                    <div id="login-button">
+                        <button class="btn waves-effect waves-light" name="action" [disabled]="f.invalid"><i class="material-icons left">input</i>Login</button>
+                    </div>
+                </form>
+                <div id="not-registered">Don't have an account? <a [routerLink]="['../register']">Register</a></div>
+            </div>
+            <div id="login-right" class="col s12 m12 l3 xl3">
+                <img src="../../assets/images-games/bugsnax-img.png" alt="">
+            </div>
         </div>
     </div>
-
 </div>

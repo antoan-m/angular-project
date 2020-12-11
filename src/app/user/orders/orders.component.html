@@ -1,34 +1,35 @@
-<div id="orders" class="container">
-    <div class="page-title">Orders</div>
-    <div class="row">
-        <div id="profile-left" class="col s12 m12 l3 xl3">
-            <img src="../../assets/images-games/assasins-creed-valhalla-img.png" alt="">
-        </div>
-        <div class="col s12 m12 l6 xl6">
-            <div id="orders-details">
-                <table class="striped">
-                    <tbody class="col s12 m12 l12 xl12">
-                        <thead>
-                            <th class="orders-details-head" style="width: 65%;">Title</th>
-                            <th class="orders-details-head" style="width: 10%; text-align: center;">Price</th>
-                            <th class="orders-details-head" style="width: 25%; text-align: center;">Sales</th>
-                        </thead>
-                        <tr *ngFor="let game of games">
-                            <td style="width: 65%;">{{game.title}}</td>
-                            <td style="width: 10%; text-align: center;">{{game.price}}</td>
-                            <td style="width: 25%; text-align: center;">{{game.sales}}</td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div id="orders-buttons">
-                    <span id="add-button"><a [routerLink]="['../../games/add']" class="waves-effect waves-light btn"><i class="material-icons left">videogame_asset</i>Add Game</a></span>
-                    <span id="back-button"><a [routerLink]="['../../user/profile']" class="waves-effect waves-light btn"><i class="material-icons left">backspace</i>Back</a></span>
+<div class="row" id="orders-main">
+    <div id="orders" class="container">
+        <div class="page-title">Orders</div>
+        <div class="row">
+            <div id="profile-left" class="col s12 m12 l3 xl3">
+                <img src="../../assets/images-games/assasins-creed-valhalla-img.png" alt="">
+            </div>
+            <div class="col s12 m12 l6 xl6">
+                <div id="orders-details">
+                    <table class="striped">
+                        <tbody class="col s12 m12 l12 xl12">
+                            <thead>
+                                <th class="orders-details-head" style="width: 65%;">Title</th>
+                                <th class="orders-details-head" style="width: 10%; text-align: center;">Price</th>
+                                <th class="orders-details-head" style="width: 25%; text-align: center;">Sales</th>
+                            </thead>
+                            <tr *ngFor="let game of games">
+                                <td style="width: 65%;">{{game.title}}</td>
+                                <td style="width: 10%; text-align: center;">{{game.price}}</td>
+                                <td style="width: 25%; text-align: center;">{{game.sales}}</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="orders-buttons">
+                        <span id="add-button"><a [routerLink]="['../../games/add']" class="waves-effect waves-light btn"><i class="material-icons left">videogame_asset</i>Add Game</a></span>
+                        <span id="back-button"><a [routerLink]="['../../user/profile']" class="waves-effect waves-light btn"><i class="material-icons left">backspace</i>Back</a></span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="profile-right" class="col s12 m12 l3 xl3">
-            <img src="../../assets/images-games/bugsnax-img.png" alt="">
+            <div id="profile-right" class="col s12 m12 l3 xl3">
+                <img src="../../assets/images-games/bugsnax-img.png" alt="">
+            </div>
         </div>
     </div>
-
 </div>

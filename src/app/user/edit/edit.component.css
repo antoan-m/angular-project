@@ -1,51 +1,39 @@
-#user-register {
-    margin-top: 200px;
+#user-edit {
+    margin-top: 170px;
 }
 
-@media only screen and (min-width: 1200) html {
-    #user-register {
-        width: 50%;
-    }
+#edit-user-main {
+    background-image: url("../../../assets/images/backgrounds/back-noise.png");
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    background-attachment: fixed;
+    padding-top: 5px;
 }
 
-@media only screen and (min-width: 992px) html {
-    #user-register {
-        width: 50%;
-    }
-}
-
-@media only screen and (min-width: 600) html {
-    #user-register {
-        width: 50%;
-    }
-}
-
-@media only screen and (max-width: 600) html {
-    #user-register {
-        width: 50%;
-    }
-}
-
-#register-left,
-#register-right {
+#user-edit-left,
+#user-edit-right {
     text-align: center;
 }
 
-#register-left img,
-#register-right img {
+#user-edit-left img,
+#user-edit-right img {
     width: 80%;
 }
 
-#register-buttons {
+#user-edit-buttons {
     margin: 30px 0;
     text-align: center;
 }
 
-.register-btn {
+.user-edit-btn {
     margin: 0 10px;
 }
 
-.register-switch {
+.user-edit-switch {
     margin: 30px 0;
 }
 
@@ -57,7 +45,12 @@
     margin-top: -50px;
 }
 
-#already-registered {
+#already-user-edited {
     text-align: center;
     margin: 10px 0;
+}
+
+.error-text-red {
+    color: red;
+    padding-left: 20px;
 }

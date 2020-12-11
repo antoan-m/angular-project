@@ -1,3 +1,14 @@
+#home {
+    background-image: url("../../assets/images/backgrounds/back-noise.png");
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    background-attachment: fixed;
+}
+
 #games {
     position: relative;
 }
@@ -87,6 +98,7 @@
 
 .games-panel-title {
     background-color: #333;
+    background: linear-gradient(-45deg, transparent 30px, #333 0);
     height: 40px;
     font-size: 20px;
     color: #fff;

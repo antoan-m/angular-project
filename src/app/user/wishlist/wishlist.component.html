@@ -1,33 +1,35 @@
-<div id="wishlist" class="container">
-    <div class="page-title">Wishlist</div>
-    <div class="row">
-        <div id="profile-left" class="col s12 m12 l3 xl3">
-            <img src="../../assets/images-games/assasins-creed-valhalla-img.png" alt="">
-        </div>
-        <div class="col s12 m12 l6 xl6">
-            <div id="wishlist-details">
-                <table class="striped">
-                    <tbody class="col s12 m12 l12 xl12">
-                        <thead>
-                            <th class="wishlist-details-head" style="width: 65%;">Title</th>
-                            <th class="wishlist-details-head" style="width: 10%; text-align: center;">Price</th>
-                            <th class="wishlist-details-head" style="width: 15%; text-align: center;">Actions</th>
-                        </thead>
-                        <tr *ngFor="let game of games">
-                            <td style="width: 65%;"><a (click)="getGameId(game.objectId)" routerLink="../../games/details/{{game.objectId}}">{{game.title}}</a></td>
-                            <td style="width: 10%; text-align: center;">{{game.price}}</td>
-                            <td style="width: 15%; text-align: center;"><a (click)="getGameId(game.objectId)" routerLink="../../games/details/{{game.objectId}}"><i class="material-icons small game-view">visibility</i></a><span (click)="removeFromWishlist(game.objectId)" (click)="removeRow($event)"><i class="material-icons small game-delete">delete</i></span></td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div id="wishlist-buttons">
-                    <span id="back-button">
+<div class="row" id="wishlist-main">
+    <div id="wishlist" class="container">
+        <div class="page-title">Wishlist</div>
+        <div class="row">
+            <div id="profile-left" class="col s12 m12 l3 xl3">
+                <img src="../../assets/images-games/assasins-creed-valhalla-img.png" alt="">
+            </div>
+            <div class="col s12 m12 l6 xl6">
+                <div id="wishlist-details">
+                    <table class="striped">
+                        <tbody class="col s12 m12 l12 xl12">
+                            <thead>
+                                <th class="wishlist-details-head" style="width: 65%;">Title</th>
+                                <th class="wishlist-details-head" style="width: 10%; text-align: center;">Price</th>
+                                <th class="wishlist-details-head" style="width: 15%; text-align: center;">Actions</th>
+                            </thead>
+                            <tr *ngFor="let game of games">
+                                <td style="width: 65%;"><a (click)="getGameId(game.objectId)" routerLink="../../games/details/{{game.objectId}}">{{game.title}}</a></td>
+                                <td style="width: 10%; text-align: center;">{{game.price}}</td>
+                                <td style="width: 15%; text-align: center;"><a (click)="getGameId(game.objectId)" routerLink="../../games/details/{{game.objectId}}"><i class="material-icons small game-view">visibility</i></a><span (click)="removeFromWishlist(game.objectId)" (click)="removeRow($event)"><i class="material-icons small game-delete">delete</i></span></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="wishlist-buttons">
+                        <span id="back-button">
                         <a [routerLink]="['../../user/profile']" class="waves-effect waves-light btn"><i class="material-icons left">backspace</i>Back</a>
                     </span>
+                    </div>
                 </div>
             </div>
-        </div>
-        <div id="profile-right" class="col s12 m12 l3 xl3">
-            <img src="../../assets/images-games/bugsnax-img.png" alt="">
+            <div id="profile-right" class="col s12 m12 l3 xl3">
+                <img src="../../assets/images-games/bugsnax-img.png" alt="">
+            </div>
         </div>
     </div>

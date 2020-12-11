@@ -1,5 +1,13 @@
 #about-page {
-    margin-top: 200px;
+    margin-top: 100px;
+    background-image: url("../../../assets/images/backgrounds/back-noise.png");
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    background-attachment: fixed;
 }
 
 .page-title {
@@ -7,7 +15,7 @@
     font-size: 32px;
     text-align: center;
     padding-bottom: 20px;
-    margin-top: -50px;
+    padding-top: 20px;
 }
 
 #about-text {

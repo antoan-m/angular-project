@@ -1,5 +1,13 @@
 #add-game {
     margin-top: 200px;
+    background-image: url("../../../assets/images/backgrounds/back-noise.png");
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    background-attachment: fixed;
 }
 
 @media only screen and (min-width: 1200) html {
@@ -55,4 +63,9 @@
     text-align: center;
     padding-bottom: 20px;
     margin-top: -50px;
+}
+
+.error-text-red {
+    color: red;
+    padding-left: 20px;
 }

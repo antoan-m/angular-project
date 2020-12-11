@@ -22,11 +22,11 @@ export class EditGameComponent implements OnInit {
     //get current game data from server
 
   let objectId = localStorage.getItem('currentGameId');
-   console.log('ID: ' + objectId);
+   //console.log('ID: ' + objectId);
 
   let getGameData = Backendless.Data.of('games').findById({objectId})
  .then(currentGame => {
-   console.log('Current Data: ' + JSON.stringify(currentGame));
+   //console.log('Current Data: ' + JSON.stringify(currentGame));
    return currentGame;
   })
  .catch(error => {
@@ -34,7 +34,7 @@ export class EditGameComponent implements OnInit {
   });
 
   getGameData.then(result => {
-    console.log(JSON.stringify(result));
+    //console.log(JSON.stringify(result));
     this.currentGameData = result;    
   })
 
@@ -51,7 +51,7 @@ editGame(currentGameId) {
   let objectId = localStorage.getItem('currentGameId');
   this.currentGameData = Backendless.Data.of('games').findById({objectId})
  .then(result => {
-   console.log(result);
+   //console.log(result);
   })
  .catch(error => {
   console.log(error);
@@ -73,14 +73,15 @@ editGame(currentGameId) {
 
 Backendless.Data.of('games').save(this.game)
   .then(savedGame => {
-      console.log(savedGame);
-      localStorage.removeItem('currentGameId');
+      //console.log(savedGame);
+      M.toast({html: 'Game edited successfuly!'});
+      //localStorage.removeItem('currentGameId');
       this.router.navigate(['games/my-games']);
     })
   .catch(error => {
       console.error(error.message);
-      M.toast({html: error.message}),
-      this.serverError = error
+      M.toast({html: error.message});
+      this.serverError = error;
     });
   }
 

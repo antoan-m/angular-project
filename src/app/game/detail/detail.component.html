@@ -12,7 +12,7 @@
         </div>
 
         <div class="game-youtube col s12 m12 l4 xl4">
-            <span class="details-block-header"><b>Trailer</b></span>
+            <span class="details-block-header"><b>TRAILER</b></span>
             <div class="game-tube">
                 <div class="video-container">
                     <iframe width="560" height="315" [src]="safeSource" frameborder="0" allowfullscreen></iframe>
@@ -39,7 +39,7 @@
                 <div *ngIf="owner">You are publisher of this game</div>
             </div>
             <div class="game-requirements">
-                <span class="details-block-header"><b>PC Requirements</b></span>
+                <span class="details-block-header"><b>PC REQUIREMENTS</b></span>
                 <ul>
                     <li *ngIf="currentGameData.bullet1"><b>CPU:</b> {{currentGameData.bullet1}}</li>
                     <li *ngIf="currentGameData.bullet2"><b>GPU:</b> {{currentGameData.bullet2}}</li>
@@ -51,7 +51,7 @@
         </div>
 
         <div class="row" style="clear: both;">
-            <span class="details-block-header"><b>Description</b></span>
+            <span class="details-block-header"><b>DESCRIPTION</b></span>
             <div class="game-description col s12 m12 l12 xl12">
                 {{currentGameData.description}}
             </div>

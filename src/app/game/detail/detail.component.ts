@@ -95,14 +95,13 @@ if(this.currentUserData.objectId === this.currentGameData.ownerId) {
   }
 
 //buy game
-  ordersArray;
+  updateOrders;
   sales;
+  currentUserOrders;
+  currentGameOrders;
 
   buyGame(gameId) {
-    console.log('USER DATA: ' + JSON.stringify(this.currentUserData));
-    console.log('GAME ID: ' + gameId);
-    console.log('ORDERS: ' + this.currentUserData.orders);
-  
+
       class AppUser extends Backendless.User {
         orders: String;
        }
@@ -110,38 +109,28 @@ if(this.currentUserData.objectId === this.currentGameData.ownerId) {
     const user: AppUser = new AppUser();
     
     user.objectId = this.currentUserData.objectId;
-    console.log('USER ID: ' + user.objectId);
-    console.log('ORDERS: ' + this.currentUserData.orders);
-    console.log('CHECK ORDERS FOR ID: ' + this.currentUserData.orders.indexOf(gameId));
 
       if (!this.currentUserData.orders) {
-        this.currentUserData.orders = gameId;
-        console.log('After adding the game to orders: ' + user.orders);
+        this.currentUserOrders = gameId;
       } else {
-        if(this.currentUserData.orders.indexOf(gameId) !== -1) {
+        this.currentUserOrders = this.currentUserData.orders.split(',');
+        if(this.currentUserOrders.indexOf(gameId) !== -1) {
           this.gameBought = true;
-          console.log('Already bought!');
-          return;
+          console.log('Game already bought!');
+          M.toast({html: 'Game already bought!'});
       } else {
-        console.log(this.currentUserData.orders);
-        //this.ordersArray = Array.from(JSON.parse(this.currentUserData.orders));
-        this.ordersArray = Array.from([this.currentUserData.orders]);
-        console.log(this.ordersArray);
-        
-        this.ordersArray.push(gameId);
-        //(this.ordersArray).concat(gameId);
-        console.log(this.ordersArray);
+        this.currentUserOrders.push(gameId);
+        //console.log(this.orders);
       }
       }
 
-      user.orders = this.ordersArray.toString();
+    user.orders = this.currentUserOrders.toString();
 
-    console.log('user.orders: ' +  user.orders);
+    //console.log('user.orders: ' +  user.orders);
     
     Backendless.UserService.update(user)
       .then(success => {
-      console.log('Game bought!');
-      this.gameBought = true;
+      //console.log('Game bought!');
       })
       .catch(error => {
       console.error('Server reported an error: ', error.message)
@@ -149,26 +138,35 @@ if(this.currentUserData.objectId === this.currentGameData.ownerId) {
       console.error('http status: ', error.status)
       })
 
-      this.gameOrders = Array.from([this.currentGameData.orders]);
-      this.gameOrders.push(this.currentUserData.objectId);
-      this.sales = this.currentGameData.sales + 1;
-      console.log('GAME ORDERS: ' + this.gameOrders);
-      console.log('GAME SALES: ' + this.sales);
-    
-      Backendless.Data.of('games').save({ objectId: gameId, orders: this.currentUserData.objectId, sales: this.sales })
+      //add order in game table
+      if (!this.currentGameData.orders) {
+        this.updateOrders = this.currentUserData.objectId;
+        this.sales = 1;
+      } else {
+        this.currentGameOrders = this.currentGameData.orders.split(',');
+        if(this.currentGameOrders.indexOf(gameId) !== -1) {
+      this.currentGameOrders.push(this.currentUserData.objectId);
+      this.updateOrders = this.currentGameOrders.toString();
+      this.sales = Number(this.currentGameData.sales) + 1;
+    }
+  }
+      Backendless.Data.of('games').save({ objectId: gameId, orders: this.updateOrders, sales: this.sales })
         .then(savedOrder => {
-        console.log(savedOrder);
+       //console.log(savedOrder);
+       M.toast({html: 'Game bought!'});
+       this.gameBought = true;
         })
         .catch(error => {
         console.error(error);
         });
-    
+      
 
   }
 
   //add game to wihslist
   addGameToWishlist(gameId: string) {
 
+    //get user data
   let getUserData = Backendless.UserService.getCurrentUser()
  .then(function(currentUser) {
    return currentUser;
@@ -182,48 +180,55 @@ if(this.currentUserData.objectId === this.currentGameData.ownerId) {
     this.currentUserData = result;
   })
 
-  let wishlist = this.currentUserData.wishlist;
 
-console.log('WISHLIST1: ' + wishlist);
-console.log('IDD' + gameId);
+let wishlist = this.currentUserData.wishlist;
+if (wishlist) {
+  wishlist = this.currentUserData.wishlist.split(',');
+} else {
+  wishlist = '';
+}
+
+
+// console.log('WISHLIST: ' + wishlist);
+// console.log('ID' + gameId);
+
 
 if(!this.currentUserData.wishlist) {
+  wishlist = wishlist.toString();
   Backendless.UserService.update({objectId: this.currentUserData.objectId, wishlist: gameId})
       .then(success => {
-      console.log(JSON.stringify(success) + 'Added to your wishlist!');
+      console.log(JSON.stringify(success) + 'Game added to your wishlist!');
       this.inWishlist = true;
-      localStorage.setItem('wishlist', gameId);
+      //localStorage.setItem('wishlist', gameId);
       })
       .catch(error => {
       console.error('Server reported an error: ', error.message)
       console.error('error code: ', error.code)
       console.error('http status: ', error.status)
       })
-    } else if (this.currentUserData.wishlist.indexOf(gameId) === -1) {
-    let currentWishlist = this.currentUserData.wishlist;
-        console.log('WISHLIST2: ' + currentWishlist.split(','));
-    let newWishlist = currentWishlist.split(',');
-    newWishlist.push(gameId);
+    } else if (wishlist.indexOf(gameId) === -1) {
 
-    let updateWishlist = newWishlist.toString();
+    wishlist.push(gameId);
+
+    let updateWishlist = wishlist.toString();
 
     Backendless.UserService.update({objectId: this.currentUserData.objectId, wishlist: updateWishlist})
       .then(success => {
-      console.log(JSON.stringify(success) + 'Added to your wishlist!');
+      //console.log(JSON.stringify(success) + 'Added to your wishlist!');
       this.inWishlist = true;
-      localStorage.setItem('wishlist', updateWishlist);
+      //localStorage.setItem('wishlist', updateWishlist);
       })
       .catch(error => {
       console.error('Server reported an error: ', error.message)
       console.error('error code: ', error.code)
       console.error('http status: ', error.status)
       })
-    } else {
+    } else if (this.currentUserData.wishlist && wishlist.indexOf(gameId) !== -1) {
       this.inWishlist = true;
       console.log('Already in your wishlist!');
     }
 
-
+//get game data
   let getGameData = Backendless.Data.of('games').findById(gameId)
  .then(currentGame => { return currentGame; })
  .catch(error => { console.log(error); });
@@ -239,7 +244,8 @@ if(!this.currentUserData.wishlist) {
         newGameWishlist = this.currentUserData.objectId;
         this.inWishlist = true;
         Backendless.Data.of('games').save({objectId: gameId, wishlist: newGameWishlist })
-        .then(savedGame => { console.log('FINAL 1: ' + savedGame); })
+        .then(savedGame => { console.log('Game added to Wishlist!: ' + savedGame);
+        M.toast({html: 'Game added to Wishlist!'}); })
         .catch(error => { console.error(error.message); });
         } else if(this.currentGameData.wishlist.indexOf(this.currentUserData.objectId) === -1) {
           this.inWishlist = true;
@@ -248,15 +254,16 @@ if(!this.currentUserData.wishlist) {
           newGameWishlist.push(gameId);
   
           let updateWishlist = newGameWishlist.toString();
-          console.log(gameId + '||||' + updateWishlist);
           
           Backendless.Data.of('games').save({objectId: gameId, wishlist: updateWishlist })
-            .then(savedGame => { console.log('FINAL2: ' + savedGame); })
+            .then(savedGame => { console.log('Game addded to Wishlist!: ' + savedGame);
+            M.toast({html: 'Game added to Wishlist!'}); })
             .catch(error => { console.error(error.message); });
         } else {  
         this.inWishlist = true;
         console.log('Already in your Wishlist!');
-      } 
+        M.toast({html: 'Game already to Wishlist!'})
+      }
         
   
   }

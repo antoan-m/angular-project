@@ -1,5 +1,17 @@
 #my-games {
-    margin-top: 200px;
+    margin-top: 170px;
+}
+
+#my-games-main {
+    background-image: url("../../../assets/images/backgrounds/back-noise.png");
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    background-attachment: fixed;
+    padding-top: 30px;
 }
 
 @media only screen and (min-width: 1200) html {

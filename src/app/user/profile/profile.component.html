@@ -1,54 +1,55 @@
-<div id="user-profile" class="container">
-    <div class="page-title">User Profile</div>
-    <div class="row">
-        <div id="profile-left" class="col s12 m12 l3 xl3">
-            <img src="../../assets/images-games/assasins-creed-valhalla-img.png" alt="">
-        </div>
-        <div class="col s12 m12 l6 xl6">
-            <div id="user-profile-details">
-                <table class="striped">
-                    <tbody>
-                        <tr>
-                            <td class="user-profile-details-bullet">Email</td>
-                            <td>{{this.currentUserData.email}}</td>
-                        </tr>
-                        <tr>
-                            <td class="user-profile-details-bullet">Name</td>
-                            <td>{{this.currentUserData.name}}</td>
-                        </tr>
-                        <tr>
-                            <td class="user-profile-details-bullet">Address</td>
-                            <td>{{this.currentUserData.address}}</td>
-                        </tr>
-                        <tr *ngIf="publisherMenu">
-                            <td class="user-profile-details-bullet">Publisher</td>
-                            <td><a [routerLink]="['../../games/add']" class="waves-effect waves-light btn"><i class="material-icons left">videogame_asset</i>Add Game</a>
-                                <a [routerLink]="['../../games/my-games']" class="waves-effect waves-light btn mygames-btn"><i class="material-icons left">games</i>My Games</a>
-                            </td>
-                        </tr>
-                        <tr *ngIf="!publisherMenu">
-                            <td class="user-profile-details-bullet">Orders</td>
-                            <td><a [routerLink]="['../my-orders']" class="waves-effect waves-light btn"><i class="material-icons left">shopping_cart</i>My Orders</a></td>
-                        </tr>
-                        <tr *ngIf="publisherMenu">
-                            <td class="user-profile-details-bullet">Orders</td>
-                            <td><a [routerLink]="['../orders']" class="waves-effect waves-light btn"><i class="material-icons left">shopping_cart</i>Orders</a></td>
-                        </tr>
-                        <tr *ngIf="!publisherMenu">
-                            <td class="user-profile-details-bullet">Wishlist</td>
-                            <td><a [routerLink]="['../wishlist']" class="waves-effect waves-light btn"><i class="material-icons left">favorite</i>Wishlist</a></td>
-                        </tr>
-                    </tbody>
-                </table>
+<div class="row" id="profile-main">
+    <div id="user-profile" class="container">
+        <div class="page-title">User Profile</div>
+        <div class="row">
+            <div id="profile-left" class="col s12 m12 l3 xl3">
+                <img src="../../assets/images-games/assasins-creed-valhalla-img.png" alt="">
             </div>
-            <div id="user-profile-details-button">
-                <a [routerLink]="['../edit']" class="waves-effect waves-light btn"><i class="material-icons left">edit</i>Edit Profile</a>
-            </div>
+            <div class="col s12 m12 l6 xl6">
+                <div id="user-profile-details">
+                    <table class="striped">
+                        <tbody>
+                            <tr>
+                                <td class="user-profile-details-bullet">Email</td>
+                                <td>{{this.currentUserData.email}}</td>
+                            </tr>
+                            <tr>
+                                <td class="user-profile-details-bullet">Name</td>
+                                <td>{{this.currentUserData.name}}</td>
+                            </tr>
+                            <tr>
+                                <td class="user-profile-details-bullet">Address</td>
+                                <td>{{this.currentUserData.address}}</td>
+                            </tr>
+                            <tr *ngIf="publisherMenu">
+                                <td class="user-profile-details-bullet">Publisher</td>
+                                <td><a [routerLink]="['../../games/add']" class="waves-effect waves-light btn"><i class="material-icons left">videogame_asset</i>Add Game</a>
+                                    <a [routerLink]="['../../games/my-games']" class="waves-effect waves-light btn mygames-btn"><i class="material-icons left">games</i>My Games</a>
+                                </td>
+                            </tr>
+                            <tr *ngIf="!publisherMenu">
+                                <td class="user-profile-details-bullet">Orders</td>
+                                <td><a [routerLink]="['../my-orders']" class="waves-effect waves-light btn"><i class="material-icons left">shopping_cart</i>My Orders</a></td>
+                            </tr>
+                            <tr *ngIf="publisherMenu">
+                                <td class="user-profile-details-bullet">Orders</td>
+                                <td><a [routerLink]="['../orders']" class="waves-effect waves-light btn"><i class="material-icons left">shopping_cart</i>Orders</a></td>
+                            </tr>
+                            <tr *ngIf="!publisherMenu">
+                                <td class="user-profile-details-bullet">Wishlist</td>
+                                <td><a [routerLink]="['../wishlist']" class="waves-effect waves-light btn"><i class="material-icons left">favorite</i>Wishlist</a></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+                <div id="user-profile-details-button">
+                    <a [routerLink]="['../edit']" class="waves-effect waves-light btn"><i class="material-icons left">edit</i>Edit Profile</a>
+                </div>
 
-        </div>
-        <div id="profile-right" class="col s12 m12 l3 xl3">
-            <img src="../../assets/images-games/bugsnax-img.png" alt="">
+            </div>
+            <div id="profile-right" class="col s12 m12 l3 xl3">
+                <img src="../../assets/images-games/bugsnax-img.png" alt="">
+            </div>
         </div>
     </div>
-
 </div>

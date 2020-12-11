@@ -63,13 +63,13 @@
             <a href="/"><img src="../assets/images/logo.png" alt=""></a>
         </div>
         <!-- navbar -->
-        <nav id="navbar" class="col s4 m4 l4 xl4">
+        <nav id="navbar-sticky" class="col s4 m4 l4 xl4">
             <a routerLink="/">Home</a>
             <a routerLink="/games">Games</a>
             <a routerLink="/about">About</a>
         </nav>
         <!-- usermenu -->
-        <div id="usermenu" class="col s7 m7 l7 xl7">
+        <div id="usermenu-sticky" class="col s7 m7 l7 xl7">
             <a *ngIf="!isLogged" routerLink="/user/register">Register</a>
             <a *ngIf="!isLogged" routerLink="/user/login">Login</a>
             <a *ngIf="isLogged" routerLink="/" (click)="logoutUser()">Logout</a>

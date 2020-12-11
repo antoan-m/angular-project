@@ -8,65 +8,80 @@
             <form #e="ngForm" (ngSubmit)="editGame()">
                 <div class="row">
                     <div>
-                        <input id="title" type="text" name="title" [(ngModel)]="currentGameData.title">
+                        <input #titleInput="ngModel" id="title" type="text" name="title" [(ngModel)]="currentGameData.title" ngModel required minlength="3">
                         <label for="title">Title</label>
+                        <span *ngIf="titleInput.touched && titleInput.errors?.required" class="vaidation-error error-text-red">Title is required!</span>
+                        <span *ngIf="titleInput.touched && titleInput.errors?.minlength" class="vaidation-error error-text-red">Title must be at least 3 characters!</span>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <input id="image" type="text" class="validate" name="image" [(ngModel)]="currentGameData.image">
+                        <input #imageInput="ngModel" id="image" type="text" class="validate" name="image" [(ngModel)]="currentGameData.image" ngModel required pattern="(https?://.*)(.jpg|.jpeg|.png)">
                         <label for="image">Image URL</label>
+                        <span *ngIf="imageInput.touched && imageInput.errors?.required" class="vaidation-error error-text-red">Image is required!</span>
+                        <span *ngIf="imageInput.touched && imageInput.errors?.pattern" class="vaidation-error error-text-red">URL is invalid!</span>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <textarea id="description" type="text" class="materialize-textarea" name="description" [(ngModel)]="currentGameData.description"></textarea>
+                        <textarea #descriptionInput="ngModel" id="description" type="text" class="materialize-textarea" name="description" [(ngModel)]="currentGameData.description" ngModel required minlength="10"></textarea>
                         <label for="description">Description</label>
+                        <span *ngIf="descriptionInput.touched && descriptionInput.errors?.required" class="vaidation-error error-text-red">Description is required!</span>
+                        <span *ngIf="descriptionInput.touched && descriptionInput.errors?.minlength" class="vaidation-error error-text-red">Description must be at least 10 characters!</span>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <textarea id="bullet1" class="materialize-textarea" name="bullet1" [(ngModel)]="currentGameData.bullet1"></textarea>
-                        <label for="bullet1">Requirements CPU</label>
+                        <textarea #requirementsInput1="ngModel" id="requirements1" class="materialize-textarea" name="bullet1" [(ngModel)]="currentGameData.bullet1" ngModel required></textarea>
+                        <label for="requirements1">Requirements CPU</label>
+                        <span *ngIf="requirementsInput1.touched && requirementsInput1.errors?.required" class="vaidation-error error-text-red">Bullet is required!</span>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <textarea id="bullet2" class="materialize-textarea" name="bullet2" [(ngModel)]="currentGameData.bullet2"></textarea>
-                        <label for="bullet2">Requirements GPU</label>
+                        <textarea #requirementsInput2="ngModel" id="requirements2" class="materialize-textarea" name="bullet2" [(ngModel)]="currentGameData.bullet2" ngModel required></textarea>
+                        <label for="requirements2">Requirements GPU</label>
+                        <span *ngIf="requirementsInput2.touched && requirementsInput2.errors?.required" class="vaidation-error error-text-red">Bullet is required!</span>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <textarea id="bullet3" class="materialize-textarea" name="bullet3" [(ngModel)]="currentGameData.bullet3"></textarea>
-                        <label for="bullet3">Requirements RAM</label>
+                        <textarea #requirementsInput3="ngModel" id="requirements3" class="materialize-textarea" name="bullet3" [(ngModel)]="currentGameData.bullet3" ngModel required></textarea>
+                        <label for="requirements3">Requirements RAM</label>
+                        <span *ngIf="requirementsInput3.touched && requirementsInput3.errors?.required" class="vaidation-error error-text-red">Bullet is required!</span>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <textarea id="bullet4" class="materialize-textarea" name="bullet4" [(ngModel)]="currentGameData.bullet4"></textarea>
-                        <label for="bullet4">Requirements HDD</label>
+                        <textarea #requirementsInput4="ngModel" id="requirements4" class="materialize-textarea" name="bullet4" [(ngModel)]="currentGameData.bullet4" ngModel required></textarea>
+                        <label for="requirements4">Requirements HDD</label>
+                        <span *ngIf="requirementsInput4.touched && requirementsInput4.errors?.required" class="vaidation-error error-text-red">Bullet is required!</span>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <textarea id="bullet5" class="materialize-textarea" name="bullet5" [(ngModel)]="currentGameData.bullet5"></textarea>
-                        <label for="bullet5">Requirements OS</label>
+                        <textarea #requirementsInput5="ngModel" id="requirements5" class="materialize-textarea" name="bullet5" [(ngModel)]="currentGameData.bullet5" ngModel required></textarea>
+                        <label for="requirements5">Requirements OS</label>
+                        <span *ngIf="requirementsInput5.touched && requirementsInput5.errors?.required" class="vaidation-error error-text-red">Bullet is required!</span>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <input id="price" type="text" class="validate" name="price" [(ngModel)]="currentGameData.price">
+                        <input #priceInput="ngModel" id="price" type="text" class="validate" name="price" [(ngModel)]="currentGameData.price" ngModel required pattern="^\d+(.\d{1,2})?$">
                         <label for="price">Price</label>
+                        <span *ngIf="priceInput.touched && priceInput.errors?.required" class="vaidation-error error-text-red">Price is required!</span>
+                        <span *ngIf="priceInput.touched && priceInput.errors?.pattern" class="vaidation-error error-text-red">Price must be a number in format xx or xx.xx!</span>
                     </div>
                 </div>
                 <div class="row">
                     <div>
-                        <input id="trailer" type="text" class="validate" name="youtubeId" [(ngModel)]="currentGameData.youtube_id">
+                        <input #youtubeInput="ngModel" id="trailer" type="text" class="validate" name="youtubeId" [(ngModel)]="currentGameData.youtube_id" ngModel required>
                         <label for="trailer">Youtube Trailer URL</label>
+                        <span *ngIf="youtubeInput.touched && youtubeInput.errors?.required" class="vaidation-error error-text-red">Youtube video ID is required!</span>
+                        <!-- <span *ngIf="youtubeInput.touched && youtubeInput.errors?.pattern" class="vaidation-error error-text-red">Fill in only the Youtube video ID!</span> -->
                     </div>
                 </div>
-                <span class="vaidation-error error-text-red">{{this.gameService.serverError}}</span>
+                <span class="vaidation-error error-text-red">{{this.serverError}}</span>
                 <div id="add-game-buttons">
                     <button class="btn waves-effect waves-light add-game-btn" name="action" [disabled]="e.invalid"><i class="material-icons left">input</i>Edit</button>
                     <button class="btn waves-effect waves-light add-game-btn" name="action" (click)="cancelGameEdit()"><i class="material-icons left">input</i>Cancel</button>

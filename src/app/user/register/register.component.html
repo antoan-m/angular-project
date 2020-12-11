@@ -1,75 +1,75 @@
-<div id="user-register" class="container">
-    <div class="page-title">Create Account</div>
-    <div class="row">
-        <div id="register-left" class="col s12 m12 l3 xl3">
-            <img src="../../assets/images-games/assasins-creed-valhalla-img.png" alt="">
-        </div>
-        <div class="col s12 m12 l6 xl6">
-            <form #f="ngForm" (ngSubmit)="registerHandlerCall()">
-                <div class="row">
-                    <div>
-                        <input #nameInput="ngModel" id="name" type="text" class="validate" name="name" ngModel required minlength="4">
-                        <label for="name">Name</label>
-                        <span *ngIf="nameInput.touched && nameInput.errors?.required" class="vaidation-error error-text-red">Name is required!</span>
-                        <span *ngIf="nameInput.touched && nameInput.errors?.minlength" class="vaidation-error error-text-red">Name must be at least 4 characters!</span>
+<div class="row" id="user-register-main">
+    <div id="user-register" class="container">
+        <div class="page-title">Create Account</div>
+        <div class="row">
+            <div id="register-left" class="col s12 m12 l3 xl3">
+                <img src="../../assets/images-games/assasins-creed-valhalla-img.png" alt="">
+            </div>
+            <div class="col s12 m12 l6 xl6">
+                <form #f="ngForm" (ngSubmit)="registerHandlerCall()">
+                    <div class="row">
+                        <div>
+                            <input #nameInput="ngModel" id="name" type="text" class="validate" name="name" ngModel required minlength="4">
+                            <label for="name">Name</label>
+                            <span *ngIf="nameInput.touched && nameInput.errors?.required" class="vaidation-error error-text-red">Name is required!</span>
+                            <span *ngIf="nameInput.touched && nameInput.errors?.minlength" class="vaidation-error error-text-red">Name must be at least 4 characters!</span>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div>
-                        <input #emailInput="ngModel" id="email" type="email" class="validate" name="email" ngModel required email>
-                        <label for="email">Email</label>
-                        <span *ngIf="emailInput.touched && emailInput.errors?.required" class="vaidation-error error-text-red">Email is required!</span>
-                        <span *ngIf="emailInput.touched && emailInput.errors?.email" class="vaidation-error error-text-red">Email is invalid!</span>
-                        <!-- <span *ngIf="emailTaken" class="vaidation-error error-text-red">Email is already registered!</span> -->
+                    <div class="row">
+                        <div>
+                            <input #emailInput="ngModel" id="email" type="email" class="validate" name="email" ngModel required email>
+                            <label for="email">Email</label>
+                            <span *ngIf="emailInput.touched && emailInput.errors?.required" class="vaidation-error error-text-red">Email is required!</span>
+                            <span *ngIf="emailInput.touched && emailInput.errors?.email" class="vaidation-error error-text-red">Email is invalid!</span>
+                            <!-- <span *ngIf="emailTaken" class="vaidation-error error-text-red">Email is already registered!</span> -->
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div>
-                        <input #passwordInput="ngModel" id="password" type="password" class="validate" name="password" ngModel required password minlength="6">
-                        <label for="password">Password</label>
-                        <span *ngIf="passwordInput.touched && passwordInput.errors?.required" class="vaidation-error error-text-red">Password is required!</span>
-                        <span *ngIf="passwordInput.touched && passwordInput.errors?.minlength" class="vaidation-error error-text-red">Password must be at least 6 characters!</span>
+                    <div class="row">
+                        <div>
+                            <input #passwordInput="ngModel" id="password" type="password" class="validate" name="password" ngModel required password minlength="6">
+                            <label for="password">Password</label>
+                            <span *ngIf="passwordInput.touched && passwordInput.errors?.required" class="vaidation-error error-text-red">Password is required!</span>
+                            <span *ngIf="passwordInput.touched && passwordInput.errors?.minlength" class="vaidation-error error-text-red">Password must be at least 6 characters!</span>
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div>
-                        <input #rePasswordInput="ngModel" id="rePassword" type="password" class="validate" name="rePassword" ngModel required password minlength="6" repeatpass>
-                        <label for="rePassword">Repeat Password</label>
-                        <span *ngIf="rePasswordInput.touched && rePasswordInput.errors?.required" class="vaidation-error error-text-red">Password is required!</span>
-                        <span *ngIf="rePasswordInput.touched && rePasswordInput.errors?.minlength" class="vaidation-error error-text-red">{{rePasswordInput.errors.minlength | json}}Password must be at least 6 characters!</span>
-                        <span *ngIf="passwordInput.touched && rePasswordInput.touched && rePasswordInput.value !== passwordInput.value" class="vaidation-error error-text-red">Passwords don't match!</span>
-                        <!-- <span *ngIf="rePasswordInput.touched && rePasswordInput.errors?.repeatpass" class="vaidation-error error-text-red">Passwords don't match!</span> -->
+                    <div class="row">
+                        <div>
+                            <input #rePasswordInput="ngModel" id="rePassword" type="password" class="validate" name="rePassword" ngModel required password minlength="6" repeatpass>
+                            <label for="rePassword">Repeat Password</label>
+                            <span *ngIf="rePasswordInput.touched && rePasswordInput.errors?.required" class="vaidation-error error-text-red">Password is required!</span>
+                            <span *ngIf="rePasswordInput.touched && rePasswordInput.errors?.minlength" class="vaidation-error error-text-red">{{rePasswordInput.errors.minlength | json}}Password must be at least 6 characters!</span>
+                            <span *ngIf="passwordInput.touched && rePasswordInput.touched && rePasswordInput.value !== passwordInput.value" class="vaidation-error error-text-red">Passwords don't match!</span>
+                            <!-- <span *ngIf="rePasswordInput.touched && rePasswordInput.errors?.repeatpass" class="vaidation-error error-text-red">Passwords don't match!</span> -->
+                        </div>
                     </div>
-                </div>
-                <div class="row">
-                    <div>
-                        <input #addressInput="ngModel" id="address" type="text" class="validate" name="address" ngModel required minlength="6">
-                        <label for="address">Address</label>
-                        <span *ngIf="addressInput.touched && addressInput.errors?.required" class="vaidation-error error-text-red">Address is required!</span>
-                        <span *ngIf="addressInput.touched && addressInput.errors?.minlength" class="vaidation-error error-text-red">Address must be at least 6 characters!</span>
+                    <div class="row">
+                        <div>
+                            <input #addressInput="ngModel" id="address" type="text" class="validate" name="address" ngModel required minlength="6">
+                            <label for="address">Address</label>
+                            <span *ngIf="addressInput.touched && addressInput.errors?.required" class="vaidation-error error-text-red">Address is required!</span>
+                            <span *ngIf="addressInput.touched && addressInput.errors?.minlength" class="vaidation-error error-text-red">Address must be at least 6 characters!</span>
+                        </div>
                     </div>
-                </div>
-                <!-- Switch -->
-                <div class="switch register-switch">
-                    <label>
+                    <!-- Switch -->
+                    <div class="switch register-switch">
+                        <label>
                     User
                     <input type="checkbox" name="publisher" ngModel>
                     <span class="lever"></span>
                     Publisher
                     </label>
-                </div>
-                <span class="vaidation-error error-text-red">{{this.userService.serverError}}</span>
-                <div id="register-buttons">
-                    Info: {{ f.value | json }}
-                    <button class="btn waves-effect waves-light register-btn" name="action" [disabled]="f.invalid"><i class="material-icons left">input</i>Register</button>
-                    <button class="btn waves-effect waves-light register-btn" name="action" type="reset"><i class="material-icons left">input</i>Reset</button>
-                </div>
-            </form>
-            <div id="already-registered">Already have an account? <a [routerLink]="['../login']">Login</a></div>
-        </div>
-        <div id="register-right" class="col s12 m12 l3 xl3">
-            <img src="../../assets/images-games/bugsnax-img.png" alt="">
+                    </div>
+                    <span class="vaidation-error error-text-red">{{this.userService.serverError}}</span>
+                    <div id="register-buttons">
+                        <button class="btn waves-effect waves-light register-btn" name="action" [disabled]="f.invalid"><i class="material-icons left">input</i>Register</button>
+                        <button class="btn waves-effect waves-light register-btn" name="action" type="reset"><i class="material-icons left">input</i>Reset</button>
+                    </div>
+                </form>
+                <div id="already-registered">Already have an account? <a [routerLink]="['../login']">Login</a></div>
+            </div>
+            <div id="register-right" class="col s12 m12 l3 xl3">
+                <img src="../../assets/images-games/bugsnax-img.png" alt="">
+            </div>
         </div>
     </div>
-
 </div>

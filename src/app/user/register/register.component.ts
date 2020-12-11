@@ -26,43 +26,7 @@ export class RegisterComponent implements OnInit {
   ngOnInit() {
   }
 
-//   registerHandler() {
-
-//     console.log(`Data before sending: ${JSON.stringify(this.form.value)}`);
-
-//   class AppUser extends Backendless.User {
-//     name: string;
-//     address: string;
-//     publisher: boolean;
-//     orders: string;
-//     wishlist: string;
-//    }
-    
-//  const user: AppUser = new AppUser();
-
-//  user.name = this.form.value.name;
-//  user.email = this.form.value.email;
-//  user.password = this.form.value.password;
-//  user.address = this.form.value.address;
-//  user.publisher = this.form.value.publisher;
- 
-//  if (!this.form.value.publisher) {
-//   user.publisher = false;
-//  }
- 
-//  Backendless.UserService.register<AppUser>(user)
-//   .then((result: AppUser) => 
-//   console.log('Registered User:', result,
-//   // M.toast({html: 'Registration successful!'}),
-//   this.router.navigate(['user/login'])
-//   ))
-//   .catch(error => 
-//     console.error('Can not Register User:', error.message,
-//     M.toast({html: error.message})
-//     ));
-//   }
-
-registerHandlerCall(): void {
+  registerHandlerCall(): void {
 
   this.userService.registerHandler(
     this.form.value.name, 
@@ -71,14 +35,6 @@ registerHandlerCall(): void {
     this.form.value.address, 
     this.form.value.publisher
     )
-  }
-
-
-
-  repeatpass() {
-     
-  }
-
-  
+  }  
   
 }

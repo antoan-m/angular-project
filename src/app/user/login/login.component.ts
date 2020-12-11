@@ -30,13 +30,6 @@ loginHandlerCall(): void {
   
   this.userService.loginHandler(this.form.value.email, this.form.value.password)
 
-  Backendless.UserService.getCurrentUser()
- .then(function(currentUser) {
-  //console.log('USER: ' + currentUser)
-  })
- .catch(error => {
-  console.log('ERROR: ' + error);
-  });
 }
 
 

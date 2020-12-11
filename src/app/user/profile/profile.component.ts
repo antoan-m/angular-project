@@ -4,10 +4,10 @@ import { Router } from '@angular/router';
 import Backendless from 'backendless';
 import { UserService } from '../user.service';
 
-const APP_ID = 'E6A1D0AD-587C-48AC-FF2E-1B06CF656400';
-const API_KEY = '2021AF52-B726-491E-A32B-D1E474D20AEF';
+// const APP_ID = 'E6A1D0AD-587C-48AC-FF2E-1B06CF656400';
+// const API_KEY = '2021AF52-B726-491E-A32B-D1E474D20AEF';
 
-Backendless.initApp(APP_ID, API_KEY);
+// Backendless.initApp(APP_ID, API_KEY);
 
 @Component({
   selector: 'app-profile',

@@ -1,40 +1,41 @@
-<div id="my-games" class="container">
-    <div class="page-title">My Games</div>
-    <div class="row">
-        <div id="profile-left" class="col s12 m12 l3 xl3">
-            <img src="../../assets/images-games/assasins-creed-valhalla-img.png" alt="">
-        </div>
-        <div class="col s12 m12 l6 xl6">
-            <div id="my-games-details">
-                <table class="striped">
-                    <tbody class="col s12 m12 l12 xl12">
-                        <thead>
-                            <th class="my-games-details-head" style="width: 50%;">Title</th>
-                            <th class="my-games-details-head" style="width: 15%;">Image</th>
-                            <th class="my-games-details-head" style="width: 10%;">Price</th>
-                            <th class="my-games-details-head" style="width: 25%;">Actions</th>
-                        </thead>
-                        <tr *ngFor="let game of games">
-                            <td>{{game.title}}</td>
-                            <td><img class="my-games-image" src="{{game.image}}"></td>
-                            <td>{{game.price}}</td>
-                            <td>
-                                <a routerLink="../details/{{game.objectId}}"><i class="material-icons small game-view">visibility</i></a>
-                                <a (click)="getGameId(game.objectId)" routerLink="../details/edit/{{game.objectId}}"><i class="material-icons small game-edit">edit</i></a>
-                                <span (click)="deleteGame(game.objectId)" (click)="removeRow($event)"><i class="material-icons small game-delete">delete</i></span>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-                <div id="my-games-buttons"><span id="add-button"><a [routerLink]="['../../games/add']" class="waves-effect waves-light btn"><i class="material-icons left">videogame_asset</i>Add Game</a></span>
-                    <span id="back-button"><a [routerLink]="['../../user/profile']" class="waves-effect waves-light btn"><i class="material-icons left">backspace</i>Back</a></span>
-                </div>
+<div class="row" id="my-games-main">
+    <div id="my-games" class="container">
+        <div class="page-title">My Games</div>
+        <div class="row">
+            <div id="profile-left" class="col s12 m12 l3 xl3">
+                <img src="../../assets/images-games/assasins-creed-valhalla-img.png" alt="">
             </div>
+            <div class="col s12 m12 l6 xl6">
+                <div id="my-games-details">
+                    <table class="striped">
+                        <tbody class="col s12 m12 l12 xl12">
+                            <thead>
+                                <th class="my-games-details-head" style="width: 50%;">Title</th>
+                                <th class="my-games-details-head" style="width: 15%;">Image</th>
+                                <th class="my-games-details-head" style="width: 10%;">Price</th>
+                                <th class="my-games-details-head" style="width: 25%;">Actions</th>
+                            </thead>
+                            <tr *ngFor="let game of games">
+                                <td>{{game.title}}</td>
+                                <td><img class="my-games-image" src="{{game.image}}"></td>
+                                <td>{{game.price}}</td>
+                                <td>
+                                    <a (click)="getGameId(game.objectId)" routerLink="../details/{{game.objectId}}"><i class="material-icons small game-view">visibility</i></a>
+                                    <a (click)="getGameId(game.objectId)" routerLink="../details/edit/{{game.objectId}}"><i class="material-icons small game-edit">edit</i></a>
+                                    <span (click)="deleteGame(game.objectId)" (click)="removeRow($event)"><i class="material-icons small game-delete">delete</i></span>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div id="my-games-buttons"><span id="add-button"><a [routerLink]="['../../games/add']" class="waves-effect waves-light btn"><i class="material-icons left">videogame_asset</i>Add Game</a></span>
+                        <span id="back-button"><a [routerLink]="['../../user/profile']" class="waves-effect waves-light btn"><i class="material-icons left">backspace</i>Back</a></span>
+                    </div>
+                </div>
 
-        </div>
-        <div id="profile-right" class="col s12 m12 l3 xl3">
-            <img src="../../assets/images-games/bugsnax-img.png" alt="">
+            </div>
+            <div id="profile-right" class="col s12 m12 l3 xl3">
+                <img src="../../assets/images-games/bugsnax-img.png" alt="">
+            </div>
         </div>
     </div>
-
 </div>

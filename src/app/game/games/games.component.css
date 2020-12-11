@@ -1,5 +1,18 @@
 #games {
-    position: relative;
+    margin-top: 150px;
+    background-image: url("../../../assets/images/backgrounds/back-noise.png");
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    background-attachment: fixed;
+    padding-top: 30px;
+    margin-top: -30px;
+}
+
+#games-all {
     margin-top: 150px;
 }
 
