@@ -26,7 +26,6 @@
                 €{{currentGameData.price}}
             </div>
             <div *ngIf="!publisherMenu" class="game-buttons">
-                <!-- <a *ngIf="!loggedIn" class="waves-effect waves-light btn-large" id="game-buy-btn" routerLink="../../../user/login"><i class="material-icons left">input</i>Login to Buy</a> -->
                 <a *ngIf="!gameBought" (click)="buyGame(currentGameData.objectId)" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons left">cloud_download</i>Buy Now</a>
                 <a *ngIf="gameBought" class="waves-effect waves-light btn-large" id="game-buy-btn"><i class="material-icons left">tag_faces</i>You own it</a>
                 <br><br>

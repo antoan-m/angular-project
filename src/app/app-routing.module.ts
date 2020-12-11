@@ -16,7 +16,7 @@ import { WishlistComponent } from './user/wishlist/wishlist.component';
 import { AuthGuard } from './guards/auth.guard';
 import { UserGuard } from './guards/user.guard';
 import { PublisherGuard } from './guards/publisher.guard';
-import { LoaderComponent } from './shared/loader/loader.component';
+import { NotFoundComponent } from './not-found/not-found.component';
 
 const routes: Routes = [
   {
@@ -89,8 +89,11 @@ const routes: Routes = [
     canActivate: [AuthGuard, UserGuard]
   },
   {
-  path: '**', 
-  redirectTo: '/'   // Wildcard route for a 404 page
+    path: '404',
+    component: NotFoundComponent
+  },
+  { 
+    path: '**', redirectTo: '404' 
   }
 ];
 

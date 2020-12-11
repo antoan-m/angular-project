@@ -1,0 +1,14 @@
+#not-found {
+    background-image: url("../../assets/images/backgrounds/back-noise.png");
+    background-position: center;
+    /* Center the image */
+    background-repeat: no-repeat;
+    /* Do not repeat the image */
+    background-size: cover;
+    /* Resize the background image to cover the entire container */
+    background-attachment: fixed;
+    padding-top: 100px;
+    min-height: 600px;
+    text-align: center;
+    font-size: 30px;
+}
