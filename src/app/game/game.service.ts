@@ -5,6 +5,7 @@ import { Router } from '@angular/router';
 @Injectable({
   providedIn: 'root'
 })
+
 export class GameService {
 
   constructor(private router: Router) {}
@@ -41,13 +42,13 @@ export class GameService {
   file: any;
   newFileNameLink: any;
 
-  addGame(userRegForm: any) {
+  addGame(addGameForm: any) {
 
   //   console.log(`Data before sending: ${JSON.stringify(this.form.value)}`);
 
   
   
-//   let filename = userRegForm.imageUrl;
+//   let filename = addGameForm.imageUrl;
 //   console.log("filename: " + filename);
 
 
@@ -69,27 +70,27 @@ export class GameService {
 
 
     var game = {
-    title: userRegForm.title,
+    title: addGameForm.title,
     // imagefile: this.newFileNameLink,
-    image: userRegForm.imageUrl,
-    description: userRegForm.description,
-    bullet1: userRegForm.requirements1,
-    bullet2: userRegForm.requirements2,
-    bullet3: userRegForm.requirements3,
-    bullet4: userRegForm.requirements4,
-    bullet5: userRegForm.requirements5,
-    price: userRegForm.price,
-    youtube_id: userRegForm.youtubeId
+    image: addGameForm.imageUrl,
+    description: addGameForm.description,
+    bullet1: addGameForm.requirements1,
+    bullet2: addGameForm.requirements2,
+    bullet3: addGameForm.requirements3,
+    bullet4: addGameForm.requirements4,
+    bullet5: addGameForm.requirements5,
+    price: addGameForm.price,
+    youtube_id: addGameForm.youtubeId
   }
 
-  console.log('GAME: ' + JSON.stringify(game));
-  console.log('Image: ' + this.newImageFileName);
+  // console.log('GAME: ' + JSON.stringify(game));
+  // console.log('Image: ' + this.newImageFileName);
   
      
 //upload all game data
 Backendless.Data.of('games').save(game)
   .then(savedObject => {
-    console.log(savedObject);
+    //console.log(savedObject);
   M.toast({html: 'Game added successfully!'}),
   this.router.navigate(['games/my-games'])
   })

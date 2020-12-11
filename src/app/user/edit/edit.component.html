@@ -15,10 +15,10 @@
                     </div>
                     <div class="row">
                         <div>
-                            <input #nameInput="ngModel" id="name" type="text" class="validate" name="name" [(ngModel)]="currentUserData.name" ngModel required minlength="4">
+                            <input #nameInput="ngModel" id="name" type="text" class="validate" name="name" [(ngModel)]="currentUserData.name" ngModel required minlength="3">
                             <label for="name">Name</label>
                             <span *ngIf="nameInput.touched && nameInput.errors?.required" class="vaidation-error error-text-red">Name is required!</span>
-                            <span *ngIf="nameInput.touched && nameInput.errors?.minlength" class="vaidation-error error-text-red">Name must be at least 4 characters!</span>
+                            <span *ngIf="nameInput.touched && nameInput.errors?.minlength" class="vaidation-error error-text-red">Name must be at least 3 characters!</span>
                         </div>
                     </div>
                     <div class="row">

@@ -17,6 +17,8 @@ import { AuthGuard } from './guards/auth.guard';
 import { UserGuard } from './guards/user.guard';
 import { PublisherGuard } from './guards/publisher.guard';
 import { NotFoundComponent } from './not-found/not-found.component';
+import { ContactComponent } from './contact/contact/contact.component';
+import { ContactSuccessComponent } from './contact/contact-success/contact-success.component';
 
 const routes: Routes = [
   {
@@ -31,6 +33,14 @@ const routes: Routes = [
   {
     path: 'about',
     component: AboutComponent
+  },
+  {
+    path: 'contact',
+    component: ContactComponent
+  },
+  {
+    path: 'contact-success',
+    component: ContactSuccessComponent
   },
   {
     path: 'games',

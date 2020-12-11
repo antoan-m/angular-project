@@ -1,0 +1,53 @@
+<div class="row" id="contact-main">
+    <div id="contact" class="container">
+        <div class="page-title">Contact us</div>
+        <div class="row">
+            <div id="contact-left" class="col s12 m12 l3 xl3">
+                <img src="../../assets/images-games/assasins-creed-valhalla-img.png" alt="">
+            </div>
+            <div class="col s12 m12 l6 xl6">
+                <form #c="ngForm" (ngSubmit)="contactHandlerCall()">
+                    <div class="row">
+                        <div class="row">
+                            <div>
+                                <input #emailInput="ngModel" id="email" type="email" class="validate" name="email" ngModel required email>
+                                <label for="email">Email</label>
+                                <span *ngIf="emailInput.touched && emailInput.errors?.required" class="vaidation-error error-text-red">Email is required!</span>
+                                <span *ngIf="emailInput.touched && emailInput.errors?.email" class="vaidation-error error-text-red">Email is invalid!</span>
+                                <!-- <span *ngIf="emailTaken" class="vaidation-error error-text-red">Email is already contacted!</span> -->
+                            </div>
+                        </div>
+                        <div>
+                            <input #nameInput="ngModel" id="name" type="text" class="validate" name="name" ngModel required minlength="3">
+                            <label for="name">Name</label>
+                            <span *ngIf="nameInput.touched && nameInput.errors?.required" class="vaidation-error error-text-red">Name is required!</span>
+                            <span *ngIf="nameInput.touched && nameInput.errors?.minlength" class="vaidation-error error-text-red">Name must be at least 3 characters!</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <input #subjectInput="ngModel" id="subject" type="text" class="validate" name="subject" ngModel required>
+                            <label for="subject">Subject</label>
+                            <span *ngIf="subjectInput.touched && subjectInput.errors?.required" class="vaidation-error error-text-red">Subject is required!</span>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div>
+                            <input #messageInput="ngModel" id="message" type="text" class="validate" name="message" ngModel required>
+                            <label for="message">Message</label>
+                            <span *ngIf="messageInput.touched && messageInput.errors?.required" class="vaidation-error error-text-red">Message is required!</span>
+                        </div>
+                    </div>
+                    <span class="vaidation-error error-text-red">{{this.contactService.serverError}}</span>
+                    <div id="contact-buttons">
+                        <button class="btn waves-effect waves-light contact-btn" name="action" [disabled]="c.invalid"><i class="material-icons left">input</i>Send</button>
+                        <button class="btn waves-effect waves-light contact-btn" name="action" type="reset"><i class="material-icons left">input</i>Reset</button>
+                    </div>
+                </form>
+            </div>
+            <div id="contact-right" class="col s12 m12 l3 xl3">
+                <img src="../../assets/images-games/bugsnax-img.png" alt="">
+            </div>
+        </div>
+    </div>
+</div>
