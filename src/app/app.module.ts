@@ -8,7 +8,6 @@ import { HeaderComponent } from './core/header/header.component';
 import { FooterComponent } from './core/footer/footer.component';
 import { AboutModule } from './about/about.module';
 import { GameModule } from './game/game.module';
-import { ShowcaseModule } from './showcase/showcase.module';
 import { UserModule } from './user/user.module';
 import { FormsModule } from '@angular/forms';
 import Backendless from 'backendless';
@@ -29,7 +28,6 @@ import { NgxLoadersCssModule } from 'ngx-loaders-css';
     AboutModule,
     GameModule,
     UserModule,
-    ShowcaseModule,
     BrowserModule,
     AppRoutingModule,
     FormsModule,

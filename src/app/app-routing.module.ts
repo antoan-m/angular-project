@@ -24,10 +24,6 @@ const routes: Routes = [
     pathMatch: 'full',
     component: HomeComponent
     },
-    {
-      path: 'loader',
-      component: LoaderComponent
-      },
   {
     path: 'home',
     redirectTo: '/'
