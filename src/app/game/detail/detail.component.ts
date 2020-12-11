@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, NgZone, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Backendless from 'backendless';
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
@@ -21,19 +21,21 @@ export class DetailComponent implements OnInit {
   gameBought: Boolean = false;
   owner: Boolean;
   gameOrders;
-  inWishlist;
+  inWishlist: Boolean = false;
   safeSource: SafeResourceUrl;
 
-  constructor(private router: Router, private sanitizer: DomSanitizer, private gameService: GameService, private userService: UserService) {
+  constructor(private router: Router, private sanitizer: DomSanitizer, private gameService: GameService, private userService: UserService, 
+    private cdRef: ChangeDetectorRef, private zone: NgZone) {
 
+      
   //get current game data from server 
 
   let objectId = localStorage.getItem('currentGameId');
-  console.log('ID: ' + objectId);
+  //console.log('ID: ' + objectId);
 
  let getGameData = Backendless.Data.of('games').findById({objectId})
 .then(currentGame => {
-  console.log('Current Data: ' + JSON.stringify(currentGame));
+  //console.log('Current Data: ' + JSON.stringify(currentGame));
   return currentGame;
  })
 .catch(error => {
@@ -41,7 +43,7 @@ export class DetailComponent implements OnInit {
  });
 
  getGameData.then(result => {
-   console.log(JSON.stringify(result));
+   //console.log(JSON.stringify(result));
    this.currentGameData = result;  
    this.safeSource =  this.sanitizer.bypassSecurityTrustResourceUrl(`https://www.youtube.com/embed/${this.currentGameData.youtube_id}`);  
  })
@@ -56,16 +58,34 @@ export class DetailComponent implements OnInit {
    console.error(error)
   })
 
-   //check if user is publisher and Game in Wishlist
+   //check if user is Publisher / Game is in Wishlist / Bought
    getUserData.then(result => {
-    console.log('User: '+ JSON.stringify(result));
     this.currentUserData = result;  
     if (this.currentUserData.publisher) {
       this.publisherMenu = true;
+    } else {
+      this.publisherMenu = false;
     }
-    if(this.currentUserData.wishlist.indexOf(this.currentGameData.objectId) !== -1) {
+    if(!this.currentUserData.wishlist) {
+      this.inWishlist = false;
+    } else {
+    let currentWishlist = this.currentUserData.wishlist.split(',');
+    if(currentWishlist.indexOf(this.currentGameData.objectId) !== -1) {
       this.inWishlist = true;
+    } else {
+      this.inWishlist = false;
     }
+    }
+    if(!this.currentUserData.orders) {
+      this.gameBought = false;
+    } else {
+    let currentOrders = this.currentUserData.orders.split(',');
+    if(currentOrders.indexOf(this.currentGameData.objectId) !== -1) {
+      this.gameBought = true;
+    } else {
+      this.gameBought = false;
+    }
+  }
   })
 
 
@@ -77,19 +97,19 @@ export class DetailComponent implements OnInit {
   ngOnInit(): void {
 
   //check if game is already bought
-  if(this.currentUserData.orders.find(this.currentGameData.objectId)) {
-    this.gameBought = true;
-    console.log(this.gameBought);
-    console.log(this.currentUserData.orders)
-}
+  // if(this.currentUserData.orders.find(this.currentGameData.objectId)) {
+  //   this.gameBought = true;
+    //console.log(this.gameBought);
+    //console.log(this.currentUserData.orders)
+  //}
 
 //check if user is publisher of the game
 if(this.currentUserData.objectId === this.currentGameData.ownerId) {
   this.owner = true;
-  console.log('OWNER: ' + this.owner);
+  //console.log('OWNER: ' + this.owner);
 } else {
   this.owner = false;
-  console.log(this.owner)
+  //console.log(this.owner)
 }
   
   }
@@ -116,7 +136,7 @@ if(this.currentUserData.objectId === this.currentGameData.ownerId) {
         this.currentUserOrders = this.currentUserData.orders.split(',');
         if(this.currentUserOrders.indexOf(gameId) !== -1) {
           this.gameBought = true;
-          console.log('Game already bought!');
+          //console.log('Game already bought!');
           M.toast({html: 'Game already bought!'});
       } else {
         this.currentUserOrders.push(gameId);
@@ -163,7 +183,7 @@ if(this.currentUserData.objectId === this.currentGameData.ownerId) {
 
   }
 
-  //add game to wihslist
+  //add game to wishlist
   addGameToWishlist(gameId: string) {
 
     //get user data
@@ -176,7 +196,7 @@ if(this.currentUserData.objectId === this.currentGameData.ownerId) {
   })
 
   getUserData.then(result => {
-    console.log('User: '+ JSON.stringify(result));
+    //console.log('User: '+ JSON.stringify(result));
     this.currentUserData = result;
   })
 
@@ -197,7 +217,7 @@ if(!this.currentUserData.wishlist) {
   wishlist = wishlist.toString();
   Backendless.UserService.update({objectId: this.currentUserData.objectId, wishlist: gameId})
       .then(success => {
-      console.log(JSON.stringify(success) + 'Game added to your wishlist!');
+      //console.log(JSON.stringify(success) + 'Game added to your wishlist!');
       this.inWishlist = true;
       //localStorage.setItem('wishlist', gameId);
       })
@@ -225,7 +245,7 @@ if(!this.currentUserData.wishlist) {
       })
     } else if (this.currentUserData.wishlist && wishlist.indexOf(gameId) !== -1) {
       this.inWishlist = true;
-      console.log('Already in your wishlist!');
+      //console.log('Already in your wishlist!');
     }
 
 //get game data
@@ -261,7 +281,7 @@ if(!this.currentUserData.wishlist) {
             .catch(error => { console.error(error.message); });
         } else {  
         this.inWishlist = true;
-        console.log('Already in your Wishlist!');
+        //console.log('Already in your Wishlist!');
         M.toast({html: 'Game already to Wishlist!'})
       }
         

@@ -32,18 +32,14 @@ let getUserData = Backendless.UserService.getCurrentUser()
  })
 
 getUserData.then(result => {
-   //console.log('USER: ' + JSON.stringify(result));
-   this.currentUserData = result; 
+
+  this.currentUserData = result; 
    this.userId = this.currentUserData.objectId;
    this.orders = this.currentUserData.orders;
 
    this.printOrders = this.orders.split(',');
 
-   //console.log('Userid: ' + this.userId + " |||||||| Orders: " +  this.printOrders);
-
    this.orders = this.printOrders;
-
-  //orders LIKE '%B63744A3-C3C3-4FC5-8CF4-3FCD131A0929%'
 
 var whereClause = `orders LIKE '%${this.userId}%'`;
 var queryBuilder = Backendless.DataQueryBuilder.create().setWhereClause(whereClause);
@@ -55,7 +51,6 @@ let getGamesData = Backendless.Data.of('games').find(queryBuilder)
      console.error(error)
     })
     getGamesData.then(result => {
-      //console.log(JSON.stringify(result));
       this.games = result;    
     })
 
@@ -68,7 +63,6 @@ getGameId(id) {
   if(!id) {
     id = localStorage.getItem('currentGameId');
   }
-  //console.log(id);
   localStorage.setItem('currentGameId', id);
   return id;
 }
