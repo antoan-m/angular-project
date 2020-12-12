@@ -19,7 +19,7 @@ export class EditComponent implements OnInit {
 
   @ViewChild('f', { static: false }) form: NgForm;
 
-  constructor(private router: Router, public userService: UserService) {}
+  constructor(private router: Router, private userService: UserService) {}
 
 
   currentUserData;
@@ -37,7 +37,7 @@ let getUserData = Backendless.UserService.getCurrentUser()
 
 getUserData.then(result => {
     console.log(JSON.stringify(result));
-    //this.currentUserData = result;    
+    this.currentUserData = result;    
   })
  }
 
