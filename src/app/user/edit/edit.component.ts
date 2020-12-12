@@ -19,7 +19,7 @@ export class EditComponent implements OnInit {
 
   @ViewChild('f', { static: false }) form: NgForm;
 
-  constructor(private router: Router, private userService: UserService) {}
+  constructor(private router: Router, public userService: UserService) {}
 
 
   currentUserData;
