@@ -121,7 +121,7 @@
           "builder": "@netlify-builder/deploy:deploy",
           "options": {
             "outputPath": "dist/angular-project",
-            "netlifyToken": "AAAAB3NzaC1yc2EAAAADAQABAAACAQDHH0m2PnHy+2CXKAlu7wNoRP/6e8MjoSP2X/bvyukmksM+Y19JgpGdI3HVJgqxPgvBpGj98Xx6SOv5kQQXhF5qXL8wdGy77RBpXxN2raNzqOqC0YPLRALqjlaB7+dAF/wkKNomCB66Gzw+3FP8GMlJwhcMyLMzP1ozWUNl/VeMHthr8J5NlYezV3fsHKB+qpDypef0b+aek3sHU+dk6ZiqzF0rNaxrENiqftkYFfAaZuhpZCwmcU7fmC/0N9ccyWx7fKAiTI/L4EBaFItxpj0C84X0niJMGHho4d/Vb/m7q4O90gpusn8F93V0w0kSo0YRtEWA1Mg6bG56CREUycqHf7jQQs/7pNREp5ZNPzRoH5RYtqFZsWpWOFC9CkS4qikUHS7YowBp0PesEd3lHnE1Oumw4+MhIJzPUJFtLMVeeqECuK0U4qVRLrNETfozA7C8jHBWcV9PRJ9yUzyuELO8h8ROMuFtL2d0G59hzoY4cczLZHire/aTGpH+HjG1A8l1JJG04aL8eMLmHjNjjfpBd39YGvyeyBjMNbYKZ5LISE9aJYLz3dSUZ05TyS36Il7NaYmtMiE4/Ks/MMhwJW4d1Mzm9qQLyx41x0ddzuYKx/IyoZ/w75iHGkCOPDJWHLMA0ui1qkqNwoT/5mUwJk+0VbDeVaW6rhXzUM4kIQI/Kw==",
+            "netlifyToken": "iXjt82q4ePHxGfE8LZnwyJHb9cO9U5cE6TLM8BWXf8w",
             "siteId": "0f087754-ad03-4046-881b-aea9c2444698"
           }
         }
