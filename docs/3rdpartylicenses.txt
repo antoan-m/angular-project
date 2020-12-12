@@ -40,6 +40,21 @@ TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
 SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
 
 
+desandro-matches-selector
+MIT
+
+ev-emitter
+MIT
+
+fizzy-ui-utils
+MIT
+
+flickity
+GPL-3.0
+
+get-size
+MIT
+
 ng2-search-filter
 MIT
 MIT License
@@ -298,6 +313,12 @@ Apache-2.0
  limitations under the License.
  
 
+
+unidragger
+MIT
+
+unipointer
+MIT
 
 zone.js
 MIT
