@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Backendless from 'backendless';
+import * as Flickity from 'flickity';
 import { OrderPipe } from 'ngx-order-pipe';
 
 @Component({
@@ -34,6 +35,18 @@ export class HomeComponent implements OnInit {
 
 
   ngOnInit(): void {
+
+    //carousel
+    var elem = document.querySelector('.main-carousel');
+    var flkty = new Flickity(elem, {
+    // options
+    cellAlign: 'left',
+    contain: true,
+    wrapAround: true,
+    freeScroll: true,
+    autoPlay: 3500,
+    prevNextButtons: true
+});
 
 var queryBuilder = Backendless.DataQueryBuilder.create();
 queryBuilder.setPageSize(6);
