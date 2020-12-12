@@ -32,8 +32,10 @@ The private part - the user has access to specific pages depending on his role l
 - buy game
 - view orders
 - add to wishlist
+- remove from wishlist
 - search games
-- sort games 
+- sort games
+- contact
 
 ------------------------------------------------------------------------------------
 
