@@ -25,7 +25,7 @@ export class DetailComponent implements OnInit {
   safeSource: SafeResourceUrl;
 
   constructor(private router: Router, private sanitizer: DomSanitizer, private gameService: GameService, private userService: UserService, 
-    private cdRef: ChangeDetectorRef, private zone: NgZone) {
+    private cdRef: ChangeDetectorRef) {
 
       
   //get current game data from server 
@@ -86,9 +86,9 @@ export class DetailComponent implements OnInit {
       this.gameBought = false;
     }
   }
+  
   })
-
-
+  
   
 }
 

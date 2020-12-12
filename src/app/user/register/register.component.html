@@ -37,7 +37,7 @@
                             <input #rePasswordInput="ngModel" id="rePassword" type="password" class="validate" name="rePassword" ngModel required password minlength="6" repeatpass>
                             <label for="rePassword">Repeat Password</label>
                             <span *ngIf="rePasswordInput.touched && rePasswordInput.errors?.required" class="vaidation-error error-text-red">Password is required!</span>
-                            <span *ngIf="rePasswordInput.touched && rePasswordInput.errors?.minlength" class="vaidation-error error-text-red">{{rePasswordInput.errors.minlength | json}}Password must be at least 6 characters!</span>
+                            <span *ngIf="rePasswordInput.touched && rePasswordInput.errors?.minlength" class="vaidation-error error-text-red">Password must be at least 6 characters!</span>
                             <span *ngIf="passwordInput.touched && rePasswordInput.touched && rePasswordInput.value !== passwordInput.value" class="vaidation-error error-text-red">Passwords don't match!</span>
                             <!-- <span *ngIf="rePasswordInput.touched && rePasswordInput.errors?.repeatpass" class="vaidation-error error-text-red">Passwords don't match!</span> -->
                         </div>
