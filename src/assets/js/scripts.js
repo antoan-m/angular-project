@@ -15,19 +15,6 @@ window.onscroll = function() {
     }
 }
 
-// var prevScrollpos = window.pageYOffset;
-// window.onscroll = function() {
-//     var currentScrollPos = window.pageYOffset;
-//     if (prevScrollpos > currentScrollPos) {
-//         document.getElementById("header").style.top = "0px";
-//         document.getElementById("header-sticky").style.display = "none";
-//     } else {
-//         document.getElementById("header").style.top = "-158px";
-//         document.getElementById("header-sticky").style.display = "block";
-//     }
-//     prevScrollpos = currentScrollPos;
-// }
-
 //close search results on outside click
 window.onclick = function() {
     this.search_form.reset();

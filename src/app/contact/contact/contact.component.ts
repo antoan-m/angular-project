@@ -16,7 +16,7 @@ export class ContactComponent implements OnInit {
 
   @ViewChild('c', { static: false }) form: NgForm;
 
-  constructor(private router: Router, private contactService: ContactService) { }
+  constructor(private router: Router, public contactService: ContactService) { }
 
   ngOnInit(): void {
   }
@@ -27,5 +27,7 @@ export class ContactComponent implements OnInit {
       this.contactForm = this.form.value;
       this.contactService.contactHandler(this.contactForm);
   }
+
+  
 
 }

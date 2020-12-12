@@ -1,6 +1,7 @@
 import { Injectable } from '@angular/core';
 import { Router } from '@angular/router';
 import { UserService } from '../user/user.service';
+import { Toast } from "materialize-css";
 
 @Injectable({
   providedIn: 'root'
@@ -29,11 +30,11 @@ contactHandler(contactForm: any) {
 //send message
 Backendless.Data.of('messages').save(contactMessage)
   .then(savedObject => {
-    console.log(savedObject);
+    //console.log(savedObject);
   M.toast({html: 'Message sent successfully!'}),
   this.router.navigate(['/contact-success'])
   })
-  .catch(error => 
+  .catch(error =>
     console.error('Cannot send message:', error.message,
     M.toast({html: error.message}),
     this.serverError = error

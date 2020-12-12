@@ -1,12 +1,11 @@
-export class User {
+export interface IUser {
 
     constructor(
-      public id: number,
-      public name: string,
-      public email: string,
-      public password: string,
-      public address: string,
-      public publisher: boolean
-    ) {  }
-  
+      objectId: number,
+      name: string,
+      email: string,
+      password: string,
+      address: string,
+      publisher: boolean
+    )
   }

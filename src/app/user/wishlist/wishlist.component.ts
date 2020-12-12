@@ -2,7 +2,6 @@ import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
 import Backendless from 'backendless';
 
-
 @Component({
   selector: 'app-wishlist',
   templateUrl: './wishlist.component.html',
@@ -132,7 +131,7 @@ export class WishlistComponent implements OnInit {
       //remove from game db
           let updateWishlist: any;
           let currentGame = this.games.find(curGame => curGame.objectId === gameId);
-          let test = currentGame;
+          // let test = currentGame;
           let currentGameWishlist = currentGame.wishlist;
           if (!currentGameWishlist) {
             currentGameWishlist = '';

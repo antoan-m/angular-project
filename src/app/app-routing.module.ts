@@ -58,7 +58,7 @@ const routes: Routes = [
   {
     path: 'games/add',
     component: AddComponent,
-    canActivate: [AuthGuard]
+    canActivate: [AuthGuard, PublisherGuard]
   },
   {
     path: 'games/my-games',

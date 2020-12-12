@@ -5,7 +5,7 @@
             <img src="../../assets/images-games/assasins-creed-valhalla-img.png" alt="">
         </div>
         <div class="col s12 m12 l6 xl6">
-            <form #e="ngForm" (ngSubmit)="editGame()">
+            <form #e="ngForm" (ngSubmit)="editGame(this.currentGameData.objectId)">
                 <div class="row">
                     <div>
                         <input #titleInput="ngModel" id="title" type="text" name="title" [(ngModel)]="currentGameData.title" ngModel required minlength="3">

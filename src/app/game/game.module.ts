@@ -9,7 +9,6 @@ import { FormsModule } from '@angular/forms';
 import { GameService } from './game.service';
 import { EditGameComponent } from './edit-game/edit-game.component';
 import { OrderModule } from 'ngx-order-pipe';
-import { LoaderComponent } from '../shared/loader/loader.component';
 
 @NgModule({
   declarations: [
@@ -17,8 +16,7 @@ import { LoaderComponent } from '../shared/loader/loader.component';
     DetailComponent, 
     AddComponent, 
     MyGamesComponent, 
-    EditGameComponent,
-    LoaderComponent
+    EditGameComponent
   ],
   imports: [
     CommonModule,

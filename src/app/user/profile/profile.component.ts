@@ -29,7 +29,7 @@ let getUserData = Backendless.UserService.getCurrentUser()
   })
 
 getUserData.then(result => {
-    console.log(JSON.stringify(result));
+   // console.log(JSON.stringify(result));
     this.currentUserData = result;  
     if (this.currentUserData.publisher) {
       this.publisherMenu = true;

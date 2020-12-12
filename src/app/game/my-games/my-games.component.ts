@@ -27,11 +27,11 @@ let getUserData = Backendless.UserService.getCurrentUser()
  })
 
 getUserData.then(result => {
-   console.log(result);
+  //console.log(result);
    this.currentUserData = result; 
    this.userId = this.currentUserData.objectId;
 
-   console.log('Userid: ' + this.userId);
+   //console.log('Userid: ' + this.userId);
 
    const whereClause = "ownerId='" + this.userId + "'";
    const queryBuilder = Backendless.DataQueryBuilder.create().setWhereClause(whereClause).setSortBy(['title']);;
@@ -44,7 +44,7 @@ getUserData.then(result => {
     })
   
     getGamesData.then(result => {
-      console.log(JSON.stringify(result));
+      //console.log(JSON.stringify(result));
       this.games = result;    
     })
    })
@@ -66,7 +66,8 @@ deleteGame(id) {
   console.log(id);
   Backendless.Data.of('games').remove( { objectId: id } )
  .then(timestamp => {
-  console.log('Game deleted: ' + id);
+  //console.log('Game deleted: ' + id);
+  M.toast({html: 'Game deleted!'});
   })
  .catch(error => {
   console.log(error);

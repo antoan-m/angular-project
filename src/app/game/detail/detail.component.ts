@@ -94,25 +94,7 @@ export class DetailComponent implements OnInit {
 
   
 
-  ngOnInit(): void {
-
-  //check if game is already bought
-  // if(this.currentUserData.orders.find(this.currentGameData.objectId)) {
-  //   this.gameBought = true;
-    //console.log(this.gameBought);
-    //console.log(this.currentUserData.orders)
-  //}
-
-//check if user is publisher of the game
-if(this.currentUserData.objectId === this.currentGameData.ownerId) {
-  this.owner = true;
-  //console.log('OWNER: ' + this.owner);
-} else {
-  this.owner = false;
-  //console.log(this.owner)
-}
-  
-  }
+  ngOnInit(): void {}
 
 //buy game
   updateOrders;

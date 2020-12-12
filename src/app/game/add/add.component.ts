@@ -14,7 +14,7 @@ export class AddComponent implements OnInit {
 
   @ViewChild('g', { static: false }) form: NgForm;
 
-  constructor(private router: Router, private gameService: GameService) {}
+  constructor(private router: Router, public gameService: GameService) {}
 
   ngOnInit() {
   }

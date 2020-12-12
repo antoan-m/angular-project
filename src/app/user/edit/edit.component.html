@@ -29,7 +29,7 @@
                             <span *ngIf="addressInput.touched && addressInput.errors?.minlength" class="vaidation-error error-text-red">Address must be at least 6 characters!</span>
                         </div>
                     </div>
-                    <span class="vaidation-error error-text-red">{{this.serverError}}</span>
+                    <span class="vaidation-error error-text-red">{{this.userService.serverError}}</span>
                     <div id="user-edit-buttons">
                         <button class="btn waves-effect waves-light user-edit-btn" name="action" [disabled]="f.invalid"><i class="material-icons left">save</i>Save</button>
                         <button class="btn waves-effect waves-light user-edit-btn" name="action" (click)="cancelUserProfileEdit()"><i class="material-icons left">cancel</i>Cancel</button>

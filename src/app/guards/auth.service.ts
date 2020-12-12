@@ -11,8 +11,10 @@ Backendless.initApp(APP_ID, API_KEY);
 })
 export class AuthService {
 checkLogged: any;
+currentUser: any;
 
   constructor() {
+
     this.checkLogged = 
       Backendless.UserService.isValidLogin()
      .then(result => {
@@ -22,10 +24,7 @@ checkLogged: any;
       console.log('ERROR: ' + error.message);
       console.log('ERROR CODE: ' + error.statusCode);
     });
-   
-      
-  }
 
-  
+  }
 
 }
