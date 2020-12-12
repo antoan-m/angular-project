@@ -121,7 +121,7 @@
           "builder": "@netlify-builder/deploy:deploy",
           "options": {
             "outputPath": "dist/angular-project",
-            "netlifyToken": "iXjt82q4ePHxGfE8LZnwyJHb9cO9U5cE6TLM8BWXf8w",
+            "netlifyToken": "NDF5MyYTp79QeDsbowa4ZoPYLV9aR9NcGfiAa-5PMxA",
             "siteId": "0f087754-ad03-4046-881b-aea9c2444698"
           }
         }
